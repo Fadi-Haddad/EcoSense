@@ -16,3 +16,6 @@ void setup(){
   }
     Serial.println("Connected to Wi-Fi");
 }
+void loop (){
+    
+}
