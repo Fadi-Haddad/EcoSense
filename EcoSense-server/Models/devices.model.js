@@ -16,3 +16,4 @@ const devicesSchema = new mongoose.Schema({
         default:'auto',
     }
 });
+module.exports = mongoose.model('Devices','devicesSchema');
