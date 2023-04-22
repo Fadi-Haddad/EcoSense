@@ -25,5 +25,5 @@ void loop (){
     http.begin(client, serverUrl);
     http.addHeader("Content-Type", "application/json");
     String json = "{\"AQI\": " + String(AIQ) + ", \"CO\": " + String(CO) + ", \"CO2\": " + String(CO2) + ", \"Temp\": " + String(Temp) + ", \"Humidity\": " + String(Humidity) + "}";
-    
+    int httpResponseCode = http.POST(json);
 }
