@@ -5,4 +5,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         enum : ['admin', 'user'],
     },
+    email:{
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
+        unique: true,
+    },
 })
