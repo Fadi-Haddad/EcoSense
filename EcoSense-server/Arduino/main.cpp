@@ -17,5 +17,9 @@ void setup(){
     Serial.println("Connected to Wi-Fi");
 }
 void loop (){
-    
+    int AIQ = random(0, 100);
+    int CO = random(0, 100);
+    int CO2 = random(0, 100);
+    int Temp = random(0, 100);
+    int Humidity = random(0, 100);
 }
