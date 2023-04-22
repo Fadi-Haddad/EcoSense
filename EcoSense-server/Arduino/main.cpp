@@ -23,4 +23,5 @@ void loop (){
     int Temp = random(0, 100);
     int Humidity = random(0, 100);
     http.begin(client, serverUrl);
+    http.addHeader("Content-Type", "application/json");
 }
