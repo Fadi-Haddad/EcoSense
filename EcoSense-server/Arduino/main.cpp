@@ -9,8 +9,10 @@ HTTPClient http;
 void setup(){
     Serial.begin(9600);
     delay(2000);
+    Serial.print("Connecting to WIFI...");
     while (WiFi.status() != WL_CONNECTED) {
         delay(1000);
         Serial.print(".");
   }
+    Serial.println("Connected to Wi-Fi");
 }
