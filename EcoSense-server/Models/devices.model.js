@@ -9,5 +9,10 @@ const devicesSchema = new mongoose.Schema({
         type:String,
         enum:['on','off'],
         default:'on',
+    },
+    operation_mode:{
+        type:String,
+        enum:['auto','manual'],
+        default:'auto',
     }
 });
