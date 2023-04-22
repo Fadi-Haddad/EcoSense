@@ -4,6 +4,7 @@ const devicesSchema = new mongoose.Schema({
     name:{
         type: String,
         required: True,
+        enum:['fan','heater'],
     },
     state:{
         type:String,
