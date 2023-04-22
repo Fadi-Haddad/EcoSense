@@ -14,3 +14,5 @@ const sensorReadingsSchema = new mongoose.Schema({
         default: Date.now,
     },
 });
+
+module.exports = mongoose.model('SensorReadings', sensorReadingsSchema);
