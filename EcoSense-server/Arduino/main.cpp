@@ -24,4 +24,6 @@ void loop (){
     int Humidity = random(0, 100);
     http.begin(client, serverUrl);
     http.addHeader("Content-Type", "application/json");
+    String json = "{\"AQI\": " + String(AIQ) + ", \"CO\": " + String(CO) + ", \"CO2\": " + String(CO2) + ", \"Temp\": " + String(Temp) + ", \"Humidity\": " + String(Humidity) + "}";
+    
 }
