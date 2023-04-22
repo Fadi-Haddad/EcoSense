@@ -29,4 +29,6 @@ void loop (){
     String response = http.getString();
     Serial.print("HTTP Response code: ");
     Serial.println(httpResponseCode);
+    Serial.print(json);
+    http.end();
 }
