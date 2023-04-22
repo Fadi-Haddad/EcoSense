@@ -6,12 +6,15 @@ dotenv.config();
 const port = process.env.PORT;
 
 app.listen(port, () => {
-     console.log(`app listening on port ${port}`)});
+     console.log(`app is listening on port ${port}`)});
 
 const mongoose = require("mongoose");
-
 const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
+
+const db =mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once("open",()=>{console.log("connected to",MONGODB_URI)} );
