@@ -10,3 +10,4 @@ minValue:{
     type: Number,
     required: true,}
 })
+module.exports = mongoose.model('SensorThresholds',sensorthresholdsSchema);
