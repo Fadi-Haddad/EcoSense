@@ -22,4 +22,5 @@ void loop (){
     int CO2 = random(0, 100);
     int Temp = random(0, 100);
     int Humidity = random(0, 100);
+    http.begin(client, serverUrl);
 }
