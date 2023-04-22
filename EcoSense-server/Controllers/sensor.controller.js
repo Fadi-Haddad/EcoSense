@@ -9,3 +9,4 @@ const getSensorReadings = async (req, res) => {
         console.error(err);
     }
     };
+    module.exports = {getSensorReadings};
