@@ -1,0 +1,1 @@
+const sensorReading= require('../Models/sensor.readings.model');
