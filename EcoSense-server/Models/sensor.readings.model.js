@@ -7,5 +7,10 @@ const sensorReadingsSchema = new mongoose.Schema({
     reading:{
         type: Number,
         required: true,
-    }
+    },
+    time:{
+        type: Date,
+        required: true,
+        default: Date.now,
+    },
 });
