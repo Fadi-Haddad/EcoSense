@@ -8,9 +8,8 @@ const sensorReadingsSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    time:{
+    timeStamp:{
         type: Date,
-        required: true,
         default: Date.now,
     },
 });
