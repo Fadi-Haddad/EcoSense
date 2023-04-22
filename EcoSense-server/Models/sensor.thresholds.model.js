@@ -6,4 +6,7 @@ sensor:{
 maxValue:{
     type: Number,
     required: true,},
+minValue:{
+    type: Number,
+    required: true,}
 })
