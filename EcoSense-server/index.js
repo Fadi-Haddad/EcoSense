@@ -18,3 +18,5 @@ mongoose.connect(MONGODB_URI, {
 const db =mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open",()=>{console.log("connected to",MONGODB_URI)} );
+
+const dataroute = require("./routes/sensor.route");
