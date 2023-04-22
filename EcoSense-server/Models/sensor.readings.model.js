@@ -1,12 +1,24 @@
 const mongoose = require('mongoose');
 const sensorReadingsSchema = new mongoose.Schema({
-    sensorName:{
-        type: String,
-        required: true,
-    },
-    reading:{
+    AQI: {
         type: Number,
-        required: true,
+        required: true
+    },
+    CO: {
+        type: Number,
+        required: true
+    },
+    CO2: {
+        type: Number,
+        required: true
+    },
+    Temp: {
+        type: Number,
+        required: true
+    },
+    Humidity: {
+        type: Number,
+        required: true
     },
     timeStamp:{
         type: Date,
