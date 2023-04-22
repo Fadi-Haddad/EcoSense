@@ -4,4 +4,8 @@ const sensorReadingsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    reading:{
+        type: Number,
+        required: true,
+    }
 });
