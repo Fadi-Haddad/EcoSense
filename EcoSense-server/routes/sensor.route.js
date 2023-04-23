@@ -4,6 +4,7 @@ const { saveSensorReadings, getSensorReadings,getSensorMinReading,getSensorMaxRe
 const router = express.Router();
 router.post("/save", saveSensorReadings);
 router.get("/get", getSensorReadings);
+router.get("/get_sensors_state", getSensorState);
 router.get("/get/:sensor_name/min", getSensorMinReading);
 router.get("/get/:sensor_name/max", getSensorMaxReading);
 module.exports = router;
