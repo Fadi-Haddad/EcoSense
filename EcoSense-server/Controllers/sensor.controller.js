@@ -5,12 +5,13 @@ const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 const saveSensorReadings = async (req, res) => {
     try{
         const sensors_state = await sensorsState.findOne();
-        const {AQI,CO,CO2,Temp,Humidity} = req.body;
-        console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
-        const now = new Date();
-        now.setHours(now.getHours() + 3)
-        const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
-        await newReading.save();
+        if(sensors_state=="on"){
+            const {AQI,CO,CO2,Temp,Humidity} = req.body;
+            console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
+            const now = new Date();
+            now.setHours(now.getHours() + 3)
+            const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
+            await newReading.save();}
     } catch(err){
         console.error(err);
         res.status(400).json({ message: "Error posting sensors' readings" });
