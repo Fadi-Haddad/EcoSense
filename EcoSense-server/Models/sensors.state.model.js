@@ -5,6 +5,7 @@ const sensorsStateSchema = new mongoose.Schema ({
         type: String,
         required: true,
         enum : ['on', 'off'],
+        default: 'on',
     },
 });
 
