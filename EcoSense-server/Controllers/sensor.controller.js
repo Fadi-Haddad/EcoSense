@@ -31,8 +31,9 @@ const getSensorMinReading = async(req, res) => {
         res.status(500).json({ message: "Error retrieving sensor's minimum reading" });
     };
     };
-const getSensorMaxReading = (req, res) => {
+const getSensorMaxReading = async (req, res) => {
         sensorName= req.params.sensor_name;
+        const result = await sensorReading.findOne().sort({ [sensorName]: -1 }).exec();
     };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading};
