@@ -22,9 +22,3 @@ db.once("open",()=>{console.log("connected to",MONGODB_URI)} );
 const dataroute = require("./routes/sensor.route");
 app.use("/data",dataroute);
 
-
-// const logRequests = (req, res, next) => {
-//   console.log(`Received ${JSON.stringify(req.body)} request for ${req.url}`);
-//   next();
-// };
-// app.use(logRequests);
