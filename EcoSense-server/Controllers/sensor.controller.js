@@ -15,11 +15,12 @@ const checkAndSetSensorState =async () => {
     }
   };
 
+checkAndSetSensorState();
 
 const saveSensorReadings = async (req, res) => {
     try{
         const sensors_state = await sensorsState.findOne();
-        if(sensors_state=="on"){
+        if(sensors_state.state=="on"){
             const {AQI,CO,CO2,Temp,Humidity} = req.body;
             console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
             const now = new Date();
