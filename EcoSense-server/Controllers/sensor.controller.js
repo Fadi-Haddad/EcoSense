@@ -21,8 +21,9 @@ const getSensorReadings = async (req, res) => {
         res.status(500).json({ message: 'Error retrieving sensor readings' });
     };
     };
-const getSensorMinReading = (req, res) => {
+const getSensorMinReading = async(req, res) => {
     sensorName= req.params.sensor_name;
+    const result = await sensorReading.findOne().sort(sensorName).exec();
     };
 
 module.exports = {saveSensorReadings,getSensorReadings};
