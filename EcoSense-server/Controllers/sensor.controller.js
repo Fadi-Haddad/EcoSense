@@ -32,9 +32,12 @@ const getSensorMinReading = async(req, res) => {
     };
     };
 const getSensorMaxReading = async (req, res) => {
+    try{
         sensorName= req.params.sensor_name;
         const result = await sensorReading.findOne().sort({ [sensorName]: -1 }).exec();
         res.json(result);
+    }catch(err){
+    };
     };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading};
