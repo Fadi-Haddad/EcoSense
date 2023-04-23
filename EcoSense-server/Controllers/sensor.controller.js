@@ -5,7 +5,7 @@ const getSensorReadings = async (req, res) => {
         const {AQI,CO,CO2,Temp,Humidity} = req.body;
         const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity});
         await newReading.save();
-    } catch{
+    } catch(err){
         console.error(err);
     }
     };
