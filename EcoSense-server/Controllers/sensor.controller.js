@@ -10,4 +10,8 @@ const saveSensorReadings = async (req, res) => {
         console.error(err);
     }
     };
-    module.exports = {saveSensorReadings};
+const getSensorReadings = (req, res) => {
+    
+    };
+
+module.exports = {saveSensorReadings};
