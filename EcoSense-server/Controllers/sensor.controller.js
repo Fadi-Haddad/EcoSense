@@ -37,6 +37,7 @@ const getSensorMaxReading = async (req, res) => {
         const result = await sensorReading.findOne().sort({ [sensorName]: -1 }).exec();
         res.json(result);
     }catch(err){
+        console.error(err);
     };
     };
 
