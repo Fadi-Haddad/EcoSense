@@ -21,4 +21,4 @@ const getSensorReadings = async (req, res) => {
     };
 
 
-module.exports = {saveSensorReadings};
+module.exports = {saveSensorReadings,getSensorReadings};
