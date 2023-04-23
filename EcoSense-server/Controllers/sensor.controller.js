@@ -3,11 +3,15 @@ const sensorsState= require('../Models/sensors.state.model');
 const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 
 const checkAndSetSensorState =async () => {
+    try{
     const count =await sensorsState.countDocuments();
-    if (count === 0){
+    if (count == 0){
         const newState = sensorsState({state:'on'});
         await newState.save();
         console.log("Sensors state set to on");
+    }
+    } catch(err) {
+        console.error(err);
     }
   };
 
