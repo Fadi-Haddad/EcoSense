@@ -7,3 +7,5 @@ const sensorsStateSchema = new mongoose.Schema ({
         enum : ['on', 'off'],
     },
 });
+
+module.exports = mongoose.model('sensorsState',sensorsStateSchema);
