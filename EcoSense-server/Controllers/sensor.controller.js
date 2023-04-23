@@ -48,7 +48,8 @@ const getSensorMaxReading = async (req, res) => {
         res.status(400).json({ message: "Error retrieving sensor's maximum reading" });
     };
     };
-const getSensorsState = (req, res) => {
+const getSensorsState = async (req, res) => {
+    const sensors_state = await sensorsState.findOne();
     };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading};
