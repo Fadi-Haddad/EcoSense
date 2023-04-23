@@ -4,6 +4,7 @@ const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 
 const saveSensorReadings = async (req, res) => {
     try{
+        const sensors_state = await sensorsState.findOne();
         const {AQI,CO,CO2,Temp,Humidity} = req.body;
         console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
         const now = new Date();
