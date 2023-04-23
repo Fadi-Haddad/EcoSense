@@ -10,8 +10,9 @@ const saveSensorReadings = async (req, res) => {
         console.error(err);
     }
     };
-const getSensorReadings = (req, res) => {
-    
+const getSensorReadings = async (req, res) => {
+    const readings = await SensorReading.find().sort({ timestamp: -1 }).limit(1);
+    res.json(readings);
     };
 
 module.exports = {saveSensorReadings};
