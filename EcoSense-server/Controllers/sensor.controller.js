@@ -6,7 +6,7 @@ const saveSensorReadings = async (req, res) => {
         console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
         const now = new Date();
         now.setHours(now.getHours() + 3)
-        const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity});
+        const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
         await newReading.save();
     } catch(err){
         console.error(err);
