@@ -1,6 +1,6 @@
 const express = require('express');
-const { getSensorReadings } = require("../Controllers/sensor.controller");
+const { saveSensorReadings } = require("../Controllers/sensor.controller");
 
 const router = express.Router();
-router.post("/", getSensorReadings);
+router.post("/", saveSensorReadings);
 module.exports = router;

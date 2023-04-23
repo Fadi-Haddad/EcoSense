@@ -1,6 +1,6 @@
 const sensorReading= require('../Models/sensor.readings.model');
 
-const getSensorReadings = async (req, res) => {
+const saveSensorReadings = async (req, res) => {
     try{
         const {AQI,CO,CO2,Temp,Humidity} = req.body;
         console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
@@ -10,4 +10,4 @@ const getSensorReadings = async (req, res) => {
         console.error(err);
     }
     };
-    module.exports = {getSensorReadings};
+    module.exports = {saveSensorReadings};
