@@ -32,4 +32,4 @@ const getSensorMinReading = async(req, res) => {
     };
     };
 
-module.exports = {saveSensorReadings,getSensorReadings};
+module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading};
