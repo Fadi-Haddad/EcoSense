@@ -1,4 +1,5 @@
 const sensorReading= require('../Models/sensor.readings.model');
+const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 
 const saveSensorReadings = async (req, res) => {
     try{
