@@ -24,8 +24,11 @@ const getSensorReadings = async (req, res) => {
     };
 const getSensorMinReading = async(req, res) => {
     try{
+        if(!validSensorNames.includes(sensorName)){
+            res.status(500).json({ message: `${sensorName} is not a valid sensor name` });}
+        else{
         sensorName= req.params.sensor_name;
-        const result = await sensorReading.findOne().sort(sensorName).exec();
+        const result = await sensorReading.findOne().sort(sensorName).exec();}
         res.json(result);
     } catch (err){
         console.error(err);
