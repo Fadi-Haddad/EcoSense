@@ -11,6 +11,7 @@ const saveSensorReadings = async (req, res) => {
         await newReading.save();
     } catch(err){
         console.error(err);
+        res.status(500).json({ message: "Error posting sensors' readings" });
     }
     };
 const getSensorReadings = async (req, res) => {
