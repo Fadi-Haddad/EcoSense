@@ -6,6 +6,8 @@ const checkAndSetSensorState =async () => {
     const count =await sensorsState.countDocuments();
     if (count === 0){
         const newState = sensorsState({'state':'on'});
+        await newState.save();
+        console.log("Sensors state set to on");
     }
   };
 
