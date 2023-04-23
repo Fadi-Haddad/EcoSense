@@ -50,6 +50,7 @@ const getSensorMaxReading = async (req, res) => {
     };
 const getSensorsState = async (req, res) => {
     const sensors_state = await sensorsState.findOne();
+    res.json(sensors_state);
     };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading};
