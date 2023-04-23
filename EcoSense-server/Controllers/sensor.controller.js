@@ -4,6 +4,7 @@ const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 
 const checkAndSetSensorState =async () => {
     const count =await sensorsState.countDocuments();
+    if (count === 0){}
   };
 
 
