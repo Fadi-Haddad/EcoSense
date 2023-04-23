@@ -31,5 +31,7 @@ const getSensorMinReading = async(req, res) => {
         res.status(500).json({ message: "Error retrieving sensor's minimum reading" });
     };
     };
+const getSensorMaxReading = (req, res) => {
+    };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading};
