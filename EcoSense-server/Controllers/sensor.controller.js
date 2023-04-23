@@ -74,5 +74,7 @@ const getSensorsState = async (req, res) => {
         res.status(400).json({ message: 'Error retrieving sensors state' });
     }
     };
+const setSensorsState = (req, res) => {
+    };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState};
