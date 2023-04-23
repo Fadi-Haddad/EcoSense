@@ -2,8 +2,8 @@ const sensorReading= require('../Models/sensor.readings.model');
 const sensorsState= require('../Models/sensors.state.model');
 const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 
-const checkAndSetSensorState =() => {
-    const count = sensorsState.countDocuments();
+const checkAndSetSensorState =async () => {
+    const count =await sensorsState.countDocuments();
   };
 
 
