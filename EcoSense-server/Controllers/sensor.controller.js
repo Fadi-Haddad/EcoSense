@@ -38,6 +38,7 @@ const getSensorMaxReading = async (req, res) => {
         res.json(result);
     }catch(err){
         console.error(err);
+        res.status(500).json({ message: "Error retrieving sensor's minimum reading" });
     };
     };
 
