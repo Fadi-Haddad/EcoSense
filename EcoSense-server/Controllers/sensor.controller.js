@@ -4,6 +4,7 @@ const saveSensorReadings = async (req, res) => {
     try{
         const {AQI,CO,CO2,Temp,Humidity} = req.body;
         console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
+        const now = new Date();
         const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity});
         await newReading.save();
     } catch(err){
