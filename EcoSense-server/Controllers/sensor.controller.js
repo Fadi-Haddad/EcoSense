@@ -14,7 +14,7 @@ const saveSensorReadings = async (req, res) => {
     };
 const getSensorReadings = async (req, res) => {
     try{
-        const readings = await sensorReading.find().sort({ timestamp: -1 }).limit(1);
+        const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
         res.json(readings);
     } catch(err){
         console.error(err);
