@@ -22,13 +22,17 @@ void loop (){
     int CO2 = random(0, 100);
     int Temp = random(0, 100);
     int Humidity = random(0, 100);
+
     http.begin(client, serverUrl);
     http.addHeader("Content-Type", "application/json");
     String json = "{\"AQI\": " + String(AIQ) + ", \"CO\": " + String(CO) + ", \"CO2\": " + String(CO2) + ", \"Temp\": " + String(Temp) + ", \"Humidity\": " + String(Humidity) + "}";
+    
     int httpResponseCode = http.POST(json);
     String response = http.getString();
     Serial.print("HTTP Response code: ");
     Serial.println(httpResponseCode);
     Serial.print(json);
     http.end();
+
+    delay(60000);
 }
