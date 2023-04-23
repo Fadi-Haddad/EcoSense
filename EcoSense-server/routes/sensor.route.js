@@ -3,5 +3,5 @@ const { saveSensorReadings, getSensorReadings } = require("../Controllers/sensor
 
 const router = express.Router();
 router.post("/save", saveSensorReadings);
-router.post("/get", getSensorReadings);
+router.get("/get", getSensorReadings);
 module.exports = router;
