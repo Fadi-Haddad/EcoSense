@@ -11,8 +11,14 @@ const saveSensorReadings = async (req, res) => {
     }
     };
 const getSensorReadings = async (req, res) => {
-    const readings = await SensorReading.find().sort({ timestamp: -1 }).limit(1);
-    res.json(readings);
+    try{
+        const readings = await SensorReading.find().sort({ timestamp: -1 }).limit(1);
+        res.json(readings);
+    } catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Error retrieving sensor readings' });
     };
+    };
+
 
 module.exports = {saveSensorReadings};
