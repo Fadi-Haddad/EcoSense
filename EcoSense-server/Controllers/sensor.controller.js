@@ -113,6 +113,7 @@ const getSensorsState = async (req, res) => {
         try{
             const sensorName= req.params.sensor_name;
             const minValue = req.params.min;
+            const maxValue = req.params.max;
             const sensor = await sensorThresholds.findOne({ sensor: sensorName });
             if (!sensor) {
                 return res.status(404).json({ error: 'Sensor not found' });}
