@@ -18,11 +18,11 @@ const checkAndSetSensorState =async () => {
 const populateSensorThresholds= async ()=>{
     try{
     const sensors = [
-            {name: 'AQI',minValue: 0,maxValue: 100,},
-            {name: 'CO',minValue: 0,maxValue: 5,},
-            {name: 'CO2',minValue: 400,maxValue: 1000,},
-            {name: 'Temp',minValue: 20,maxValue: 30,},
-            {name: 'Humidity',minValue: 30,maxValue: 50,},
+            {sensor: 'AQI',minValue: 0,maxValue: 100,},
+            {sensor: 'CO',minValue: 0,maxValue: 5,},
+            {sensor: 'CO2',minValue: 400,maxValue: 1000,},
+            {sensor: 'Temp',minValue: 20,maxValue: 30,},
+            {sensor: 'Humidity',minValue: 30,maxValue: 50,},
     ];
     const count = await sensorThresholds.countDocuments();
     if(count===0){
