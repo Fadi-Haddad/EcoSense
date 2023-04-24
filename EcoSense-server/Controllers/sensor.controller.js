@@ -105,5 +105,10 @@ const getSensorsState = async (req, res) => {
             res.status(500).json({ error: "Error setting sensor's min value" });
         }
     }
+    const populateSensorThresholds()=>{
+        const sensors = [
+                {name: 'AQI',minValue: 0,maxValue: 100,},
+        ]
+    }
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
