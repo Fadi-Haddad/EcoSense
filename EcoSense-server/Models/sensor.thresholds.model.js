@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const sensorThresholdsSchema = new mongoose.Schema({
     sensor:{
-        name:String,
+        type:String,
         required:true,},
     maxValue:{
         type: Number,
