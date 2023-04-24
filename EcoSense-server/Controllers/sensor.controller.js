@@ -129,6 +129,6 @@ const setSensorsThresholds = async (req,res) =>{
 }
 const setSensorState = (req,res)=>{
     const sensorName= req.params.sensor_name;
-
+    const state = req.params.state;
 }
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorsThresholds};
