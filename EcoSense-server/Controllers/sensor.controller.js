@@ -78,6 +78,7 @@ const setSensorsState = async (req, res) => {
     const new_state= req.params.state;
     const current_state = await sensorsState.findOne();
     if (new_state !== current_state){
+        await sensorsState.findOneAndUpdate({}, { state: new_state }, { new: true });
     }
     };
 
