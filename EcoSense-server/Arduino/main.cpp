@@ -34,5 +34,5 @@ void loop (){
   Serial.println(json);
   http.end();
 
-    delay(60000);
+    delay(5000);
 }
