@@ -27,7 +27,8 @@ const saveSensorReadings = async (req, res) => {
             const now = new Date();
             now.setHours(now.getHours() + 3)
             const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
-            await newReading.save();}
+            await newReading.save();
+            res.status(200).json({ message: 'Sensor readings saved sucessfully ' });}
     } catch(err){
         console.error(err);
         res.status(400).json({ message: "Error posting sensors' readings" });
