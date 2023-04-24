@@ -105,4 +105,4 @@ const getSensorsState = async (req, res) => {
         }
     }
 
-module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState};
+module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
