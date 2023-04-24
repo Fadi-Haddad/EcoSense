@@ -112,7 +112,8 @@ const getSensorsState = async (req, res) => {
                 {name: 'CO2',minValue: 400,maxValue: 1000,},
                 {name: 'Temp',minValue: 20,maxValue: 30,},
                 {name: 'Humidity',minValue: 30,maxValue: 50,},
-        ]
+        ];
+        const count = await sensorthresholds.countDocuments();
     }
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
