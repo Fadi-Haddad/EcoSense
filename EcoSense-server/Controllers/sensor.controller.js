@@ -93,8 +93,9 @@ const getSensorsState = async (req, res) => {
     const setSensorMinReading = async (req,res) =>{
         try{
             const sensorName= req.params.sensor_name;
-            const minReading = req.body.min;
+            const minReading = req.params.min;
             const sensor = await sensorthresholds.findOne({ name: sensorName });
+            console.log(sensor);
             if (!sensor) {
                 return res.status(404).json({ error: 'Sensor not found' });}
             sensor.minValue = minReading;
@@ -103,6 +104,11 @@ const getSensorsState = async (req, res) => {
         } catch(err){
             res.status(500).json({ error: "Error setting sensor's min value" });
         }
+    }
+    const populateSensorThresholds()=>{
+        sensors = [
+
+        ]
     }
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
