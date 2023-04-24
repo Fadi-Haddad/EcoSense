@@ -90,10 +90,10 @@ const getSensorsState = async (req, res) => {
             res.status(200).json({ message: 'state is not changed' });
         };
         };
-    const setSensorMinReading = (req,res) =>{
+    const setSensorMinReading = async (req,res) =>{
         sensorName= req.params.sensor_name;
         const minReading = req.body.min;
-        const sensor = sensorthresholds.findOne({ name: sensorName });
+        const sensor = await sensorthresholds.findOne({ name: sensorName });
         sensor.minValue = minReading;
         await sensor.save();
     }
