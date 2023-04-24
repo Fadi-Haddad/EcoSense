@@ -15,8 +15,26 @@ const checkAndSetSensorState =async () => {
         console.error(err);
     }
   };
-
+const populateSensorThresholds= async ()=>{
+    try{
+    const sensors = [
+            {name: 'AQI',minValue: 0,maxValue: 100,},
+            {name: 'CO',minValue: 0,maxValue: 5,},
+            {name: 'CO2',minValue: 400,maxValue: 1000,},
+            {name: 'Temp',minValue: 20,maxValue: 30,},
+            {name: 'Humidity',minValue: 30,maxValue: 50,},
+    ];
+    const count = await sensorThresholds.countDocuments();
+    if(count===0){
+        await sensorThresholds.insertMany(sensors);
+        console.log('Sensor thresholds table populated successfully!');
+    }}
+    catch(err){
+        console.error(err);
+    };
+};
 checkAndSetSensorState();
+populateSensorThresholds();
 
 const saveSensorReadings = async (req, res) => {
     try{
@@ -94,8 +112,7 @@ const getSensorsState = async (req, res) => {
         try{
             const sensorName= req.params.sensor_name;
             const minReading = req.params.min;
-            const sensor = await sensorthresholds.findOne({ name: sensorName });
-            console.log(sensor);
+            const sensor = await sensorThresholds.findOne({ name: sensorName });
             if (!sensor) {
                 return res.status(404).json({ error: 'Sensor not found' });}
             sensor.minValue = minReading;
@@ -105,24 +122,5 @@ const getSensorsState = async (req, res) => {
             res.status(500).json({ error: "Error setting sensor's min value" });
         }
     }
-    const populateSensorThresholds= async ()=>{
-        try{
-        const sensors = [
-                {name: 'AQI',minValue: 0,maxValue: 100,},
-                {name: 'CO',minValue: 0,maxValue: 5,},
-                {name: 'CO2',minValue: 400,maxValue: 1000,},
-                {name: 'Temp',minValue: 20,maxValue: 30,},
-                {name: 'Humidity',minValue: 30,maxValue: 50,},
-        ];
-        const count = await sensorthresholds.countDocuments();
-        if(count===0){
-            await sensorthresholds.insertMany(sensors);
-            console.log('Sensor thresholds table populated successfully!');
-        }}
-        catch(err){
-            console.error(err);
-        }
-    }
-    populateSensorThresholds();
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
