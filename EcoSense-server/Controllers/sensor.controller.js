@@ -120,7 +120,7 @@ const getSensorsState = async (req, res) => {
             sensor.minValue = minValue;
             sensor.maxValue = maxValue;
             await sensor.save();
-            res.status(200).json({ message: 'Minimum sensor reading updated successfully' });   
+            res.status(200).json({ message: "Sensor's thresholds updated successfully" });
         } catch(err){
             res.status(500).json({ error: "Error setting sensor's min value" });
         }
