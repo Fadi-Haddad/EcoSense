@@ -127,7 +127,8 @@ const setSensorsThresholds = async (req,res) =>{
         res.status(500).json({ error: "Error setting sensor's Thresholds" });
     }
 }
-const setSensorState = ()=>{
-    
+const setSensorState = (req,res)=>{
+    const sensorName= req.params.sensor_name;
+
 }
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorsThresholds};
