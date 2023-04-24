@@ -92,7 +92,7 @@ const getSensorsState = async (req, res) => {
         };
     const setSensorMinReading = async (req,res) =>{
         try{
-            sensorName= req.params.sensor_name;
+            const sensorName= req.params.sensor_name;
             const minReading = req.body.min;
             const sensor = await sensorthresholds.findOne({ name: sensorName });
             if (!sensor) {
