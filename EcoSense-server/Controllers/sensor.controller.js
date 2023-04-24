@@ -90,8 +90,8 @@ const getSensorsState = async (req, res) => {
             res.status(200).json({ message: 'state is not changed' });
         };
         };
-    const setSensorMinReading = () =>{
-
+    const setSensorMinReading = (req,res) =>{
+        sensorName= req.params.sensor_name;
     }
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState};
