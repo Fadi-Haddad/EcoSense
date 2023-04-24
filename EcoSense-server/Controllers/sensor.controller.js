@@ -105,7 +105,7 @@ const getSensorsState = async (req, res) => {
             res.status(500).json({ error: "Error setting sensor's min value" });
         }
     }
-    const populateSensorThresholds()=>{
+    const populateSensorThresholds= async ()=>{
         const sensors = [
                 {name: 'AQI',minValue: 0,maxValue: 100,},
                 {name: 'CO',minValue: 0,maxValue: 5,},
@@ -115,7 +115,7 @@ const getSensorsState = async (req, res) => {
         ];
         const count = await sensorthresholds.countDocuments();
         if(count===0){
-            sensorthresholds.insertMany(sensors);
+            await sensorthresholds.insertMany(sensors);
         }
     }
 
