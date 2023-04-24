@@ -93,6 +93,7 @@ const getSensorsState = async (req, res) => {
     const setSensorMinReading = (req,res) =>{
         sensorName= req.params.sensor_name;
         const minReading = req.body.min;
+        const sensor = sensorthresholds.findOne({ name: sensorName });
     }
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState};
