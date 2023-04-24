@@ -1,5 +1,12 @@
 const express = require('express');
-const { saveSensorReadings, getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState } = require("../Controllers/sensor.controller");
+const {
+    saveSensorReadings,
+    getSensorReadings,
+    getSensorMinReading,
+    getSensorMaxReading,
+    getSensorsState,
+    setSensorsState
+    } = require("../Controllers/sensor.controller");
 
 const router = express.Router();
 router.post("/save", saveSensorReadings);
