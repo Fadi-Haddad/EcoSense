@@ -1,4 +1,5 @@
 const sensorReading= require('../Models/sensor.readings.model');
+const sensorThresholds= require('../Models/sensor.thresholds.model');
 const sensorsState= require('../Models/sensors.state.model');
 const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 const validSensorStates = ['on', 'off'];
