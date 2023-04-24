@@ -95,37 +95,37 @@ const getSensorsState = async (req, res) => {
         res.status(400).json({ message: 'Error retrieving sensors state' });
     }
     };
-    const setSensorsState = async (req, res) => {
-        const new_state= req.params.state;
-        if (validSensorStates.includes(new_state)){
-            const current_state = await sensorsState.findOne();
-            if (new_state !== current_state.state){
-                await sensorsState.findOneAndUpdate({}, { state: new_state }, { new: true });
-                console.log("state changed to "+new_state);
-                res.status(200).json({ message: 'state changed' });}
-            }
-        else{
-            console.log(new_state+"is not a valid state for sensors");
-            res.status(200).json({ message: 'state is not changed' });
-        };
-        };
-    const setSensorsThresholds = async (req,res) =>{
-        try{
-            const sensorName= req.params.sensor_name;
-            const minValue = req.params.min;
-            const maxValue = req.params.max;
-            if (!isNaN(minValue) && !isNaN(maxValue)){
-                const sensor = await sensorThresholds.findOne({ sensor: sensorName });
-                if (!sensor) {
-                    return res.status(404).json({ error: 'Sensor not found' });}
-                sensor.minValue = minValue;
-                sensor.maxValue = maxValue;
-                await sensor.save();
-                res.status(200).json({ message: "Sensor's thresholds updated successfully" });
-            }
-        } catch(err){
-            res.status(500).json({ error: "Error setting sensor's Thresholds" });
+const setSensorsState = async (req, res) => {
+    const new_state= req.params.state;
+    if (validSensorStates.includes(new_state)){
+        const current_state = await sensorsState.findOne();
+        if (new_state !== current_state.state){
+            await sensorsState.findOneAndUpdate({}, { state: new_state }, { new: true });
+            console.log("state changed to "+new_state);
+            res.status(200).json({ message: 'state changed' });}
         }
+    else{
+        console.log(new_state+"is not a valid state for sensors");
+        res.status(200).json({ message: 'state is not changed' });
+    };
+    };
+const setSensorsThresholds = async (req,res) =>{
+    try{
+        const sensorName= req.params.sensor_name;
+        const minValue = req.params.min;
+        const maxValue = req.params.max;
+        if (!isNaN(minValue) && !isNaN(maxValue)){
+            const sensor = await sensorThresholds.findOne({ sensor: sensorName });
+            if (!sensor) {
+                return res.status(404).json({ error: 'Sensor not found' });}
+            sensor.minValue = minValue;
+            sensor.maxValue = maxValue;
+            await sensor.save();
+            res.status(200).json({ message: "Sensor's thresholds updated successfully" });
+        }
+    } catch(err){
+        res.status(500).json({ error: "Error setting sensor's Thresholds" });
     }
+}
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorsThresholds};
