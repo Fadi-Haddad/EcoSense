@@ -106,6 +106,7 @@ const getSensorsState = async (req, res) => {
         }
     }
     const populateSensorThresholds= async ()=>{
+        try{
         const sensors = [
                 {name: 'AQI',minValue: 0,maxValue: 100,},
                 {name: 'CO',minValue: 0,maxValue: 5,},
@@ -117,6 +118,9 @@ const getSensorsState = async (req, res) => {
         if(count===0){
             await sensorthresholds.insertMany(sensors);
             console.log('Sensor thresholds table populated successfully!');
+        }}
+        catch(err){
+            console.error(err);
         }
     }
 
