@@ -109,6 +109,7 @@ const getSensorsState = async (req, res) => {
         const sensors = [
                 {name: 'AQI',minValue: 0,maxValue: 100,},
                 {name: 'CO',minValue: 0,maxValue: 5,},
+                {name: 'CO2',minValue: 400,maxValue: 1000,},
         ]
     }
 
