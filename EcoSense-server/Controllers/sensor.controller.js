@@ -132,4 +132,11 @@ const setSensorState = async (req,res)=>{
     const sensorState = req.params.state;
     await sensorThresholds.findOneAndUpdate({sensor:sensorName}, { notifications: sensorState }, { new: true });
 }
-module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorsThresholds};
+module.exports = {saveSensorReadings,
+                    getSensorReadings,
+                    getSensorMinReading,
+                    getSensorMaxReading,
+                    getSensorsState,
+                    setSensorsState,
+                    setSensorsThresholds,
+                    setSensorState};
