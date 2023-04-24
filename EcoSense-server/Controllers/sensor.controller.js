@@ -116,6 +116,7 @@ const getSensorsState = async (req, res) => {
         const count = await sensorthresholds.countDocuments();
         if(count===0){
             await sensorthresholds.insertMany(sensors);
+            console.log('Sensor thresholds table populated successfully!');
         }
     }
 
