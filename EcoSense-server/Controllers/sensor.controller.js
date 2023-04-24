@@ -118,6 +118,7 @@ const getSensorsState = async (req, res) => {
             if (!sensor) {
                 return res.status(404).json({ error: 'Sensor not found' });}
             sensor.minValue = minValue;
+            sensor.maxValue = maxValue;
             await sensor.save();
             res.status(200).json({ message: 'Minimum sensor reading updated successfully' });   
         } catch(err){
