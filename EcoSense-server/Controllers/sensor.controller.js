@@ -77,6 +77,8 @@ const getSensorsState = async (req, res) => {
 const setSensorsState = async (req, res) => {
     const new_state= req.params.state;
     const current_state = await sensorsState.findOne();
+    if (new_state !== current_state){
+    }
     };
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState};
