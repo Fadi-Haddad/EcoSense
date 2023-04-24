@@ -123,5 +123,6 @@ const getSensorsState = async (req, res) => {
             console.error(err);
         }
     }
+    populateSensorThresholds();
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
