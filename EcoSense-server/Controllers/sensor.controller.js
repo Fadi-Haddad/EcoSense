@@ -114,13 +114,15 @@ const getSensorsState = async (req, res) => {
             const sensorName= req.params.sensor_name;
             const minValue = req.params.min;
             const maxValue = req.params.max;
-            const sensor = await sensorThresholds.findOne({ sensor: sensorName });
-            if (!sensor) {
-                return res.status(404).json({ error: 'Sensor not found' });}
-            sensor.minValue = minValue;
-            sensor.maxValue = maxValue;
-            await sensor.save();
-            res.status(200).json({ message: "Sensor's thresholds updated successfully" });
+            if (!isNaN(minValue) && !isNaN(maxValue)){
+                const sensor = await sensorThresholds.findOne({ sensor: sensorName });
+                if (!sensor) {
+                    return res.status(404).json({ error: 'Sensor not found' });}
+                sensor.minValue = minValue;
+                sensor.maxValue = maxValue;
+                await sensor.save();
+                res.status(200).json({ message: "Sensor's thresholds updated successfully" });
+            }
         } catch(err){
             res.status(500).json({ error: "Error setting sensor's min value" });
         }
