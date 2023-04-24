@@ -114,6 +114,9 @@ const getSensorsState = async (req, res) => {
                 {name: 'Humidity',minValue: 30,maxValue: 50,},
         ];
         const count = await sensorthresholds.countDocuments();
+        if(count===0){
+            sensorthresholds.insertMany(sensors);
+        }
     }
 
 module.exports = {saveSensorReadings,getSensorReadings,getSensorMinReading,getSensorMaxReading,getSensorsState,setSensorsState,setSensorMinReading};
