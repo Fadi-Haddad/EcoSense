@@ -6,7 +6,8 @@ const {
     getSensorMaxReading,
     getSensorsState,
     setSensorsState,
-    setSensorsThresholds
+    setSensorsThresholds,
+    setSensorState,
     } = require("../Controllers/sensor.controller");
 
 const router = express.Router();
