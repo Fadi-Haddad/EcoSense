@@ -6,7 +6,7 @@ const {
     getSensorMaxReading,
     getSensorsState,
     setSensorsState,
-    setSensorMinThreshold
+    setSensorsThresholds
     } = require("../Controllers/sensor.controller");
 
 const router = express.Router();
@@ -16,5 +16,5 @@ router.get("/get_sensors_state", getSensorsState);
 router.get("/set_sensors_state/:state", setSensorsState);
 router.get("/get/:sensor_name/min", getSensorMinReading);
 router.get("/get/:sensor_name/max", getSensorMaxReading);
-router.get("/set/:sensor_name/:min/:max", setSensorMinThreshold);
+router.get("/set/:sensor_name/:min/:max", setSensorsThresholds);
 module.exports = router;
