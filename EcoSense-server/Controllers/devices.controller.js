@@ -6,7 +6,7 @@ const setDeviceState = async(req,res)=>{
     try{
     const device_state = req.params.state;
     const device_name = req.params.device;
-    if(validDeviceNames.includes(device_name)){
+    if(validDeviceNames.includes(device_name) && validDeviceStates.includes(device_state)){
         const updateState= await Devices.findOneAndReplace({name:device_name},{state:device_state}, {new:true});
         res.send(updateState);}
     } catch(err){
