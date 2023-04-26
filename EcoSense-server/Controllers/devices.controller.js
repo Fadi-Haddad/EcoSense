@@ -1,4 +1,5 @@
 const Devices = require("../Models/devices.model");
+const validDeviceNames = ['fan','heater'];
 
 const setDeviceState = async(req,res)=>{
     try{
