@@ -9,9 +9,9 @@ const setDeviceState = async(req,res)=>{
     if(validDeviceNames.includes(device_name) && validDeviceStates.includes(device_state)){
         const updateState= await Devices.findOneAndReplace({name:device_name},{state:device_state}, {new:true});
         if(!updateState){
-            return res.staus(400).send("Invalid device name or state")
-        }
+            return res.staus(400).send("Invalid device name or state")}
         res.send(updateState);}
+        return res.staus(200).send("Device state changed sucessfully")
     } catch(err){
         console.log(err);
         res.status(400).json({ message: 'Error update devices state' });
