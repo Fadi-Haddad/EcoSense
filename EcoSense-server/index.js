@@ -23,5 +23,5 @@ const dataroute = require("./routes/sensor.route");
 app.use("/data",dataroute);
 
 const deviceroute = require("./routes/device.route");
-app.use("/data",deviceroute);
+app.use("/device",deviceroute);
 
