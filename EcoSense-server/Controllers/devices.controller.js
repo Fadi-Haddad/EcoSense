@@ -35,11 +35,12 @@ const setFanState = async (req, res) => {
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
         const {AQi, CO, CO2, Temperature, Humidity} = readings;
 
-    if (AQI >100 || CO>5  || CO2>1000 || Temperature > 30 || Humidity > 50) {
+    if (AQi >100 || CO>5  || CO2>1000 || Temperature > 30 || Humidity > 50) {
         fanState = 'on';
-        } else if (AQI <95 && CO <  && CO2 < 950 && Temperature <28 && Humidity <45) {
+        } else if (AQi <95 && CO <4  && CO2 < 950 && Temperature <28 && Humidity <45) {
         fanState = 'off';
         }else {
-            fanState = fan.state;
-            }
+        fanState = fan.state;
+        }
+    const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState }, { new: true });
 }}
