@@ -31,4 +31,7 @@ const setFanState = async (req, res) => {
             return res.status(400).json({ message: 'Failed to update device state.' })}
         return res.status(200).json({ message: 'Device state updated successfully.' });
     }
-}
+    if (operationMode === 'auto') {
+        const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
+  
+}}
