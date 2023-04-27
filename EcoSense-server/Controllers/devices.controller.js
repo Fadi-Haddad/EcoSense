@@ -65,5 +65,11 @@ const setHeaterState = async (req, res) => {
     const heater = await Devices.findOne({ name: 'heater' });
     if (!heater) {
         return res.status(400).json({ message: 'heater not found.' });}
+    if (heaterOperationMode === 'manual') {
+        const updateState = await Devices.findOneAndUpdate({ name: 'heater' }, { state: heaterState }, { new: true });
+        if (!updateState) {
+            return res.status(400).json({ message: 'Failed to update heater state.' })}
+        return res.status(200).json({ message: 'Heater state updated successfully.' });
+    }
 }
 module.exports = {setFanState};
