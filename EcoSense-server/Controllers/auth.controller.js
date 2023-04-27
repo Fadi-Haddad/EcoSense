@@ -5,6 +5,8 @@ const login = async (req,res)=>{
     if (!isPasswordValid || !user) {
         return res.status(401).json({ message: 'Invalid email or password' });
       }
+    const token = jwt.sign({ email: user.email, userType: user.userType }, process.env.JWT_SECRET);
+    res.json({ token });
 
 }
 const createUser = async(req,res)=>{
