@@ -20,6 +20,7 @@ const validOperationModes = ['auto', 'manual'];
 //     }
 // }
 const setFanState = async (req, res) => {
+    try{
     const fanState = req.params.fan_state;
     const fanOperationMode = req.body.fan_operation_mode;
     const fan = await Devices.findOne({ name: 'fan' });
@@ -47,5 +48,9 @@ const setFanState = async (req, res) => {
         return res.status(400).json({ message: 'Failed to update fan state.' });
         }
     return res.status(200).json({ message: 'Device state updated successfully.' });
-    }
+    }}
+    catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Error updating fan state.' });
+      }
 }
