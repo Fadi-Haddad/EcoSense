@@ -71,5 +71,8 @@ const setHeaterState = async (req, res) => {
             return res.status(400).json({ message: 'Failed to update heater state.' })}
         return res.status(200).json({ message: 'Heater state updated successfully.' });
     }
-}
+    if (heaterOperationMode === 'auto') {
+        const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1)
+        Temperature = readings[0].Temp;
+}}
 module.exports = {setFanState};
