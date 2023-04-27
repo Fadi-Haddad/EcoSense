@@ -33,5 +33,6 @@ const setFanState = async (req, res) => {
     }
     if (operationMode === 'auto') {
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
+        const {AQi, CO, CO2, Temperature, Humidity} = readings;
   
 }}
