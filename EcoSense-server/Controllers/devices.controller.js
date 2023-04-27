@@ -62,5 +62,6 @@ const setFanState = async (req, res) => {
 const setHeaterState = async (req, res) => {
     let heaterState = req.params.heater_state;
     let heaterOperationMode = req.params.heater_operation_mode;
+    const heater = await Devices.findOne({ name: 'heater' });
 }
 module.exports = {setFanState};
