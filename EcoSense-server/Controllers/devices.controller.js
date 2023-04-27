@@ -19,5 +19,8 @@ const validOperationModes = ['auto', 'manual'];
 //         res.status(400).json({ message: 'Error update devices state' });
 //     }
 // }
-
+const setFanState = async (req, res) => {
+    const fanState = req.params.fan_state;
+    const fanOperationMode = req.body.fan_operation_mode;
+}
 
