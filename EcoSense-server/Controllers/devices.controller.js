@@ -1,4 +1,4 @@
-const SensorReadings = require("../Models/sensor.readings.model");
+const sensorReading= require('../Models/sensor.readings.model');
 const Devices = require("../Models/devices.model");
 const validDeviceNames = ['fan','heater'];
 const validDeviceStates = ['on', 'off'];
@@ -21,9 +21,8 @@ const validOperationModes = ['auto', 'manual'];
 // }
 const setFanState = async (req, res) => {
     try{
-    const fanState = req.params.fan_state;
-    const fanOperationMode = req.params.fan_operation_mode;
-    console.log(fanState,fanOperationMode)
+    let fanState = req.params.fan_state;
+    let fanOperationMode = req.params.fan_operation_mode;
     const fan = await Devices.findOne({ name: 'fan' });
     if (!fan) {
         return res.status(400).json({ message: 'fan not found.' });}
@@ -34,19 +33,22 @@ const setFanState = async (req, res) => {
         return res.status(200).json({ message: 'fan state updated successfully.' });
     }
     if (fanOperationMode === 'auto') {
-        const readings = await SensorReadings.find().sort({ timeStamp: -1 }).limit(1);
-        const {AQi, CO, CO2, Temperature, Humidity} = readings;
-
-    if (AQi >100 || CO>5  || CO2>1000 || Temperature > 30 || Humidity > 50) {
+        const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
+        AQI = readings[0].AQI
+        CO = readings[0].CO
+        CO2 = readings[0].CO2
+        Temperature = readings[0].Temp
+        Humidity = readings[0].Humidity
+        console.log(AQI,CO,CO2,Temperature,Humidity)
+    if (AQI >100 || CO>5  || CO2>1000 || Temperature > 30 || Humidity > 50) {
         fanState = 'on';
-        } else if (AQi <95 && CO <4  && CO2 < 950 && Temperature <28 && Humidity <45) {
+        } else if (AQI <=95 && CO <=4  && CO2 <=950 && Temperature <=28 && Humidity <=45) {
         fanState = 'off';
         }
         // else {
         // fanState = fan.state;
         // }
-        console.log(fanState)
-    const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState ,operation_mode:'auto'}, { new: true });
+    const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState ,operation_mode:fanOperationMode}, { new: true });
     if (!updateState) {
         return res.status(400).json({ message: 'Failed to update fan state.' });
         }
