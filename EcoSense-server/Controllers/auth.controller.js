@@ -1,5 +1,6 @@
-const login = (req,res)=>{
+const login = async (req,res)=>{
     const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
 }
 const createUser = async(req,res)=>{
