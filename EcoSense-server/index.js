@@ -25,3 +25,6 @@ app.use("/data",dataroute);
 const deviceroute = require("./routes/device.route");
 app.use("/device",deviceroute);
 
+const authroute = require("./routes/auth.route");
+app.use("/auth",authroute);
+

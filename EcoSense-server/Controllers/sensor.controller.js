@@ -95,7 +95,7 @@ const getSensorsState = async (req, res) => {
         res.status(400).json({ message: 'Error retrieving sensors state' });
     }
     };
-const setSensorsState = async (req, res) => {
+const setSensorsState = async (req, res) => { //sets sensors notification state (on/off) from frontend
     const new_state= req.params.state;
     if (validSensorStates.includes(new_state)){
         const current_state = await sensorsState.findOne();
