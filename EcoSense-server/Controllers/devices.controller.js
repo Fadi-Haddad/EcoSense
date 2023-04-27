@@ -22,5 +22,6 @@ const validOperationModes = ['auto', 'manual'];
 const setFanState = async (req, res) => {
     const fanState = req.params.fan_state;
     const fanOperationMode = req.body.fan_operation_mode;
-}
+    const fan = await Devices.findOne({ name: 'fan' });
 
+}
