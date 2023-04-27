@@ -133,8 +133,9 @@ const setSensorState = async (req,res)=>{
     
     const notification_state=  await sensorThresholds.findOneAndUpdate({sensor:sensorName}, { notifications: sensorState }, { new: true });
     if(!notification_state){
-        res.status(400).json({ message: "Error setting notification error for ",sensorName });
+        return res.status(400).json({ message: "Error setting notification error for ",sensorName });
     }
+    res.status(200).json({ message: "Sensor's state updated successfully" });
 }
 module.exports = {saveSensorReadings,
                     getSensorReadings,
