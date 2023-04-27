@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const devicesSchema = new mongoose.Schema({
     name:{
         type: String,
-        required: True,
+        required: true,
         enum:['fan','heater'],
     },
     state:{
@@ -17,4 +17,4 @@ const devicesSchema = new mongoose.Schema({
         default:'auto',
     }
 });
-module.exports = mongoose.model('Devices','devicesSchema');
+module.exports = mongoose.model('Devices',devicesSchema);

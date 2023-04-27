@@ -1,4 +1,4 @@
-const SensorReadings = require("../Models/sensorReadings.model");
+const SensorReadings = require("../Models/sensor.readings.model");
 const Devices = require("../Models/devices.model");
 const validDeviceNames = ['fan','heater'];
 const validDeviceStates = ['on', 'off'];
@@ -33,7 +33,7 @@ const setFanState = async (req, res) => {
         return res.status(200).json({ message: 'Device state updated successfully.' });
     }
     if (fanOperationMode === 'auto') {
-        const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
+        const readings = await SensorReadings.find().sort({ timeStamp: -1 }).limit(1);
         const {AQi, CO, CO2, Temperature, Humidity} = readings;
 
     if (AQi >100 || CO>5  || CO2>1000 || Temperature > 30 || Humidity > 50) {
