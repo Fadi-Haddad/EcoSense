@@ -45,6 +45,7 @@ const setFanState = async (req, res) => {
     const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState }, { new: true });
     if (!updateState) {
         return res.status(400).json({ message: 'Failed to update fan state.' });
-}
+        }
+    return res.status(200).json({ message: 'Device state updated successfully.' });
     }
 }
