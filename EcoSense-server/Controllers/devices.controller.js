@@ -74,12 +74,13 @@ const setHeaterState = async (req, res) => {
     if (heaterOperationMode === 'auto') {
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1)
         Temperature = readings[0].Temp;
-        if (Temperature <20) {
+        if (Temperature <=20) {
             heaterState = 'on';}
         else if (Temperature >=22) {
         heaterState = 'off';}
         else{
             heaterState=heater.state;
         }
+    const updateState = await Devices.findOneAndUpdate({ name: 'heater' }, { state: heaterState ,operation_mode:heaterOperationMode}, { new: true });
 }}
 module.exports = {setFanState};
