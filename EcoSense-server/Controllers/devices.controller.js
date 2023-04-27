@@ -25,5 +25,7 @@ const setFanState = async (req, res) => {
     const fan = await Devices.findOne({ name: 'fan' });
     if (!fan) {
         return res.status(400).json({ message: 'Device not found.' });}
-
+    if (operationMode === 'manual') {
+        const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState }, { new: true });
+    }
 }
