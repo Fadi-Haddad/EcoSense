@@ -22,15 +22,16 @@ const validOperationModes = ['auto', 'manual'];
 const setFanState = async (req, res) => {
     try{
     const fanState = req.params.fan_state;
-    const fanOperationMode = req.body.fan_operation_mode;
+    const fanOperationMode = req.params.fan_operation_mode;
+    console.log(fanState,fanOperationMode)
     const fan = await Devices.findOne({ name: 'fan' });
     if (!fan) {
-        return res.status(400).json({ message: 'Device not found.' });}
+        return res.status(400).json({ message: 'fan not found.' });}
     if (fanOperationMode === 'manual') {
         const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState }, { new: true });
         if (!updateState) {
-            return res.status(400).json({ message: 'Failed to update device state.' })}
-        return res.status(200).json({ message: 'Device state updated successfully.' });
+            return res.status(400).json({ message: 'Failed to update fan state.' })}
+        return res.status(200).json({ message: 'fan state updated successfully.' });
     }
     if (fanOperationMode === 'auto') {
         const readings = await SensorReadings.find().sort({ timeStamp: -1 }).limit(1);
@@ -40,14 +41,16 @@ const setFanState = async (req, res) => {
         fanState = 'on';
         } else if (AQi <95 && CO <4  && CO2 < 950 && Temperature <28 && Humidity <45) {
         fanState = 'off';
-        }else {
-        fanState = fan.state;
         }
-    const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState }, { new: true });
+        // else {
+        // fanState = fan.state;
+        // }
+        console.log(fanState)
+    const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState ,operation_mode:'auto'}, { new: true });
     if (!updateState) {
         return res.status(400).json({ message: 'Failed to update fan state.' });
         }
-    return res.status(200).json({ message: 'Device state updated successfully.' });
+    return res.status(200).json({ message: 'Fan state updated successfully.' });
     }}
     catch (err) {
         console.log(err);
