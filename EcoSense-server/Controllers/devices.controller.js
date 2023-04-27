@@ -85,6 +85,6 @@ const setHeaterState = async (req, res) => {
     if (!updateState) {
         return res.status(400).json({ message: 'Failed to update fan state.' });
         }
-    
+    return res.status(200).json({ message: 'Fan state updated successfully.' });
     }}
 module.exports = {setFanState};
