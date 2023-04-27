@@ -1,4 +1,5 @@
 const login = (req,res)=>{
+    const { email, password } = req.body;
 
 }
 const createUser = async(req,res)=>{
