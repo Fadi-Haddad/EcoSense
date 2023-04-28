@@ -11,6 +11,8 @@ export default StyleSheet.create({
       borderRadius: 10,
       width: 250,
       height: 60,
+      alignItems: "center",
+      justifyContent : "center",
     },
     buttonText: {
       color: 'white',
