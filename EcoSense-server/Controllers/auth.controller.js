@@ -1,3 +1,4 @@
+const User = require('../Models/user.model');
 const login = async (req,res)=>{
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -17,4 +18,4 @@ const createUser = async(req,res)=>{
     await user.save();
     res.status(201).json({ message: 'User created successfully'});
 }
-module.exports = {login};
+module.exports = {login,createUser};
