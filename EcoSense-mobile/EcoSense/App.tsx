@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Loginbutton from './src/components/Loginbutton';
+import LoginButton from './src/components/LoginButton';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Loginbutton 
+      <LoginButton 
       title='Log in'/>
       <StatusBar style="auto" />
     </View>
