@@ -11,6 +11,8 @@ const login = async (req,res)=>{
 
 }
 const createUser = async(req,res)=>{
+    if (req.user.userType !== 'admin') {
+        return res.status(401).json({ message: 'Unauthorized' });}
     const { email, password, userType } = req.body;
     const saltRounds=10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
