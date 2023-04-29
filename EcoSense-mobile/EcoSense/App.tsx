@@ -23,11 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    // marginBottom:200,
-  },
-
-  buttonContainer: {
-    // marginTop:100,
   },
 });
 
