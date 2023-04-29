@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import LoginButton from './src/components/LoginButton';
 import CoverPicture from './src/components/coverPicture';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -12,6 +12,9 @@ export default function App() {
         <LoginButton 
           title='Log in'
           onPress={() => alert('Button clicked!')}/>
+      </View>
+      <View>
+        
       </View>
       <StatusBar style="auto" />
     </View>
