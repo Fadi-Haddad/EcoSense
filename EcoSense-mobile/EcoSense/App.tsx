@@ -15,7 +15,7 @@ export default function App() {
       </View>
       <View style={{flexDirection:'row',borderBottomWidth:1,borderBottomColor:'#ccc',paddingBottom:5, marginBottom:25}}>
       <MaterialIcons name='alternate-email' size={20} color="#666" style={{marginRight:5}}/>
-      <TextInput placeholder='Email' />
+      <TextInput placeholder='Email' style={{ flex:1,}}/>
       </View>
       <StatusBar style="auto" />
     </View>
