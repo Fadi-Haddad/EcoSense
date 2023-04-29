@@ -6,6 +6,7 @@ export default function CoverPicture() {
   return (
     <View style={styles.container}>
       <Image source={require('../../../assets/background.png')} style={styles.image} />
+      <Image source={require('../../../assets/logo.png')} style={styles.icon} />
     </View>
   );
 }
