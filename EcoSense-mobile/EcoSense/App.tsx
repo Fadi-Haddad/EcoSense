@@ -13,7 +13,7 @@ export default function App() {
           title='Log in'
           onPress={() => alert('Button clicked!')}/>
       </View>
-      <View>
+      <View style={{flexDirection:'row',borderBottomWidth:1,}}>
       <MaterialIcons name='alternate-email' size={20} color="#666" />
       <TextInput placeholder='Email' />
       </View>
