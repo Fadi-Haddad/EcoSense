@@ -15,6 +15,7 @@ export default function App() {
       </View>
       <View>
       <MaterialIcons name='alternate-email' size={20} color="#666" />
+      <TextInput placeholder='Email' />
       </View>
       <StatusBar style="auto" />
     </View>
