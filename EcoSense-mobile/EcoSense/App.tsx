@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
        <CoverPicture />
-      <View style={styles.buttonContainer}>
+      <View>
         <LoginButton 
           title='Log in'
           onPress={() => alert('Button clicked!')}/>
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    paddingTop:12,
   },
 });
 
