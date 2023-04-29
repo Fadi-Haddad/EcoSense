@@ -14,7 +14,7 @@ export default function App() {
           onPress={() => alert('Button clicked!')}/>
       </View>
       <View>
-        
+      <MaterialIcons name='alternate-email' size={20} color="#666" />
       </View>
       <StatusBar style="auto" />
     </View>
