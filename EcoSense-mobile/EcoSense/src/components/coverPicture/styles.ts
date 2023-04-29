@@ -15,5 +15,12 @@ export const styles = StyleSheet.create({
     resizeMode: 'cover',
     marginTop: 50,
   },
-
+  icon: {
+    position: 'absolute',
+    top: 120,
+    left: 92,
+    width: 180,
+    height: 180,
+    zIndex: 1,
+    },
 });
