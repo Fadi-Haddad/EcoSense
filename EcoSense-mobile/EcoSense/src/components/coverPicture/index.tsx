@@ -7,7 +7,7 @@ export default function CoverPicture() {
     <View style={styles.container}>
       <Image source={require('../../../assets/background.png')} style={styles.image} />
       <Image source={require('../../../assets/logo.png')} style={styles.icon} />
-      <Text >EcoSense</Text>
+      <Text style={styles.text}>EcoSense</Text>
     </View>
   );
 }
