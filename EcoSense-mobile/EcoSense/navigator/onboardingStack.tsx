@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from '../screens/login';
 import HomeScreen from '../screens/home';
 
-const onboardingStack =() =>{
+const OnboardingStack =() =>{
     const Stack = createStackNavigator ()
     return (
         <NavigationContainer>
@@ -16,4 +16,4 @@ const onboardingStack =() =>{
         </NavigationContainer>
     );
     };
-    export default onboardingStack;
+    export default OnboardingStack;

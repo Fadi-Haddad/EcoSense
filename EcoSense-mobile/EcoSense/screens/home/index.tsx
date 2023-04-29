@@ -1,5 +1,4 @@
 const Homescreen = ()=>{
-  return (
-)
+  return null;
 }
 export default Homescreen;
