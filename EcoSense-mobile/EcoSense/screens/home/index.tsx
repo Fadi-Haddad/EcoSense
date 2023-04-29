@@ -1,5 +1,5 @@
-const Homecreen = ()=>{
+const Homescreen = ()=>{
   return (
 )
 }
-export default Homecreen;
+export default Homescreen;
