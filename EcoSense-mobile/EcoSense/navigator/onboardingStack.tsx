@@ -10,8 +10,8 @@ const OnboardingStack =() =>{
     return (
         <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen name="login" component={LoginScreen} />
-        <Stack.Screen name="home" component={HomeScreen} />
+        <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }}/>
         </Stack.Navigator>
         </NavigationContainer>
     );
