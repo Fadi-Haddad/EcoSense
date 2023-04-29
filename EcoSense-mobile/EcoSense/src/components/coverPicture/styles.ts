@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.4,
     width: '100%',
-    height: 300,
+    height: 200,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -12,5 +12,6 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
+    marginTop: 50,
   },
 });
