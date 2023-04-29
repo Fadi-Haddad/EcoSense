@@ -5,7 +5,7 @@ import LoginButton from './src/components/LoginButton';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image source={require('./assets/background.png')} style={styles.image}/>
+       <CoverPicture />
       <View style={styles.buttonContainer}>
         <LoginButton 
           title='Log in'
