@@ -4,20 +4,12 @@ import LoginButton from './src/components/LoginButton';
 import CoverPicture from './src/components/CoverPicture';
 import EmailInput from './src/components/EmailInput';
 import PasswordInput from './src/components/PasswordInput';
+import LoginScreen from './screens/login';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <CoverPicture />
-      <EmailInput />
-      <PasswordInput />
-      <View>
-        <LoginButton 
-          title='Log in'
-          onPress={() => alert('Button clicked!')}/>
-      </View>
-      <StatusBar style="auto" />
-    </View>
+    <LoginScreen/>
   );
 }
 
@@ -30,5 +22,3 @@ const styles = StyleSheet.create({
     paddingTop:12,
   },
 });
-
-
