@@ -25,12 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     // marginBottom:200,
   },
-  image: {
-    flex: 0.40,
-    width: '100%',
-    height:'100%',
-    // resizeMode: 'cover',
-  },
+
   buttonContainer: {
     // marginTop:100,
   },
