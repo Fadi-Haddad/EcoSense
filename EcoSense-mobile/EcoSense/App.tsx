@@ -14,7 +14,7 @@ export default function App() {
           onPress={() => alert('Button clicked!')}/>
       </View>
       <View style={{flexDirection:'row',borderBottomWidth:1,borderBottomColor:'#ccc',paddingBottom:5, marginBottom:25}}>
-      <MaterialIcons name='alternate-email' size={20} color="#666" />
+      <MaterialIcons name='alternate-email' size={20} color="#666" style={{marginRight:5}}/>
       <TextInput placeholder='Email' />
       </View>
       <StatusBar style="auto" />
