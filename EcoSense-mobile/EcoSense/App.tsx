@@ -13,9 +13,9 @@ export default function App() {
           title='Log in'
           onPress={() => alert('Button clicked!')}/>
       </View>
-      <View style={{flexDirection:'row',borderBottomWidth:1,borderBottomColor:'#ccc',paddingBottom:5, marginBottom:25}}>
+      <View style={{flexDirection:'row',paddingHorizontal:54,paddingTop:20}}>
       <MaterialIcons name='alternate-email' size={20} color="#666" style={{marginRight:5}}/>
-      <TextInput placeholder='Email' style={{ flex:1,}}/>
+      <TextInput placeholder='Email' style={{ flex:1, borderBottomWidth:1, borderBottomColor:'#ccc', width: '90%', paddingVertical:0}}/>
       </View>
       <StatusBar style="auto" />
     </View>
