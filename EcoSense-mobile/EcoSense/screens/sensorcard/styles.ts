@@ -12,12 +12,12 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 14,
         fontWeight: 'bold',
-        fontFamily: 'Poppins',
+        fontFamily: 'poppins-bold',
         marginBottom: 8,
     },
     reading: {
-        fontSize: 36,
-        fontFamily: 'Poppins',
+        fontSize: 32,
+        fontFamily: 'poppins-regular',
         marginBottom: 8,
     },
     state: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         paddingHorizontal: 8,
         fontWeight: 'bold',
-        fontFamily: 'Poppins',
+        fontFamily: 'poppins-regular',
         color: '#00aa00',
     },
     });
