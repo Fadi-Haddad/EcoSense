@@ -34,6 +34,11 @@ const styles  = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 60,
       },
+      text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 8,
+      },
 })
 
   export default deviceCard;
