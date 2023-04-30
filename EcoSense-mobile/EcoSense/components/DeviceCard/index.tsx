@@ -22,4 +22,13 @@ const deviceCard = ({heaterStatus,fanStatus}:Props) => {
     );
   };
 
+const styles  = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 10,
+        paddingVertical: 16,
+      },
+})
+
   export default deviceCard;
