@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 16,
   },
+  cell: {
+    flex: 1,
+    margin: 16,
+  },
   });
 
   export default styles;
