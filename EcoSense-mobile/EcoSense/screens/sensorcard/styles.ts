@@ -10,8 +10,13 @@ const styles = StyleSheet.create({
         width: '40%',
     },
     name: {
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: 'bold',
+        fontFamily: 'Poppins',
+        marginBottom: 6,
+    },
+    reading: {
+        fontSize: 36,
         fontFamily: 'Poppins',
         marginBottom: 8,
     },
