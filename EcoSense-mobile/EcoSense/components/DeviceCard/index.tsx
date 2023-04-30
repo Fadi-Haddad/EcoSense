@@ -29,6 +29,11 @@ const styles  = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 16,
       },
+      row: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingHorizontal: 60,
+      },
 })
 
   export default deviceCard;
