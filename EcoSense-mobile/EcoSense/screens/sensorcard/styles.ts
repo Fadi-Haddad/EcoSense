@@ -20,6 +20,13 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins',
         marginBottom: 8,
     },
+    state: {
+        backgroundColor: '#ffffff',
+        borderRadius: 20,
+        paddingHorizontal: 8,
+        paddingVertical: 4,
+        marginTop: 8,
+    },
     stateText: {
         fontSize: 14,
         paddingHorizontal: 8,
