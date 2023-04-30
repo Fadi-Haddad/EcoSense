@@ -1,5 +1,7 @@
 import { View } from 'react-native';
-import SensorCard from '../sensorcard';
+import SensorCard from '../../components/SensorCard';
+import DeviceCard from '../../components/DeviceCard';
+
 import styles from './styles';
 const Homescreen = ()=>{
   return(
@@ -19,6 +21,9 @@ const Homescreen = ()=>{
         <View style={styles.cell}>
           <SensorCard name="Sensor 4" reading="35°C" state="OK" />
         </View>
+      </View>
+      <View>
+        <DeviceCard heaterStatus="on" fanStatus="off"/>
       </View>
     </View>
   )
