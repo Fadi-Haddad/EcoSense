@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         padding: 16,
         marginVertical: 8,
         alignItems: 'center',
-        width: '40%',
+        width: '90%',
     },
     name: {
         fontSize: 14,
