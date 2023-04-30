@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const deviceCard = ({heaterStatus}) => {
+interface Props{
+    heaterStatus: string;
+}
+
+
+const deviceCard = ({heaterStatus}:Props) => {
     return (
       <View>
         <View>
