@@ -10,15 +10,22 @@ const styles = StyleSheet.create({
         width: '40%',
     },
     name: {
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: 'bold',
         fontFamily: 'Poppins',
-        marginBottom: 6,
+        marginBottom: 8,
     },
     reading: {
         fontSize: 36,
         fontFamily: 'Poppins',
         marginBottom: 8,
+    },
+    stateText: {
+        fontSize: 14,
+        paddingHorizontal: 8,
+        fontWeight: 'bold',
+        fontFamily: 'Poppins',
+        color: '#00aa00',
     },
     });
 
