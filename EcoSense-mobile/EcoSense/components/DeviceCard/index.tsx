@@ -11,6 +11,7 @@ const deviceCard = ({heaterStatus}:Props) => {
       <View>
         <View>
           <Text >{`Heater is ${heaterStatus}`}</Text>
+          <Image source={heaterStatus === 'on' ? require('../../assets/heater.png') : require('../../assets/heater.png')} style={styles.image} />
         </View>
       </View>
     );
