@@ -7,6 +7,7 @@ interface Props {
     state: string;
   }
 const SensorCard = ({ name, reading, state }:Props) => {
+    const { colors } = useTheme();
     return (
       <View style={styles.container}>
         <Text style={styles.name}>{name}</Text>
@@ -17,3 +18,4 @@ const SensorCard = ({ name, reading, state }:Props) => {
       </View>
     );
   };
+  export default SensorCard;
