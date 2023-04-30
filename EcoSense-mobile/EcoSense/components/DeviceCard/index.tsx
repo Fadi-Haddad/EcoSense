@@ -39,6 +39,10 @@ const styles  = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 8,
       },
+      image: {
+        height: 70,
+        width: 70,
+      },
 })
 
   export default deviceCard;
