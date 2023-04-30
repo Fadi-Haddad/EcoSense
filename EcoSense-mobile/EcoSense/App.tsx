@@ -1,5 +1,6 @@
 import OnboardingStack from './navigator/onboardingStack';
 import * as Font from 'expo-font';
+
 async function loadFonts() {
   await Font.loadAsync({
     'poppins-regular': require('./assets/fonts/Lato-Regular.ttf'),
