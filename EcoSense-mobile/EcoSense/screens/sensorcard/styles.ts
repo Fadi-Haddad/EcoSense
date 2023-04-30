@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '40%',
     },
+    name: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        fontFamily: 'Poppins',
+        marginBottom: 8,
+    },
     });
 
   export default styles;
