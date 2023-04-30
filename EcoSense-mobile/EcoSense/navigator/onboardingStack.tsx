@@ -7,7 +7,7 @@ import HomeScreen from '../screens/home';
 
 const OnboardingStack =() =>{
     const Stack = createStackNavigator ()
-    const isSignedIn = false; // hardcoded variable for testing
+    const isSignedIn = true; // hardcoded variable for testing
     return (
         <NavigationContainer>
         <Stack.Navigator initialRouteName={!isSignedIn ? "login" : "home"}>
