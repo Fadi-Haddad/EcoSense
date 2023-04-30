@@ -22,3 +22,4 @@ const deviceCard = ({heaterStatus,fanStatus}:Props) => {
     );
   };
 
+  export default deviceCard;
