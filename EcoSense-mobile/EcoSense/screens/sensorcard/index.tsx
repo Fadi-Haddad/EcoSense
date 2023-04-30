@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 interface Props {
     name: string;
     reading: string;
