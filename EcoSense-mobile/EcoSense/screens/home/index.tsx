@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
 import AQIChart from '../../components/AQIChart';
-import Test from '../../components/CurrentReading';
+import AQIGauge from '../../components/AQIGauge';
 
 import styles from './styles';
 const Homescreen = ()=>{
