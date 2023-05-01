@@ -1,6 +1,6 @@
 import { Chart, Line, Area, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
 
-const MyChart = ()=>{
+const AQIChart = ()=>{
     return (
       <Chart
       style={{ height: 200, width: 380,paddingHorizontal: 3 }}
@@ -29,3 +29,5 @@ const MyChart = ()=>{
         <Line theme={{ stroke: { color: '#fff999', width: 5 }, scatter: { default: { width: 4, height: 4, rx: 2 }} }} />
       </Chart>)
   }
+
+  export default AQIChart;
