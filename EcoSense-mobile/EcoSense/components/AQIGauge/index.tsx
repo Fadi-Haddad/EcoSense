@@ -12,6 +12,9 @@ export default class AQIGauge extends Component {
                 <Text style={{ fontSize: 50, fontWeight: 'bold' }}>
                   { this.state.fill }
                 </Text>
+                <Text style={{ fontSize: 20 }}>
+                  AQI
+                </Text>
               </View>
             )}
         </AnimatedCircularProgress>
