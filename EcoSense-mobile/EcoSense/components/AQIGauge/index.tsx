@@ -14,10 +14,10 @@ export default class AQIGauge extends Component {
           backgroundColor="#3d5875">
           {(fill) => (
       <View style={{ alignItems: 'center'}}>
-                <Text style={{ fontSize: 50, fontWeight: 'bold' }}>
+                <Text style={{ fontSize: 50, fontWeight: 'bold',fontFamily:'poppins-bold'}}>
                   { this.state.fill }
                 </Text>
-                <Text style={{ fontSize: 20 }}>
+                <Text style={{ fontSize: 20,fontFamily:'poppins-bold' }}>
                   AQI
                 </Text>
               </View>
