@@ -5,8 +5,6 @@ const AQIChart = ()=>{
       <Chart
       style={{ height: 200, width: 380,paddingHorizontal: 3 }}
       data={[
-        { x: -2, y: 15 },
-        { x: -1, y: 10 },
         { x: 0, y: 12 },
         { x: 1, y: 7 },
         { x: 2, y: 6 },
@@ -25,7 +23,7 @@ const AQIChart = ()=>{
       >
         <VerticalAxis tickCount={11} 
         theme={{ labels: { formatter: (v) => v.toFixed(0) } }} />
-        <HorizontalAxis tickCount={5} />
+        <HorizontalAxis tickCount={10} theme={{ labels: { formatter: (v) => null } }}/>
         <Area theme={{ gradient: { from: { color: '#fff000' }, to: { color: '#fff000', opacity: 0.4 } }}} />
         <Line theme={{ stroke: { color: '#fff999', width: 5 }, scatter: { default: { width: 4, height: 4, rx: 2 }} }} />
       </Chart>)
