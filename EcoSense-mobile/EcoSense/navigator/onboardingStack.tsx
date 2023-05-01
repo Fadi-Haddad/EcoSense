@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import LoginScreen from '../screens/login';
 import HomeScreen from '../screens/home';
+import AQIhistory from '../screens/AQI-history';
+
 
 const OnboardingStack =() =>{
     const Stack = createStackNavigator ()
