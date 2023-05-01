@@ -2,12 +2,14 @@ import { View } from 'react-native';
 import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
 import AQIChart from '../../components/AQIChart';
+import CurrentReading from '../../components/CurrentReading';
 
 import styles from './styles';
 const Homescreen = ()=>{
   return(
     <View style={styles.container}>
       <AQIChart />
+      <CurrentReading aqi={85} state="Moderate" />
       <View style={styles.row}>
         <View style={styles.cell}>
           <SensorCard name="Sensor 1" reading="25°C" state="OK" />

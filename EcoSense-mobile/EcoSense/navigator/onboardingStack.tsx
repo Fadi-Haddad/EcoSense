@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import LoginScreen from '../screens/login';
 import HomeScreen from '../screens/home';
-import MyChart from '../screens/chart';
 
 const OnboardingStack =() =>{
     const Stack = createStackNavigator ()
@@ -14,7 +13,6 @@ const OnboardingStack =() =>{
         <Stack.Navigator initialRouteName={!isSignedIn ? "login" : "home"}>
         <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }}/>
-        {/* <Stack.Screen name="chart" component={MyChart} options={{ headerShown: false }}/> */}
         </Stack.Navigator>
         </NavigationContainer>
     );
