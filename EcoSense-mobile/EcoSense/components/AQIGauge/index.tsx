@@ -8,8 +8,8 @@ export default class AQIGauge extends Component {
       return (
         <AnimatedCircularProgress>
           {(fill) => (
-          <View style={{ alignItems: 'center'}}>
-                <Text>
+      <View style={{ alignItems: 'center'}}>
+                <Text style={{ fontSize: 50, fontWeight: 'bold' }}>
                   { this.state.fill }
                 </Text>
               </View>
