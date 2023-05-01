@@ -3,6 +3,7 @@ import { Chart, Line, Area, HorizontalAxis, VerticalAxis } from 'react-native-re
 const MyChart = ()=>{
     return (
       <Chart
+      style={{ height: 200, width: 380,paddingHorizontal: 3 }}
       data={[
         { x: -2, y: 15 },
         { x: -1, y: 10 },
