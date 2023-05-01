@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F2F2F2',
+    marginVertical: 50,
   },
   row: {
     flex: 1,
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   },
   cell: {
     flex: 1,
-    margin: 16,
+    margin: 10,
   },
   });
 
