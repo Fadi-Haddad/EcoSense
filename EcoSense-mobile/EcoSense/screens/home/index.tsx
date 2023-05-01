@@ -7,6 +7,7 @@ import styles from './styles';
 const Homescreen = ()=>{
   return(
     <View style={styles.container}>
+      <AQIChart />
       <View style={styles.row}>
         <View style={styles.cell}>
           <SensorCard name="Sensor 1" reading="25°C" state="OK" />
