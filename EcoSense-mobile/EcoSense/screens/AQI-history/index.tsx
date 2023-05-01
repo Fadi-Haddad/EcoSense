@@ -10,3 +10,4 @@ const AQIhistory =()=>{
         </View>
     )
 }
+export default AQIhistory;
