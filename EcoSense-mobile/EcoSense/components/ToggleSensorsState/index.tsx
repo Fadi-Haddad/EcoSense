@@ -9,14 +9,14 @@ const ToggleSensorsState = () => {
     };
   
     return (
-      <View>
+      <View style={{alignItems: 'center',}}>
         <TouchableOpacity onPress={toggleState}>
           <Image
             source={sensorsOn ? require('../../assets/sensors-on.png') : require('../../assets/sensors-off.png')}
             style={{ width: 120, height: 120 }}
           />
         </TouchableOpacity>
-        <Text>{sensorsOn ? 'Sensors are on' : 'Sensors are off'}</Text>
+        <Text style={{fontSize:20,marginBottom:15}}>{sensorsOn ? `Sensors are ON` : 'Sensors are OFF'}</Text>
       </View>
     );
   };
