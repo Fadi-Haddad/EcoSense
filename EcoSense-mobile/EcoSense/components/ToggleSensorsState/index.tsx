@@ -20,3 +20,4 @@ const ToggleSensorsState = () => {
       </View>
     );
   };
+  export default ToggleSensorsState;
