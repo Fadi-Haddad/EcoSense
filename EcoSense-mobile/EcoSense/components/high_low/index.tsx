@@ -29,5 +29,11 @@ type Props = {
         borderRadius: 5,
         marginVertical: 10,
         marginHorizontal: 20,
-    }
+    },
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 5,
+      },
   })
