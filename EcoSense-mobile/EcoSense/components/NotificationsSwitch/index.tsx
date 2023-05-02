@@ -19,5 +19,9 @@ const NotificationSwitch = () => {
       justifyContent: "space-between",
       width: "90%",
       paddingHorizontal: 20,
-    }
+    },
+    text: {
+        fontSize: 18,
+        fontWeight: "bold",
+      },
   });
