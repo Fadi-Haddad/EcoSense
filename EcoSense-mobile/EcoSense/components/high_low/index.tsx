@@ -54,3 +54,4 @@ type Props = {
         fontWeight: 'bold',
       },
   })
+  export default HighLow;
