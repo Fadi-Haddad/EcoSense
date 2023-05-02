@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from '../screens/login';
 import HomeScreen from '../screens/home';
 import AQIhistory from '../screens/AQI-history';
+import Settings from '../screens/settings';
 
 
 const OnboardingStack =() =>{
@@ -12,10 +13,11 @@ const OnboardingStack =() =>{
     const isSignedIn = true; // hardcoded variable for testing
     return (
         <NavigationContainer>
-        <Stack.Navigator initialRouteName={!isSignedIn ? "login" : "AQIhistory"}>
+        <Stack.Navigator initialRouteName={!isSignedIn ? "login" : "settings"}>
         <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="AQIhistory" component={AQIhistory} options={{ headerShown: false }}/>
+        <Stack.Screen name="settings" component={Settings} options={{ headerShown: false }}/>
         </Stack.Navigator>
         </NavigationContainer>
     );
