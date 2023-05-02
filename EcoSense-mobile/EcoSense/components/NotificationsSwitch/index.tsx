@@ -25,3 +25,5 @@ const NotificationSwitch = () => {
         fontWeight: "bold",
       },
   });
+
+  export default NotificationSwitch;
