@@ -12,3 +12,12 @@ const NotificationSwitch = () => {
       </View>
     );
   };
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      width: "90%",
+      paddingHorizontal: 20,
+    }
+  });
