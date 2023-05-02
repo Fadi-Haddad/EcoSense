@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Switch } from "@react-native-material/core";
 
-const ToggleCO2Notifications = () => {
+const ToggleHumidityNotifications = () => {
   const [checked, setChecked] = useState(true);
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
@@ -14,7 +14,7 @@ const ToggleCO2Notifications = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.text}>Recieve notifications for CO2</Text>
+        <Text style={styles.text}>Recieve notifications for Humidity</Text>
         <Switch value={checked} onValueChange={handleSwitch} />
       </View>
       <View style={styles.row}>
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ToggleCO2Notifications;
+export default ToggleHumidityNotifications;
