@@ -9,19 +9,17 @@ type Props = {
     highestTimestamp: string,
   };
 
-const HighLow = ({ lowestReading, highestReading, lowestTimestamp, highestTimestamp }: Props) => {
+  const HighLow = ({ lowestReading, highestReading, lowestTimestamp, highestTimestamp }: Props) => {
     return (
-      <View >
-        <View>
-        <Text >Lowest Reading:</Text>
-        <Text >lowestReading</Text>
-        <Text >lowestTimestamp</Text>
-      </View>
-      <View >
-      <Text >Lowest Reading:</Text>
-        <Text >lowestReading</Text>
-        <Text >lowestTimestamp</Text>
-      </View>
+      <View style={styles.container}>
+        <View style={styles.row}>
+  
+        </View>
+        <View style={styles.row}>
+          <Text style={styles.label}>Highest Reading:</Text>
+          <Text style={styles.value}>{highestReading}</Text>
+          <Text style={styles.timestamp}>{highestTimestamp}</Text>
+        </View>
       </View>
     );
   };
