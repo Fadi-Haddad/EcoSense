@@ -1,7 +1,6 @@
 import { View } from 'react-native';
 import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
-import AQIChart from '../../components/AQIChart';
 import AQIGauge from '../../components/AQIGauge';
 
 import styles from './styles';
