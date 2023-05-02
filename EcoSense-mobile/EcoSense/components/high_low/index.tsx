@@ -36,4 +36,9 @@ type Props = {
         alignItems: 'center',
         marginBottom: 5,
       },
+      label: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#333',
+      },
   })
