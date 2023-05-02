@@ -39,7 +39,7 @@ const ToggleAQINotifications = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 5,
   },
   row: {
     flexDirection: "row",

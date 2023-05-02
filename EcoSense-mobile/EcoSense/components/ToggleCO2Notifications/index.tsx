@@ -39,7 +39,7 @@ const ToggleCO2Notifications = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 5,
   },
   row: {
     flexDirection: "row",

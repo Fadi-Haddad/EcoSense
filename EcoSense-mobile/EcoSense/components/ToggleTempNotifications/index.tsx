@@ -14,7 +14,7 @@ const ToggleTempNotifications = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.text}>Recieve notifications for temperature</Text>
+        <Text style={styles.text}>Recieve notifications for temp</Text>
         <Switch value={checked} onValueChange={handleSwitch} />
       </View>
       <View style={styles.row}>
@@ -39,7 +39,7 @@ const ToggleTempNotifications = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 5,
   },
   row: {
     flexDirection: "row",
