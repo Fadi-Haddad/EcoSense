@@ -6,8 +6,8 @@ const NotificationSwitch = () => {
     const [checked, setChecked] = useState(true);
   
     return (
-      <View >
-        <Text>Enable Notifications</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>Enable Notifications</Text>
         <Switch value={checked} onValueChange={() => setChecked(!checked)} />
       </View>
     );
