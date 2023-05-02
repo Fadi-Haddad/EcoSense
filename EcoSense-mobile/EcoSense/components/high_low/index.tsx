@@ -13,7 +13,6 @@ type Props = {
     return (
       <View style={styles.container}>
         <View style={styles.row}>
-  
         </View>
         <View style={styles.row}>
           <Text style={styles.label}>Highest Reading:</Text>
@@ -23,3 +22,12 @@ type Props = {
       </View>
     );
   };
+  const styles = StyleSheet.create({
+    container: {
+        padding: 10,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        marginVertical: 10,
+        marginHorizontal: 20,
+    }
+  })
