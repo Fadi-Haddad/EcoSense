@@ -23,14 +23,14 @@ const ToggleCONotifications = () => {
           style={[styles.input, checked ? null : styles.disabled]}
           value={minValue}
           onChangeText={setMinValue}
-          editable={checked}
+          editable={checked} keyboardType="numeric"
         />
         <Text style={styles.label}>Max</Text>
         <TextInput
           style={[styles.input, checked ? null : styles.disabled]}
           value={maxValue}
           onChangeText={setMaxValue}
-          editable={checked}
+          editable={checked} keyboardType="numeric"
         />
       </View>
     </View>

@@ -8,7 +8,7 @@ import { AppBar } from "@react-native-material/core";
 const settings = ()=>{
     return (
         <View style={{marginTop:34}}>
-        <AppBar title="Air Quality History" />
+        <AppBar title="Settings" />
         <ToggleAQINotifications />
         <ToggleCONotifications />
         <ToggleCO2Notifications />
