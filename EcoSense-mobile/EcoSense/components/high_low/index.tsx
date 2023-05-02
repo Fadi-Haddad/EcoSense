@@ -47,4 +47,10 @@ type Props = {
         marginLeft: 5,
         fontWeight: 'bold',
       },
+      timestamp: {
+        fontSize: 14,
+        color: '#666',
+        marginLeft: 5,
+        fontWeight: 'bold',
+      },
   })
