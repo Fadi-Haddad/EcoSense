@@ -7,7 +7,8 @@ import ToggleHumidityNotifications from '../../components/ToggleHumidityNotifica
 import { AppBar } from "@react-native-material/core";
 const settings = ()=>{
     return (
-        <View>
+        <View style={{marginTop:34}}>
+        <AppBar title="Air Quality History" />
         <ToggleAQINotifications />
         <ToggleCONotifications />
         <ToggleCO2Notifications />
