@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import AQIChart from "../../components/AQIChart";
 import AQIGauge from "../../components/AQIGauge";
-import HighLow from "../../components/high_low";
+import HighLow from "../../components/HighLow";
 import { AppBar } from "@react-native-material/core";
 
 const AQIhistory =()=>{

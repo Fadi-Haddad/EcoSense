@@ -12,7 +12,6 @@ type Props = {
     return (
       <View style={styles.container}>
         <View style={styles.row}>
-        <View style={styles.row}>
           <Text style={styles.label}>Highest Reading:</Text>
           <Text style={styles.value}>{highestReading}</Text>
           <Text style={styles.timestamp}>{highestTimestamp}</Text>
@@ -22,12 +21,12 @@ type Props = {
           <Text style={styles.value}>{lowestReading}</Text>
           <Text style={styles.timestamp}>{lowestTimestamp}</Text>
         </View>
-        </View>
       </View>
     );
   };
   const styles = StyleSheet.create({
     container: {
+        flexDirection:'column',
         padding: 10,
         backgroundColor: '#fff',
         borderRadius: 5,
