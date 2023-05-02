@@ -3,7 +3,7 @@ import { Chart, Line, Area, HorizontalAxis, VerticalAxis } from 'react-native-re
 const AQIChart = ()=>{
     return (
       <Chart
-      style={{ height: 190, width: 380}}
+      style={{ height: 190, width: 380, marginBottom: 10}}
       data={[
         { x: 0, y: 12 },
         { x: 1, y: 7 },
