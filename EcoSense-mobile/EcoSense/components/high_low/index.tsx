@@ -41,4 +41,10 @@ type Props = {
         fontWeight: 'bold',
         color: '#333',
       },
+      value: {
+        fontSize: 16,
+        color: '#333',
+        marginLeft: 5,
+        fontWeight: 'bold',
+      },
   })
