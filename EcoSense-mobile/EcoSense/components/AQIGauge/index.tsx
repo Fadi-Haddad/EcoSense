@@ -3,7 +3,7 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default class AQIGauge extends Component {
-    state = {fill: 70,};
+    state = {fill: 95};
     render() {
       return (
         <AnimatedCircularProgress
@@ -15,7 +15,7 @@ export default class AQIGauge extends Component {
           {(fill) => (
       <View style={{ alignItems: 'center'}}>
                 <Text style={{ fontSize: 50, fontWeight: 'bold',fontFamily:'poppins-bold'}}>
-                  { this.state.fill }
+                  { this.state.fill+'%' }
                 </Text>
                 <Text style={{ fontSize: 20,fontFamily:'poppins-bold' }}>
                   AQI

@@ -1,4 +1,4 @@
-import { Chart, Line, Area, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
+import { Chart, Line, Area, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart';
 
 const AQIChart = ()=>{
     return (
@@ -24,8 +24,8 @@ const AQIChart = ()=>{
         <VerticalAxis tickCount={11} 
         theme={{ labels: { formatter: (v) => v.toFixed(0) } }} />
         <HorizontalAxis tickCount={10} theme={{ labels: { formatter: (v) => null } }}/>
-        <Area theme={{ gradient: { from: { color: '#fff000' }, to: { color: '#fff000', opacity: 0.4 } }}} />
-        <Line theme={{ stroke: { color: '#fff999', width: 5 }, scatter: { default: { width: 4, height: 4, rx: 2 }} }} />
+        <Area theme={{ gradient: { from: { color: '#00e0ff' }, to: { color: '#00e0ff', opacity: 0.7 } }}} />
+        <Line theme={{ stroke: { color: '#00bbff', width: 2 }, scatter: { default: { width: 2, height: 2, rx: 2 }} }} />
       </Chart>)
   }
 
