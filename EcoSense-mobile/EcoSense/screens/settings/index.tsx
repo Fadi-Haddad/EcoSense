@@ -5,6 +5,7 @@ import ToggleCO2Notifications from '../../components/ToggleCO2Notifications';
 import ToggleTempNotifications from '../../components/ToggleTempNotifications';
 import ToggleHumidityNotifications from '../../components/ToggleHumidityNotifications';
 import ToggleSensorsState from '../../components/ToggleSensorsState';
+import LoginButton from '../../src/components/LoginButton';
 import { AppBar } from "@react-native-material/core";
 
 const settings = ()=>{
@@ -17,6 +18,14 @@ const settings = ()=>{
         <ToggleCO2Notifications />
         <ToggleTempNotifications />
         <ToggleHumidityNotifications />
+        <View style={{justifyContent:'center',
+            alignContent:'center',
+            alignItems: 'center',
+            marginTop: 25,
+            backgroundColor: "#f4eef2"}}>
+            <LoginButton  title='Sign out'
+                onPress={() => alert('Button clicked!')} />
+        </View>
         </View>
     )
 }
