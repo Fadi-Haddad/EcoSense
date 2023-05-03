@@ -15,7 +15,7 @@ const deviceCard = ({ heaterStatus, fanStatus }:Props) => {
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>{`Fan is ${fanStatus}`}</Text>
-        <Image source={fanStatus === 'on' ? require('../../assets/fan2.jpeg') : require('../../assets/fan2.jpeg')} style={styles.image} />
+        <Image source={fanStatus === 'on' ? require('../../assets/fan.jpeg') : require('../../assets/fan.jpeg')} style={styles.image} />
       </View>
     </View>
   );

@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#FD6B68',
         borderRadius: 10,
         padding: 8,
-        // marginVertical: 1,
         alignItems: 'center',
         width: '90%',
     },
@@ -14,11 +13,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'poppins-bold',
         marginBottom: 8,
+        color:'#ffffff'
     },
     reading: {
         fontSize: 32,
         fontFamily: 'poppins-regular',
         marginBottom: 8,
+        color:'#ffffff'
     },
     state: {
         backgroundColor: '#ffffff',
