@@ -5,21 +5,21 @@ const AQIChart = ()=>{
       <Chart
       style={{ height: 190, width: 380, marginBottom: 10}}
       data={[
-        { x: 0, y: 12 },
-        { x: 1, y: 7 },
-        { x: 2, y: 6 },
-        { x: 3, y: 8 },
-        { x: 4, y: 10 },
-        { x: 5, y: 8 },
-        { x: 6, y: 12 },
-        { x: 7, y: 14 },
-        { x: 8, y: 12 },
-        { x: 9, y: 13 },
-        { x: 10, y: 18 },
+        { x: 0, y: 83 },
+        { x: 1, y: 85 },
+        { x: 2, y: 88 },
+        { x: 3, y: 90 },
+        { x: 4, y: 88 },
+        { x: 5, y: 85 },
+        { x: 6, y: 84 },
+        { x: 7, y: 88 },
+        { x: 8, y: 90 },
+        { x: 9, y: 94},
+        { x: 10, y: 95 },
       ]}
         padding={{ left: 40, bottom: 20, right: 20, top: 20 }}
         xDomain={{ min: 0, max: 10 }}
-        yDomain={{ min: 0, max: 20 }}
+        yDomain={{ min: 70, max: 100 }}
       >
         <VerticalAxis tickCount={11} 
         theme={{ labels: { formatter: (v) => v.toFixed(0) } }} />

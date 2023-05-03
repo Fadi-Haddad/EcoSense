@@ -14,7 +14,7 @@ const AQIhistory =()=>{
                 <AQIGauge />
                 <Text style={styles.state}>{state}</Text>
                 <AQIChart />
-                <HighLow lowestReading={0} highestReading={42} lowestTimestamp="2022-08-01 13:15:14" highestTimestamp="2022-01-020 04:15:45"/>
+                <HighLow lowestReading={65} highestReading={99} lowestTimestamp="2022-08-01 13:15:14" highestTimestamp="2022-01-020 04:15:45"/>
                 <NotificationSwitch />
             </View>
         </View>
