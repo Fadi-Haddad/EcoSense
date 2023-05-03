@@ -39,9 +39,9 @@ and make informed decisions.
 > Using the wireframes and mockups as a guide, we implemented the EcoSense app with the following features:
 
 ### User Screens (Mobile)
-| Login screen  | Home screen | AQIHistory screen | Settings screen |
-| ---| ---| ---| ---|
-| ![Landing](./readme/demo/login.gif) | ![fsdaf](./readme/demo/home.gif) | ![fsdaf](./readme/demo/AQIHistory.gif) | ![fsdaf](./readme/demo/settings.gif) |
+| Login screen  | AQIHistory screen | Settings screen |
+| ---| ---| ---|
+| ![Landing](./readme/demo/login.gif) | ![fsdaf](./readme/demo/AQIHistory.gif) | ![fsdaf](./readme/demo/settings.gif) |
 
 
 <br><br>
@@ -49,19 +49,18 @@ and make informed decisions.
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
-###  Coffee Express is built using the following technologies:
+###  EcoSense is built using the following technologies:
 
 - This project was built using [React Native](https://reactnative.dev/) and [Expo](https://docs.expo.dev/) Cross-Platform Mobile Development tools. Expo is a framework to build React Native apps. It is a set with tools and services built for React Native.
-- The admin web app was developed using [React](https://reactjs.org/). React is an open-source front-end JavaScript library for building user interfaces based on UI components.
 - The backend of the app uses [Express](https://expressjs.com/), the [Node.js](https://nodejs.org/) web application framework. Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - For storage (database), the app uses [MongoDB ](https://www.mongodb.com/), a flexible and scalable noSQL timeseries database that stores data in JSON-like documents.
-- For hardware programming, the ESP8266 microcontroller[ESP8266](https://arduino.esp8266.com/) and Arduino IDE [ESP8266](https://www.arduino.cc/) were used to develop and collect sensor data. The ESP8266 connected to Wi-Fi and sent the data to the database for storage, allowing for real-time monitoring of indoor air quality through our EcoSense mobile app
+- For hardware programming, the ESP8266 microcontroller[ESP8266](https://arduino.esp8266.com/) and Arduino IDE [ESP8266](https://www.arduino.cc/) were used to develop and collect sensor data. The ESP8266 connected to Wi-Fi and sent the data to the database for storage, allowing for real-time monitoring of indoor air quality through our EcoSense mobile app.
 <br><br>
 
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
 
-> To set up Coffee Express locally, follow these steps:
+> To set up EcoSense locally, follow these steps:
 
 ### Prerequisites
 
@@ -95,8 +94,8 @@ and make informed decisions.
 
 5. Run the start up command
    ```sh
-   expo start
+   npm run web
    ```
 6. Scan the generated QR code with your camera (ios) or through the Expo Go application (android).
 
-Now, you should be able to run Coffee Express locally and explore its features.
+Now, you should be able to run EcoSense locally and explore its features.
