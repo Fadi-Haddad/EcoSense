@@ -21,6 +21,12 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 5,
   },
+  details: {
+    alignSelf:'flex-end',
+    marginRight: '5%',
+    fontWeight:'bold',
+    marginBottom: '3%',
+  },
   });
 
   export default styles;

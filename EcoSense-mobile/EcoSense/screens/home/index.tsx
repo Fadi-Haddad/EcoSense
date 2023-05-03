@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { View,Text } from 'react-native';
 import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
 import AQIGauge from '../../components/AQIGauge';
@@ -9,6 +9,7 @@ const Homescreen = ()=>{
   return(
     <View style={styles.container}>
       <AQIGauge />
+      <Text style={styles.details}>{'Details >'}</Text>
       <View style={styles.row}>
         <View style={styles.cell}>
           <SensorCard name="CO Level :" reading="4 PPM" state="OK" />
