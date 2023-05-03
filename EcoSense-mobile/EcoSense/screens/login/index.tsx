@@ -15,7 +15,7 @@ const LoginScreen = ()=>{
         <View>
           <LoginButton 
             title='Log in'
-            onPress={() => alert('Button clicked!')}/>
+            onPress={() => alert('Logged in')}/>
         </View>
         <StatusBar style="auto" />
       </View>)

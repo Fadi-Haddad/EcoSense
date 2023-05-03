@@ -24,7 +24,7 @@ const settings = ()=>{
             marginTop: 25,
             backgroundColor: "#f4eef2"}}>
             <LoginButton  title='Sign out'
-                onPress={() => alert('Button clicked!')} />
+                onPress={() => alert('Logged out!')} />
         </View>
         </View>
     )

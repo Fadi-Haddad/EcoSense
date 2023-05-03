@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F2F2F2',
-    marginVertical: 90,
+    marginTop: 90,
   },
   row: {
     flex: 1,

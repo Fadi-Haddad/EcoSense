@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
 import AQIGauge from '../../components/AQIGauge';
+import NavigationBar from '../NavigationBar';
 
 import styles from './styles';
 const Homescreen = ()=>{
@@ -27,6 +28,7 @@ const Homescreen = ()=>{
       <View>
         <DeviceCard heaterStatus="On" fanStatus="Off"/>
       </View>
+      <NavigationBar />
     </View>
   )
 }
