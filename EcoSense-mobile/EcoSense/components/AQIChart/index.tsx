@@ -17,15 +17,14 @@ const AQIChart = ()=>{
         { x: 9, y: 94},
         { x: 10, y: 95 },
       ]}
-        padding={{ left: 40, bottom: 20, right: 20, top: 20 }}
+        padding={{ left: 40, bottom: 10, right: 20, top: 10 }}
         xDomain={{ min: 0, max: 10 }}
-        yDomain={{ min: 70, max: 100 }}
-      >
+        yDomain={{ min: 70, max: 100 }}>
         <VerticalAxis tickCount={11} 
         theme={{ labels: { formatter: (v) => v.toFixed(0) } }} />
         <HorizontalAxis tickCount={10} theme={{ labels: { formatter: (v) => null } }}/>
-        <Area theme={{ gradient: { from: { color: '#00e0ff' }, to: { color: '#00e0ff', opacity: 0.7 } }}} />
-        <Line theme={{ stroke: { color: '#00bbff', width: 2 }, scatter: { default: { width: 2, height: 2, rx: 2 }} }} />
+        <Area theme={{ gradient: { from: { color: '#2596be' }, to: { color: '#527ff4', opacity: 0.7 } }}} />
+        <Line theme={{ stroke: { color: '#2596be', width: 2 }, scatter: { default: { width: 2, height: 2, rx: 2 }} }} />
       </Chart>)
   }
 

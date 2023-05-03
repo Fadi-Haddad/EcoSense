@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 20,
+    // paddingVertical: 20,
   },
   row: {
     flexDirection: 'column',
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 8,
+    fontFamily: 'PlusJakartaSans-Regular',
   },
   image: {
     height: 70,

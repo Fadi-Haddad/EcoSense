@@ -7,19 +7,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F2F2F2',
-    marginVertical: 50,
+    marginVertical: 90,
   },
   row: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    // margin: 16,
     paddingLeft:8,
+    paddingRight:8,
   },
   cell: {
     flex: 1,
-    margin: 15,
+    margin: 5,
   },
   });
 

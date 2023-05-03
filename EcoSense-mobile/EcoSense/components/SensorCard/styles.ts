@@ -2,22 +2,21 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FD6B68',
+        backgroundColor: '#527ff4',
         borderRadius: 10,
         padding: 8,
         alignItems: 'center',
-        width: '90%',
+        width: '100%',
     },
     name: {
         fontSize: 14,
         fontWeight: 'bold',
-        fontFamily: 'poppins-bold',
+        fontFamily: 'PlusJakartaSans-Bold',
         marginBottom: 8,
         color:'#ffffff'
     },
     reading: {
-        fontSize: 32,
-        fontFamily: 'poppins-regular',
+        fontSize: 30,
         marginBottom: 8,
         color:'#ffffff'
     },
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         paddingHorizontal: 8,
         fontWeight: 'bold',
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         color: '#00aa00',
     },
     });

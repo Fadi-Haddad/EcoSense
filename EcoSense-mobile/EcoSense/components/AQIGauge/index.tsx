@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default class AQIGauge extends Component {
     state = {fill: 95};
@@ -8,17 +8,17 @@ export default class AQIGauge extends Component {
       return (
         <AnimatedCircularProgress
           size={200}
-          width={20}
+          width={13}
           fill={this.state.fill}
-          tintColor="#00e0ff"
-          backgroundColor="#3d5875">
+          tintColor="#527ff4"
+          backgroundColor="#3d5875" style={{paddingBottom:10}}>
           {(fill) => (
       <View style={{ alignItems: 'center'}}>
-                <Text style={{ fontSize: 50, fontWeight: 'bold',fontFamily:'poppins-bold'}}>
+                <Text style={{ fontSize: 50, fontWeight: 'bold',fontFamily:'PlusJakartaSans-Bold'}}>
                   { this.state.fill+'%' }
                 </Text>
-                <Text style={{ fontSize: 20,fontFamily:'poppins-bold' }}>
-                  AQI
+                <Text style={{ fontSize: 16,fontFamily:'PlusJakartaSans-Bold' }}>
+                  Air Quality
                 </Text>
               </View>
             )}

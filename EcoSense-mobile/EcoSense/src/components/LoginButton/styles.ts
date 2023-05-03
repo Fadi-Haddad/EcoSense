@@ -7,7 +7,7 @@ export default StyleSheet.create({
       justifyContent: 'center',
     },
     button: {
-      backgroundColor: '#FD6B68',
+      backgroundColor: '#527ff4',
       borderRadius: 10,
       width: 250,
       height: 60,

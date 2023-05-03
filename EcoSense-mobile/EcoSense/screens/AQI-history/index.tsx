@@ -13,6 +13,7 @@ const AQIhistory =()=>{
             <View style={styles.content}>
                 <AQIGauge />
                 <Text style={styles.state}>{state}</Text>
+                <Text style={styles.state2}>Changes with time:</Text>
                 <AQIChart />
                 <HighLow lowestReading={65} highestReading={99} lowestTimestamp="2022-08-01 13:15:14" highestTimestamp="2022-01-020 04:15:45"/>
                 <NotificationSwitch />
@@ -32,8 +33,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   state:{
-    fontSize:20,
-    marginVertical:10,
+    fontSize:25,
+    fontWeight:'bold',
+  },
+  state2:{
+    // paddingTop:10,
+    paddingLeft:10,
+    fontSize:15,
+    alignSelf:'flex-start',
     fontWeight:'bold',
   }
 });
