@@ -1,22 +1,22 @@
 import { View, StyleSheet,Text } from "react-native";
-import AQIChart from "../../components/AQIChart";
-import AQIGauge from "../../components/AQIGauge";
+import COChart from "../../components/COChart";
+import COGauge from "../../components/COGauge";
 import HighLow from "../../components/HighLow";
 import NotificationSwitch from "../../components/NotificationsSwitch";
 import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
-const AQIhistory =()=>{
+const COhistory =()=>{
   const state= "Good";
     return(
         <View style={styles.container}>
-            <AppBar title="Air Quality History" />
+            <AppBar title="CO History" />
             <View style={styles.content}>
-                <AQIGauge />
+                <COGauge />
                 <Text style={styles.state}>{state}</Text>
                 <Text style={styles.chartlabeltext}>Changes with time:</Text>
-                <AQIChart />
-                <HighLow lowestReading={65} highestReading={95} lowestTimestamp="2022-08-01 13:15" highestTimestamp="2022-01-020 04:15"/>
+                <COChart />
+                <HighLow lowestReading={3.2} highestReading={4.8} lowestTimestamp="2023-12-05 15:55" highestTimestamp="2023-03-10 07:12"/>
                 <NotificationSwitch />
                 <NavigationBar />
             </View>
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AQIhistory;
+export default COhistory;
