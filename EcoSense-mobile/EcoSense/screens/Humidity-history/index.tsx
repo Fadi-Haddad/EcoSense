@@ -1,22 +1,22 @@
 import { View, StyleSheet,Text } from "react-native";
-import TempChart from "../../components/TempChart";
-import TempGauge from "../../components/TempGauge";
+import HumidityChart from "../../components/HumidityChart";
+import HumidityGauge from "../../components/HumidityGauge";
 import HighLow from "../../components/HighLow";
 import NotificationSwitch from "../../components/NotificationsSwitch";
 import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
-const CO2history =()=>{
+const Humidityhistory =()=>{
   const state= "Good";
     return(
         <View style={styles.container}>
-            <AppBar title="Temperature History" />
+            <AppBar title="Humidity History" />
             <View style={styles.content}>
-                <TempGauge />
+                <HumidityGauge />
                 <Text style={styles.state}>{state}</Text>
                 <Text style={styles.chartlabeltext}>Changes with time:</Text>
-                <TempChart />
-                <HighLow lowestReading={5} highestReading={35} lowestTimestamp="2022-12-05 05:25" highestTimestamp="2022-08-16 1:35"/>
+                <HumidityChart />
+                <HighLow lowestReading={20} highestReading={50} lowestTimestamp="2022-12-08 06:30" highestTimestamp="2022-07-15 02:20"/>
                 <NotificationSwitch />
                 <NavigationBar />
             </View>
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CO2history;
+export default Humidityhistory;
