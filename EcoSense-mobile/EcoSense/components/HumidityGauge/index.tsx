@@ -3,7 +3,7 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { View, Text } from 'react-native';
 
 export default class HumidityGauge extends Component {
-    state = {fill: 100};
+    state = {fill: 32};
     render() {
       return (
         <AnimatedCircularProgress
@@ -15,7 +15,7 @@ export default class HumidityGauge extends Component {
           {(fill) => (
       <View style={{ alignItems: 'center'}}>
                 <Text style={{ fontSize: 36, fontWeight: 'bold',fontFamily:'PlusJakartaSans-Bold'}}>
-                  { Math.round(this.state.fill/3.1)+'%' }
+                  { this.state.fill+'%' }
                 </Text>
                 <Text style={{ fontSize: 16,fontFamily:'PlusJakartaSans-Bold' }}>
                   Humidity

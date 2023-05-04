@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import LoginButton from '../../src/components/LoginButton';
@@ -7,15 +8,19 @@ import PasswordInput from '../../src/components/PasswordInput';
 import styles from './styles';
 
 const LoginScreen = ()=>{
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (text) => {
+    setEmail(text)
+  };
     return (
       <View style={styles.container}>
         <CoverPicture />
-        <EmailInput />
+        <EmailInput handleEmailChange={handleEmailChange}/>
         <PasswordInput />
         <View>
           <LoginButton 
             title='Log in'
-            onPress={() => alert('Logged in')}/>
+            onPress={() => alert(email)}/>
         </View>
         <StatusBar style="auto" />
       </View>)
