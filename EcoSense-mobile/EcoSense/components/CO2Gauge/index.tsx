@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { View, Text } from 'react-native';
 
-export default class COGauge extends Component {
-    state = {fill: 94};
+export default class CO2Gauge extends Component {
+    state = {fill: 88};
     render() {
       return (
         <AnimatedCircularProgress
@@ -15,10 +15,10 @@ export default class COGauge extends Component {
           {(fill) => (
       <View style={{ alignItems: 'center'}}>
                 <Text style={{ fontSize: 36, fontWeight: 'bold',fontFamily:'PlusJakartaSans-Bold'}}>
-                  { this.state.fill/20+' PPM' }
+                  { this.state.fill+' PPM' }
                 </Text>
                 <Text style={{ fontSize: 16,fontFamily:'PlusJakartaSans-Bold' }}>
-                  CO Level
+                  CO2 Level
                 </Text>
               </View>
             )}

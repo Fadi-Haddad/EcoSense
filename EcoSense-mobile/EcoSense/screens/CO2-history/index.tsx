@@ -1,22 +1,22 @@
 import { View, StyleSheet,Text } from "react-native";
-import COChart from "../../components/COChart";
-import COGauge from "../../components/COGauge";
+import CO2Chart from "../../components/CO2Chart";
+import CO2Gauge from "../../components/CO2Gauge";
 import HighLow from "../../components/HighLow";
 import NotificationSwitch from "../../components/NotificationsSwitch";
 import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
-const COhistory =()=>{
-  const state= "Good";
+const CO2history =()=>{
+  const state= "Fair";
     return(
         <View style={styles.container}>
-            <AppBar title="CO History" />
+            <AppBar title="CO2 History" />
             <View style={styles.content}>
-                <COGauge />
+                <CO2Gauge />
                 <Text style={styles.state}>{state}</Text>
                 <Text style={styles.chartlabeltext}>Changes with time:</Text>
-                <COChart />
-                <HighLow lowestReading={3.2} highestReading={4.8} lowestTimestamp="2022-12-05 15:55" highestTimestamp="2023-03-10 07:12"/>
+                <CO2Chart />
+                <HighLow lowestReading={65} highestReading={93} lowestTimestamp="2023-02-05 12:25" highestTimestamp="2023-02-07 12:05"/>
                 <NotificationSwitch />
                 <NavigationBar />
             </View>
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default COhistory;
+export default CO2history;
