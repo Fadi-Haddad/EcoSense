@@ -1,15 +1,28 @@
 const User = require('../Models/user.model');
-const login = async (req,res)=>{
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid || !user) {
-        return res.status(401).json({ message: 'Invalid email or password' });
-      }
-    const token = jwt.sign({ email: user.email, userType: user.userType }, process.env.JWT_SECRET);
-    res.json({ token });
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-}
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    console.log(email , password);
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+    const token = jwt.sign({ email: user.email, userType: user.userType }, process.env.JWT_SECRET);
+    console.log(token);
+    res.json({ token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 const createUser = async(req,res)=>{
     if (req.user.userType !== 'admin') {
         return res.status(401).json({ message: 'Unauthorized' });}
