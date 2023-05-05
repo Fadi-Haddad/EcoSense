@@ -62,6 +62,17 @@ const getSensorsReadings = async (req, res) => {
         res.status(400).json({ message: 'Error retrieving sensor readings' });
     };
     };
+const getSensorReadings = async (req, res) => {
+    try{
+        const sensor_name= req.params.sensor_name;
+        const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(10);
+        const filteredDocs = readings.map(reading => reading.CO);
+        res.json(filteredDocs);
+    } catch(err){
+        console.error(err);
+        res.status(400).json({ message: 'Error retrieving sensor readings' });
+    };
+    };
 const getSensorMinReading = async(req, res) => {
     try{
         sensorName= req.params.sensor_name;
@@ -144,4 +155,5 @@ module.exports = {saveSensorReadings,
                     getSensorsState,
                     setSensorsState,
                     setSensorsThresholds,
-                    setSensorState};
+                    setSensorState,
+                    getSensorReadings};
