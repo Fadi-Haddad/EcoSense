@@ -53,7 +53,7 @@ const saveSensorReadings = async (req, res) => {
         res.status(400).json({ message: "Error posting sensors' readings" });
     }
     };
-const getSensorReadings = async (req, res) => {
+const getSensorsReadings = async (req, res) => {
     try{
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
         res.json(readings);
@@ -138,7 +138,7 @@ const setSensorState = async (req,res)=>{
     res.status(200).json({ message: "Sensor's notification state updated successfully" });
 }
 module.exports = {saveSensorReadings,
-                    getSensorReadings,
+                    getSensorsReadings,
                     getSensorMinReading,
                     getSensorMaxReading,
                     getSensorsState,
