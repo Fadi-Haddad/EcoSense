@@ -59,50 +59,63 @@ const getSensorsReadings = async (req, res) => {
         const state = {};
 
         if (readings[0].AQI < 20) {
-                state.AQI = 'Hazardous';} 
-            else if (readings[0].AQI < 40) 
-                {state.AQI = 'Bad';} 
-            else if (readings[0].AQI < 60) 
-                {state.AQI = 'Unhealthy';} 
-            else if (readings[0].AQI < 80) 
-                {state.AQI = 'Moderate';} 
-            else if (readings[0].AQI < 90) 
-                {state.AQI = 'Good';} 
-            else 
-                {state.CO = 'Perfect';}
+            state.AQI = 'Hazardous';} 
+        else if (readings[0].AQI < 40) 
+            {state.AQI = 'Bad';} 
+        else if (readings[0].AQI < 60) 
+            {state.AQI = 'Unhealthy';} 
+        else if (readings[0].AQI < 80) 
+            {state.AQI = 'Moderate';} 
+        else if (readings[0].AQI < 90) 
+            {state.AQI = 'Good';} 
+        else 
+            {state.CO = 'Perfect';}
 
-            if (readings[0].CO < 20) {
-                state.CO = 'Perfect';} 
-            else if (readings[0].CO < 40) 
-                {state.CO = 'Good';} 
-            else if (readings[0].CO < 60) 
-                {state.CO = 'Fair';} 
-            else if (readings[0].CO < 80) 
-                {state.CO = 'Moderate';} 
-            else 
-                {state.CO2 = 'Hazardous';}
+        if (readings[0].CO < 20) {
+            state.CO = 'Perfect';} 
+        else if (readings[0].CO < 40) 
+            {state.CO = 'Good';} 
+        else if (readings[0].CO < 60) 
+            {state.CO = 'Fair';} 
+        else if (readings[0].CO < 80) 
+            {state.CO = 'Moderate';} 
+        else 
+            {state.CO2 = 'Hazardous';}
 
-            if (readings[0].CO2 < 20) {
-                state.CO2 = 'Perfect';} 
-            else if (readings[0].CO2 < 40) 
-                {state.CO2 = 'Good';} 
-            else if (readings[0].CO2 < 60) 
-                {state.CO2 = 'Fair';}
-            else if (readings[0].CO2 < 80) 
-                {state.CO2 = 'Moderate';} 
-            else 
-                {state.Temp = 'Hazardous';}
-                
-            if (readings[0].Temp < 20) {
-                state.Temp = 'Perfect';} 
-            else if (readings[0].Temp < 40) 
-                {state.Temp = 'Good';} 
-            else if (readings[0].Temp < 60) 
-                {state.Temp = 'Fair';} 
-            else if (readings[0].Temp < 80) 
-                {state.Temp = 'Moderate';} 
-            else 
-                {state.Humidity = 'Hazardous';}
+        if (readings[0].CO2 < 20) {
+            state.CO2 = 'Perfect';} 
+        else if (readings[0].CO2 < 40) 
+            {state.CO2 = 'Good';} 
+        else if (readings[0].CO2 < 60) 
+            {state.CO2 = 'Fair';}
+        else if (readings[0].CO2 < 80) 
+            {state.CO2 = 'Moderate';} 
+        else 
+            {state.Temp = 'Hazardous';}
+
+        if (readings[0].Temp > 40 ) {
+            state.Temp = 'Very Hot';} 
+        else if (readings[0].Temp > 30) 
+            {state.Temp = 'Hot';} 
+        else if (readings[0].Temp >25) 
+            {state.Temp = 'Fair';} 
+        else if (readings[0].Temp >20) 
+            {state.Temp = 'Good';} 
+        else if (readings[0].Temp >16) 
+            {state.Temp = 'Cold';} 
+        else 
+            {state.Humidity = 'Very Cold';}
+        
+        if (readings[0].Humidity > 60) {
+            state.Humidity = 'Very Humid';} 
+        else if (readings[0].Humidity > 50) 
+            {state.Humidity = 'Humid';} 
+        else if (readings[0].Humidity > 40) 
+            {state.Humidity = 'Fair';} 
+        else if (readings[0].Humidity > 35) 
+            {state.Humidity = 'Good';} 
+        else 
+            {state.Humidity = 'Perfect';}
 
             const result = {readings : readings[0], state}
         res.json(result);
