@@ -73,25 +73,14 @@ const getSensorReadings = async (req, res) => {
         res.status(400).json({ message: 'Error retrieving sensor readings' });
     };
     };
-const getSensorMinReading = async(req, res) => {
+const getSensorMinMaxReading = async (req, res) => {
     try{
         sensorName= req.params.sensor_name;
         if(!validSensorNames.includes(sensorName)){
             return res.status(500).json({ message: `${sensorName} is not a valid sensor name` });}
-        const result = await sensorReading.findOne().sort(sensorName).exec();
-        res.json(result);
-    } catch (err){
-        console.error(err);
-        res.status(400).json({ message: "Error retrieving sensor's minimum reading" });
-    };
-    };
-const getSensorMaxReading = async (req, res) => {
-    try{
-        sensorName= req.params.sensor_name;
-        if(!validSensorNames.includes(sensorName)){
-            return res.status(500).json({ message: `${sensorName} is not a valid sensor name` });}
-        const result = await sensorReading.findOne().sort({ [sensorName]: -1 }).exec();
-        res.json(result);
+        const minResult = await sensorReading.findOne().sort(sensorName).exec();
+        const maxResult = await sensorReading.findOne().sort({ [sensorName]: -1 }).exec();
+        res.json({min:minResult,max:maxResult});
     }catch(err){
         console.error(err);
         res.status(400).json({ message: "Error retrieving sensor's maximum reading" });
@@ -150,8 +139,7 @@ const setSensorState = async (req,res)=>{
 }
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
-                    getSensorMinReading,
-                    getSensorMaxReading,
+                    getSensorMinMaxReading,
                     getSensorsState,
                     setSensorsState,
                     setSensorsThresholds,
