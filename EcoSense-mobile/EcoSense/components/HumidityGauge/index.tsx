@@ -8,7 +8,6 @@ const HumidityGauge = ({ Reading }) => {
   useEffect(() => {
     if (Reading) {
       setFill(Reading);
-      console.log(fill);
     }
   }, [Reading]);
   

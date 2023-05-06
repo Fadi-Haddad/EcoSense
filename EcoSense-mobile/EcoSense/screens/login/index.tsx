@@ -49,14 +49,12 @@ const LoginScreen = ({ props }) => {
         const response = await axios.post("http://192.168.0.100:8000/auth/login", 
           {email,password,userType: 'user'},
           {headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'}});
-        console.log(email , password);
         const { token } = response.data;
         await AsyncStorage.setItem('isSignedIn', 'true');
         await AsyncStorage.setItem('token', token);
         navigation.navigate('home');
       } catch (error) {
         setErrorMessage('Invalid email or password.');
-        console.log(error)
       }
     }
   };
