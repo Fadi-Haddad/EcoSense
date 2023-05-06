@@ -44,7 +44,7 @@ const saveSensorReadings = async (req, res) => {
             const {AQI,CO,CO2,Temp,Humidity} = req.body;
             console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
             const now = new Date();
-            now.setHours(now.getHours() + 3)
+            now.setHours(now.getHours() + 0) // set time offset
             const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
             await newReading.save();
             res.status(200).json({ message: 'Sensor readings saved sucessfully ' });}

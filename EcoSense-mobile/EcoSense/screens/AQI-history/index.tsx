@@ -13,6 +13,7 @@ const AQIhistory =()=>{
     "min": {"AQI": 0,"timeStamp": "0",},
     "max": {"AQI": 0,"timeStamp": "0",}
   });
+  const [state, setState] = useState('good');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +46,23 @@ const AQIhistory =()=>{
   const maxDate = new Date(maxTimeStamp);
   const formattedMaxDate = `${maxDate.getMonth() + 1}/${maxDate.getDate()}/${maxDate.getFullYear()} ${maxDate.getHours()}:${maxDate.getMinutes()}`;
   
-  const state = 'good'
+  useEffect(() => {
+      const AQIValue = Data[0];
+      if (AQIValue < 20) {
+        setState('Hazardous');
+      } else if (AQIValue < 40) {
+        setState('Bad');
+      } else if (AQIValue < 60) {
+        setState('Unhealthy');
+      } else if (AQIValue < 80) {
+        setState('Fair');
+      } else if (AQIValue < 90) {
+        setState('Good');
+      } else {
+        setState('Perfect');
+      }
+  }, [Data]);
+
   return (
     <View style={styles.container}>
       <AppBar title="Air Quality History" />
