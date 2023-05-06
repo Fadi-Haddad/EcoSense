@@ -68,7 +68,7 @@ const AQIhistory =()=>{
     <View style={styles.container}>
       <AppBar title="Air Quality History" />
       <View style={styles.content}>
-            <AQIGauge Reading={Data[0]} />
+            <AQIGauge Reading={Data.length ? Data[0] : 0} />
             <Text style={styles.state}>{state}</Text>
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <AQIChart Data={Data} />
