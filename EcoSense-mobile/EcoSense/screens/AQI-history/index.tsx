@@ -49,7 +49,7 @@ const AQIhistory =()=>{
   useEffect(() => {
       const AQIValue = Data[0];
       if (AQIValue < 20) {
-        setState('Hazardous');
+        setState('Dangerous');
       } else if (AQIValue < 40) {
         setState('Bad');
       } else if (AQIValue < 60) {

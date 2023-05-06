@@ -59,7 +59,7 @@ const COhistory =()=>{
       } else if (COValue < 90) {
         setState('Bad');
       } else {
-        setState('Hazardous');
+        setState('Dangerous');
       }
   }, [Data]);
 

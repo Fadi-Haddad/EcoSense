@@ -59,7 +59,7 @@ const CO2history =()=>{
       } else if (CO2Value < 90) {
         setState('Bad');
       } else {
-        setState('Hazardous');
+        setState('Dangerous');
       }
   }, [Data]);
 
