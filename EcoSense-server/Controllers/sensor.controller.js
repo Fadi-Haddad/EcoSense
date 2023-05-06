@@ -56,6 +56,7 @@ const saveSensorReadings = async (req, res) => {
 const getSensorsReadings = async (req, res) => {
     try{
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
+        const state = {};
         res.json(readings);
     } catch(err){
         console.error(err);
