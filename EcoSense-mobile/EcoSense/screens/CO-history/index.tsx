@@ -1,33 +1,88 @@
-import { View, StyleSheet,Text } from "react-native";
-import COChart from "../../components/COChart";
+import { useState, useEffect } from 'react';
 import COGauge from "../../components/COGauge";
+import COChart from "../../components/COChart";
+import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
 import NotificationSwitch from "../../components/NotificationsSwitch";
 import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
 const COhistory =()=>{
-  const state= "Good";
-    return(
-        <View style={styles.container}>
-            <AppBar title="CO History" />
-            <View style={styles.content}>
-                <COGauge />
-                <Text style={styles.state}>{state}</Text>
-                <Text style={styles.chartlabeltext}>Changes with time:</Text>
-                <COChart />
-                <HighLow lowestReading={3.2} highestReading={4.8} lowestTimestamp="2022-12-05 15:55" highestTimestamp="2023-03-10 07:12"/>
-                <NotificationSwitch />
-                <NavigationBar />
-            </View>
-        </View>
-    )
-}
+  const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
+  const [minMaxData, setMinMaxData] = useState({
+    "min": {"CO": 0,"timeStamp": "0",},
+    "max": {"CO": 0,"timeStamp": "0",}
+  });
+  const [state, setState] = useState('good');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://192.168.0.100:8000/data/get_sensor_readings/CO');
+      const responseData = await response.json();
+      setData(responseData);
+    };
+    fetchData();
+
+    const fetchMinMaxData = async () => {
+      const minMax = await fetch('http://192.168.0.100:8000/data/get/CO/min_max');
+      const minMaxData = await minMax.json();
+      setMinMaxData(minMaxData);
+    };
+    fetchMinMaxData();
+
+    const interval = setInterval(() => {
+      fetchData();
+      fetchMinMaxData();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const minTimeStamp = minMaxData.min.timeStamp
+  const minDate = new Date(minTimeStamp);
+  const formattedMinDate = `${minDate.getMonth() + 1}/${minDate.getDate()}/${minDate.getFullYear()} ${minDate.getHours()}:${minDate.getMinutes()}`;
+  
+  const maxTimeStamp = minMaxData.max.timeStamp
+  const maxDate = new Date(maxTimeStamp);
+  const formattedMaxDate = `${maxDate.getMonth() + 1}/${maxDate.getDate()}/${maxDate.getFullYear()} ${maxDate.getHours()}:${maxDate.getMinutes()}`;
+  
+  useEffect(() => {
+      const COValue = Data[1];
+      if (COValue < 20) {
+        setState('Perfect');
+      } else if (COValue < 40) {
+        setState('Good');
+      } else if (COValue < 60) {
+        setState('Fair');
+      } else if (COValue < 80) {
+        setState('Moderate');
+      } else if (COValue < 90) {
+        setState('Bad');
+      } else {
+        setState('Hazardous');
+      }
+  }, [Data]);
+
+  return (
+    <View style={styles.container}>
+      <AppBar title="CO History" />
+      <View style={styles.content}>
+            <COGauge Reading={Data.length ? Data[1] : 0} />
+            <Text style={styles.state}>{state}</Text>
+            <Text style={styles.chartlabeltext}>Changes with time:</Text>
+            <COChart Data={Data} />
+            <HighLow lowestReading={minMaxData.min.CO} highestReading={minMaxData.max.CO} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
+            <NotificationSwitch />
+            <NavigationBar />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop:34
+    marginTop: 34
   },
   content: {
     flex: 1,

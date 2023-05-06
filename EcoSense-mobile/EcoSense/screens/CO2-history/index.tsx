@@ -47,16 +47,16 @@ const CO2history =()=>{
   const formattedMaxDate = `${maxDate.getMonth() + 1}/${maxDate.getDate()}/${maxDate.getFullYear()} ${maxDate.getHours()}:${maxDate.getMinutes()}`;
   
   useEffect(() => {
-      const AQIValue = Data[0];
-      if (AQIValue < 20) {
+      const CO2Value = Data[2];
+      if (CO2Value < 20) {
         setState('Perfect');
-      } else if (AQIValue < 40) {
+      } else if (CO2Value < 40) {
         setState('Good');
-      } else if (AQIValue < 60) {
+      } else if (CO2Value < 60) {
         setState('Fair');
-      } else if (AQIValue < 80) {
+      } else if (CO2Value < 80) {
         setState('Moderate');
-      } else if (AQIValue < 90) {
+      } else if (CO2Value < 90) {
         setState('Bad');
       } else {
         setState('Hazardous');
@@ -71,7 +71,7 @@ const CO2history =()=>{
             <Text style={styles.state}>{state}</Text>
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <CO2Chart Data={Data} />
-            <HighLow lowestReading={minMaxData.min.AQI} highestReading={minMaxData.max.AQI} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
+            <HighLow lowestReading={minMaxData.min.CO2} highestReading={minMaxData.max.CO2} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
             <NotificationSwitch />
             <NavigationBar />
       </View>

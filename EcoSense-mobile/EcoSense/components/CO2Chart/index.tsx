@@ -1,6 +1,6 @@
 import { Chart, Line, Area, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart';
 
-const CO2Chart = ({ Data }) => {
+const COChart = ({ Data }) => {
   return (
     <Chart
       style={{ height: 190, width: 380, marginBottom: 10 }}
@@ -35,5 +35,5 @@ const CO2Chart = ({ Data }) => {
   );
 };
 
-export default CO2Chart;
+export default COChart;
 
