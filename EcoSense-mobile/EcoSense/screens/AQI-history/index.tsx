@@ -10,26 +10,8 @@ import { AppBar } from "@react-native-material/core";
 const AQIhistory =()=>{
   const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
   const [minMaxData, setMinMaxData] = useState({
-    "min": {
-      "_id": "6455928321ec9d52999a5a40",
-      "AQI": 0,
-      "CO": 57,
-      "CO2": 56,
-      "Temp": 55,
-      "Humidity": 37,
-      "timeStamp": "2023-05-06T02:34:27.623Z",
-      "__v": 0
-    },
-    "max": {
-      "_id": "644a99c614ed97a23c0afd21",
-      "AQI": 99,
-      "CO": 36,
-      "CO2": 74,
-      "Temp": 5,
-      "Humidity": 29,
-      "timeStamp": "2022-03-27T14:50:30.708Z",
-      "__v": 0
-    }
+    "min": {"AQI": 0,"timeStamp": "0",},
+    "max": {"AQI": 0,"timeStamp": "0",}
   });
 
   useEffect(() => {
