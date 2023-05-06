@@ -47,7 +47,7 @@ const COhistory =()=>{
   const formattedMaxDate = `${maxDate.getMonth() + 1}/${maxDate.getDate()}/${maxDate.getFullYear()} ${maxDate.getHours()}:${maxDate.getMinutes()}`;
   
   useEffect(() => {
-      const COValue = Data[1];
+      const COValue = Data[0];
       if (COValue < 20) {
         setState('Perfect');
       } else if (COValue < 40) {
@@ -67,7 +67,7 @@ const COhistory =()=>{
     <View style={styles.container}>
       <AppBar title="CO History" />
       <View style={styles.content}>
-            <COGauge Reading={Data.length ? Data[1] : 0} />
+            <COGauge Reading={Data.length ? Data[0] : 0} />
             <Text style={styles.state}>{state}</Text>
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <COChart Data={Data} />

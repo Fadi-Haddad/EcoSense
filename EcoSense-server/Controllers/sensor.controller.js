@@ -66,7 +66,7 @@ const getSensorReadings = async (req, res) => {
     try{
         const sensor_name= req.params.sensor_name;
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(10);
-        const filteredDocs = readings.map(reading => reading.CO);
+        const filteredDocs = readings.map(reading => reading[sensor_name]);
         res.json(filteredDocs);
     } catch(err){
         console.error(err);
