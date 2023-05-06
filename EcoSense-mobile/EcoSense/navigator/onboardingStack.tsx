@@ -21,7 +21,7 @@ const OnboardingStack =() =>{
     // const isSignedIn = false; // hardcoded variable for testing
     return (
         <NavigationContainer>
-        <Stack.Navigator initialRouteName={isSignedIn ==='true' ? "home" : "login"}>
+        <Stack.Navigator initialRouteName={isSignedIn ==='true' ? "home" : "AQIhistory"}>
         <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="AQIhistory" component={AQIhistory} options={{ headerShown: false }}/>
