@@ -57,7 +57,22 @@ const getSensorsReadings = async (req, res) => {
     try{
         const readings = await sensorReading.find().sort({ timeStamp: -1 }).limit(1);
         const state = {};
-        res.json(readings);
+
+        if (readings[0].AQI < 20) {
+                state.AQI = 'Hazardous';} 
+            else if (readings[0].AQI < 40) 
+                {state.AQI = 'Bad';} 
+            else if (readings[0].AQI < 60) 
+                {state.AQI = 'Unhealthy';} 
+            else if (readings[0].AQI < 80) 
+                {state.AQI = 'Moderate';} 
+            else if (readings[0].AQI < 90) 
+                {state.AQI = 'Good';} 
+            else 
+                {state.CO = 'Perfect';}
+                
+            const result = {readings : readings[0], state}
+        res.json(result);
     } catch(err){
         console.error(err);
         res.status(400).json({ message: 'Error retrieving sensor readings' });
