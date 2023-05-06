@@ -1,33 +1,88 @@
-import { View, StyleSheet,Text } from "react-native";
-import CO2Chart from "../../components/CO2Chart";
+import { useState, useEffect } from 'react';
 import CO2Gauge from "../../components/CO2Gauge";
+import CO2Chart from "../../components/CO2Chart";
+import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
 import NotificationSwitch from "../../components/NotificationsSwitch";
 import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
 const CO2history =()=>{
-  const state= "Fair";
-    return(
-        <View style={styles.container}>
-            <AppBar title="CO2 History" />
-            <View style={styles.content}>
-                <CO2Gauge />
-                <Text style={styles.state}>{state}</Text>
-                <Text style={styles.chartlabeltext}>Changes with time:</Text>
-                <CO2Chart />
-                <HighLow lowestReading={65} highestReading={93} lowestTimestamp="2023-02-05 12:25" highestTimestamp="2023-02-07 12:05"/>
-                <NotificationSwitch />
-                <NavigationBar />
-            </View>
-        </View>
-    )
-}
+  const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
+  const [minMaxData, setMinMaxData] = useState({
+    "min": {"CO2": 0,"timeStamp": "0",},
+    "max": {"CO2": 0,"timeStamp": "0",}
+  });
+  const [state, setState] = useState('good');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://192.168.0.100:8000/data/get_sensor_readings/CO2');
+      const responseData = await response.json();
+      setData(responseData);
+    };
+    fetchData();
+
+    const fetchMinMaxData = async () => {
+      const minMax = await fetch('http://192.168.0.100:8000/data/get/CO2/min_max');
+      const minMaxData = await minMax.json();
+      setMinMaxData(minMaxData);
+    };
+    fetchMinMaxData();
+
+    const interval = setInterval(() => {
+      fetchData();
+      fetchMinMaxData();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const minTimeStamp = minMaxData.min.timeStamp
+  const minDate = new Date(minTimeStamp);
+  const formattedMinDate = `${minDate.getMonth() + 1}/${minDate.getDate()}/${minDate.getFullYear()} ${minDate.getHours()}:${minDate.getMinutes()}`;
+  
+  const maxTimeStamp = minMaxData.max.timeStamp
+  const maxDate = new Date(maxTimeStamp);
+  const formattedMaxDate = `${maxDate.getMonth() + 1}/${maxDate.getDate()}/${maxDate.getFullYear()} ${maxDate.getHours()}:${maxDate.getMinutes()}`;
+  
+  useEffect(() => {
+      const AQIValue = Data[0];
+      if (AQIValue < 20) {
+        setState('Perfect');
+      } else if (AQIValue < 40) {
+        setState('Good');
+      } else if (AQIValue < 60) {
+        setState('Fair');
+      } else if (AQIValue < 80) {
+        setState('Moderate');
+      } else if (AQIValue < 90) {
+        setState('Bad');
+      } else {
+        setState('Hazardous');
+      }
+  }, [Data]);
+
+  return (
+    <View style={styles.container}>
+      <AppBar title="CO2 History" />
+      <View style={styles.content}>
+            <CO2Gauge Reading={Data.length ? Data[0] : 0} />
+            <Text style={styles.state}>{state}</Text>
+            <Text style={styles.chartlabeltext}>Changes with time:</Text>
+            <CO2Chart Data={Data} />
+            <HighLow lowestReading={minMaxData.min.AQI} highestReading={minMaxData.max.AQI} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
+            <NotificationSwitch />
+            <NavigationBar />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop:34
+    marginTop: 34
   },
   content: {
     flex: 1,
