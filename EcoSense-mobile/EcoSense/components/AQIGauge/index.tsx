@@ -3,7 +3,7 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { View, Text } from 'react-native';
 
 const AQIGauge = ({ Reading }) => {
-  const [fill, setFill] = useState();
+  const [fill, setFill] = useState(0);
 
   useEffect(() => {
     if (Reading) {
