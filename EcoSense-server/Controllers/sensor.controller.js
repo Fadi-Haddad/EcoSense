@@ -82,6 +82,17 @@ const getSensorsReadings = async (req, res) => {
             else 
                 {state.CO2 = 'Hazardous';}
 
+            if (readings[0].CO2 < 20) {
+                state.CO2 = 'Perfect';} 
+            else if (readings[0].CO2 < 40) 
+                {state.CO2 = 'Good';} 
+            else if (readings[0].CO2 < 60) 
+                {state.CO2 = 'Fair';}
+            else if (readings[0].CO2 < 80) 
+                {state.CO2 = 'Moderate';} 
+            else 
+                {state.Temp = 'Hazardous';}
+
             const result = {readings : readings[0], state}
         res.json(result);
     } catch(err){
