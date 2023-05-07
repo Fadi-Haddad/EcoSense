@@ -9,6 +9,7 @@ import LoginButton from '../../src/components/LoginButton';
 import { AppBar } from "@react-native-material/core";
 
 const settings = ()=>{
+    const [sensorData, setSensorData] = useState(null);
     
     return (
         <View style={{marginTop:34, backgroundColor:"#f4eef2"}}>
