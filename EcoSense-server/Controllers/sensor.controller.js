@@ -199,6 +199,9 @@ const setSensorState = async (req,res)=>{
     }
     res.status(200).json({ message: "Sensor's notification state updated successfully" });
 }
+const getSensorsNotificationAndThresholds = (req,res)=>{
+
+} 
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
                     getSensorMinMaxReading,
