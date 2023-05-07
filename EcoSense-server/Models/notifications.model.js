@@ -10,6 +10,9 @@ const notificationSchema = new mongoose.Schema({
       type: Boolean,
       required: true,
     },
+    action: {
+        type: String,
+    },
     timestamp: {
       type: Date,
       required: true,
