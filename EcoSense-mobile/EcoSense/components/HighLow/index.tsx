@@ -27,8 +27,9 @@ type Props = {
   const styles = StyleSheet.create({
     container: {
         flexDirection:'column',
-        padding: 10,
-        backgroundColor: '#fff',
+        paddingHorizontal: 25,
+        paddingVertical: 10,
+        backgroundColor: '#7398fa',
         borderRadius: 5,
         marginVertical: 10,
         marginHorizontal: 20,
@@ -47,12 +48,13 @@ type Props = {
       value: {
         fontSize: 16,
         color: '#333',
-        marginLeft: 5,
+        marginLeft: 8,
+        marginRight: 8,
         fontWeight: 'bold',
       },
       timestamp: {
         fontSize: 14,
-        color: '#666',
+        color: '#333',
         marginLeft: 5,
         fontWeight: 'bold',
       },

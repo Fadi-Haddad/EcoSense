@@ -3,7 +3,6 @@ import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
 import AQIGauge from '../../components/AQIGauge';
 import { useState, useEffect } from 'react';
-// import styles from './styles';
 import styles from './styles'
 
 const Homescreen = ({navigation})=>{
@@ -28,29 +27,29 @@ const Homescreen = ({navigation})=>{
     <View style={styles.container}>
       <AQIGauge Reading={Data.readings.AQI} />
       <Text style={{fontSize: 24, fontWeight:'800'}}>{Data.state.AQI}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('AQIhistory')}>
-        <Text style={styles.details}>{'Details >'}</Text>
+      <TouchableOpacity style={styles.details} onPress={() => navigation.navigate('AQIhistory')}>
+        <Text >{'Details >'}</Text>
       </TouchableOpacity>
       <View style={styles.row}>
-        <TouchableOpacity onPress={() => navigation.navigate('COhistory')}>
-        <View style={styles.cell}>
+        <TouchableOpacity style={styles.cell} onPress={() => navigation.navigate('COhistory')}>
+        <View>
           <SensorCard name="CO Level :" reading={Data.readings.CO} state={Data.state.CO} unit = "PPM" />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('CO2history')}>
-        <View style={styles.cell}>
+      <TouchableOpacity style={styles.cell} onPress={() => navigation.navigate('CO2history')}>
+        <View>
           <SensorCard name="CO2 Level :" reading={Data.readings.CO2} state={Data.state.CO2} unit = "PPM"/>
         </View>
       </TouchableOpacity>
       </View>
       <View style={styles.row}>
-      <TouchableOpacity onPress={() => navigation.navigate('Temphistory')}>
-        <View style={styles.cell}>
+      <TouchableOpacity style={styles.cell} onPress={() => navigation.navigate('Temphistory')}>
+        <View >
           <SensorCard name="Temperature :" reading={Data.readings.Temp} state={Data.state.Temp} unit = "°C"/>
         </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Humidityhistory')}>
-        <View style={styles.cell}>
+        <TouchableOpacity style={styles.cell} onPress={() => navigation.navigate('Humidityhistory')}>
+        <View>
           <SensorCard name="Humidity :" reading={Data.readings.Humidity} state={Data.state.Humidity} unit = "%"/>
         </View>
         </TouchableOpacity>
