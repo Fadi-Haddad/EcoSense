@@ -11,6 +11,23 @@ import CO2history from "../screens/CO2-history";
 import Temphistory from "../screens/Temp-history";
 import Humidityhistory from "../screens/Humidity-history";
 
+const Stack = createStackNavigator();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Homescreen} options={{ headerShown: false }} />
+      <Stack.Screen name="AQIhistory" component={AQIhistory} options={{ headerShown: false }}/>
+      <Stack.Screen name="COhistory" component={COhistory} options={{ headerShown: false }}/>
+      <Stack.Screen name="CO2history" component={CO2history} options={{ headerShown: false }}/>
+      <Stack.Screen name="Temphistory" component={Temphistory} options={{ headerShown: false }}/>
+      <Stack.Screen name="Humidityhistory" component={Humidityhistory} options={{ headerShown: false }}/>
+    </Stack.Navigator>
+  );
+}
+
+
+
 const TabStack = ()=> {
     const Tab = createBottomTabNavigator();
     return (
