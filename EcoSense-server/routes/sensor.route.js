@@ -5,7 +5,7 @@ const {
     getSensorMinMaxReading,
     getSensorsState,
     setSensorsState,
-    setSensorsThresholds,
+    setSensorsNotificationAndThresholds,
     setSensorState,
     getSensorReadings,
     getSensorsNotificationAndThresholds
@@ -18,7 +18,7 @@ router.get("/get_sensor_readings/:sensor_name", getSensorReadings);
 router.get("/get_sensors_state", getSensorsState);
 router.get("/set_sensors_state/:state", setSensorsState);
 router.get("/get/:sensor_name/min_max", getSensorMinMaxReading);
-router.get("/set/:sensor_name/:min/:max", setSensorsThresholds);
+router.get("/set/:sensor_name/:min/:max/:state", setSensorsNotificationAndThresholds);
 router.get("/get/thresholds_and_notification_state", getSensorsNotificationAndThresholds);
 router.get("/set_state/:sensor_name/:state", setSensorState);
 module.exports = router;
