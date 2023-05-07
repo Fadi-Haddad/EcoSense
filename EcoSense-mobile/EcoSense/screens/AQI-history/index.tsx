@@ -73,7 +73,6 @@ const AQIhistory =()=>{
             <AQIChart Data={Data} />
             <HighLow lowestReading={minMaxData.min.AQI} highestReading={minMaxData.max.AQI} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
             <NotificationSwitch />
-            <NavigationBar />
       </View>
     </View>
   );
