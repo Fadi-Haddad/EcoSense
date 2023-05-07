@@ -14,7 +14,7 @@ const ToggleCO2Notifications = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.text}>Recieve notifications for CO2</Text>
+        <Text style={styles.text}>Recieve notifications for CO2 level</Text>
         <Switch value={checked} onValueChange={handleSwitch} />
       </View>
       <View style={styles.row}>

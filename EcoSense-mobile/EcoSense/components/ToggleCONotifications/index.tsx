@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Switch } from "@react-native-material/core";
 
@@ -7,6 +7,16 @@ const ToggleCONotifications = () => {
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
 
+  useEffect(()=>{
+    if (checked) {
+      fetch(`http://192.168.0.100:8000/data/set/CO/${minValue}/${maxValue}`, {
+        method: "GET",
+        headers: {"Content-Type": "application/json"}})
+        .then(()=>console.log("thresholds set successfully"))
+        .catch((error) => console.error(error));
+    }
+  },[minValue,maxValue]);
+
   const handleSwitch  = () => {
     setChecked(!checked);
   };
@@ -14,7 +24,7 @@ const ToggleCONotifications = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.text}>Recieve notifications for CO</Text>
+        <Text style={styles.text}>Recieve notifications for CO level</Text>
         <Switch value={checked} onValueChange={handleSwitch} />
       </View>
       <View style={styles.row}>

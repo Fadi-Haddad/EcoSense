@@ -14,7 +14,7 @@ const ToggleTempNotifications = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.text}>Recieve notifications for temp</Text>
+        <Text style={styles.text}>Recieve notifications for Temperature</Text>
         <Switch value={checked} onValueChange={handleSwitch} />
       </View>
       <View style={styles.row}>
