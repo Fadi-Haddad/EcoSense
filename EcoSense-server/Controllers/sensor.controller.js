@@ -214,7 +214,10 @@ const getSensorsNotificationAndThresholds = async (req,res)=>{
         };
       }
       return res.json(thresholdsAndState);
-} 
+}
+const createNotification= (req.res)=>{
+    
+}
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
                     getSensorMinMaxReading,
