@@ -2,14 +2,14 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-import LoginScreen from '../screens/login';
-import HomeScreen from '../screens/home';
+import LoginScreen from '../screens/Login';
+import HomeScreen from '../screens/Home';
 import AQIhistory from '../screens/AQI-history';
 import COhistory from '../screens/CO-history';
 import CO2history from '../screens/CO2-history';
 import Temphistory from '../screens/Temp-history';
 import Humidityhistory from '../screens/Humidity-history';
-import Settings from '../screens/settings';
+import Settings from '../screens/Settings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import KeyboardAvoidingComponent from '../screens/test-floating-keyboard';
 
