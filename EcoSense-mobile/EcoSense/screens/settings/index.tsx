@@ -1,5 +1,5 @@
 import { View, useState, useEffect} from 'react-native';
-import ToggleAQINotifications from '../../components/ToggleNotifications';
+import ToggleAQINotifications from '../../components/ToggleAQINotifications';
 import ToggleCONotifications from '../../components/ToggleCONotifications';
 import ToggleCO2Notifications from '../../components/ToggleCO2Notifications';
 import ToggleTempNotifications from '../../components/ToggleTempNotifications';
