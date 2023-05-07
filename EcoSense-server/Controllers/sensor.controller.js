@@ -200,7 +200,8 @@ const setSensorState = async (req,res)=>{
     res.status(200).json({ message: "Sensor's notification state updated successfully" });
 }
 const getSensorsNotificationAndThresholds = (req,res)=>{
-
+    const thresholds = {};
+    const sensors = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 } 
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
