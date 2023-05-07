@@ -4,13 +4,19 @@ import Settings from "../screens/Settings";
 import NotificationsScreen from "../screens/Notifications/NotificationsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createStackNavigator } from "@react-navigation/stack";
+import AQIhistory from "../screens/AQI-history";
+import COhistory from "../screens/CO-history";
+import CO2history from "../screens/CO2-history";
+import Temphistory from "../screens/Temp-history";
+import Humidityhistory from "../screens/Humidity-history";
 
 const TabStack = ()=> {
     const Tab = createBottomTabNavigator();
     return (
         <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={Homescreen} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="home" color={color} size={size} />),}}/>
+        <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="home" color={color} size={size} />),}}/>
         <Tab.Screen name="Notifications" component={NotificationsScreen} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="notifications" color={color} size={size} />),}}/>
         <Tab.Screen name="Settings" component={Settings} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="settings" color={color} size={size} />),}}/>
       </Tab.Navigator>
