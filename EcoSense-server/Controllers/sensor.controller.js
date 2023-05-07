@@ -171,17 +171,19 @@ const setSensorsState = async (req, res) => { //sets sensors notification state 
         res.status(200).json({ message: 'state is not changed' });
     };
     };
-const setSensorsThresholds = async (req,res) =>{
+const setSensorsNotificationAndThresholds = async (req,res) =>{
     try{
         const sensorName= req.params.sensor_name;
         const minValue = req.params.min;
         const maxValue = req.params.max;
+        const state = req.params.state;
         if (!isNaN(minValue) && !isNaN(maxValue)){
             const sensor = await sensorThresholds.findOne({ sensor: sensorName });
             if (!sensor) {
                 return res.status(404).json({ error: 'Sensor not found' });}
             sensor.minValue = minValue;
             sensor.maxValue = maxValue;
+            sensor.notifications = state;
             await sensor.save();
             res.status(200).json({ message: "Sensor's thresholds updated successfully" });
         }
@@ -200,12 +202,10 @@ const setSensorState = async (req,res)=>{
     res.status(200).json({ message: "Sensor's notification state updated successfully" });
 }
 const getSensorsNotificationAndThresholds = async (req,res)=>{
-    console.log("hello55");
     const thresholdsAndState = {};
     const sensors = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
     for (const sensor of sensors) {
         const data = await sensorThresholds.findOne({ sensor });
-        if(data){console.log(sensor);}
         thresholdsAndState[sensor] = {
           "min": data.minValue,
           "max": data.maxValue,
@@ -219,7 +219,7 @@ module.exports = {saveSensorReadings,
                     getSensorMinMaxReading,
                     getSensorsState,
                     setSensorsState,
-                    setSensorsThresholds,
+                    setSensorsNotificationAndThresholds,
                     setSensorState,
                     getSensorReadings,
                     getSensorsNotificationAndThresholds};
