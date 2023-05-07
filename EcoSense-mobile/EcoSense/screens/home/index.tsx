@@ -62,7 +62,6 @@ const Homescreen = ()=>{
       <View>
         <DeviceCard heaterStatus="On" fanStatus="Off"/>
       </View>
-      {/* <NavigationBar /> */}
     </View>
   )
 }
