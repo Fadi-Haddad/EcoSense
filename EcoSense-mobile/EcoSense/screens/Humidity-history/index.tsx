@@ -7,7 +7,7 @@ import NotificationSwitch from "../../components/NotificationsSwitch";
 import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
-const Temphistory =()=>{
+const Humidityhistory =()=>{
   const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
   const [minMaxData, setMinMaxData] = useState({
     "min": {"Humidity": 0,"timeStamp": "0",},
@@ -70,7 +70,6 @@ const Temphistory =()=>{
             <HumidityChart Data={Data} />
             <HighLow lowestReading={minMaxData.min.Humidity} highestReading={minMaxData.max.Humidity} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
             <NotificationSwitch />
-            <NavigationBar />
       </View>
     </View>
   );
@@ -99,4 +98,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Temphistory;
+export default Humidityhistory;

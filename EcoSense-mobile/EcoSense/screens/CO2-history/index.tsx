@@ -73,7 +73,6 @@ const CO2history =()=>{
             <CO2Chart Data={Data} />
             <HighLow lowestReading={minMaxData.min.CO2} highestReading={minMaxData.max.CO2} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
             <NotificationSwitch />
-            <NavigationBar />
       </View>
     </View>
   );
