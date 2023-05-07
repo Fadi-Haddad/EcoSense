@@ -1,4 +1,5 @@
-import { View, useState, useEffect} from 'react-native';
+import React from 'react';
+import { View, ScrollView } from 'react-native';
 import ToggleAQINotifications from '../../components/ToggleAQINotifications';
 import ToggleCONotifications from '../../components/ToggleCONotifications';
 import ToggleCO2Notifications from '../../components/ToggleCO2Notifications';
@@ -8,25 +9,26 @@ import ToggleSensorsState from '../../components/ToggleSensorsState';
 import LoginButton from '../../src/components/LoginButton';
 import { AppBar } from "@react-native-material/core";
 
-const settings = ()=>{
-    return (
-        <View style={{marginTop:34, backgroundColor:"#f4eef2"}}>
-        <AppBar title="Settings" />
+const Settings = () => {
+  return (
+    <View style={{ flex: 1, backgroundColor: "#f4eef2",marginTop:34 }}>
+      <AppBar title="Settings" />
+      <ScrollView>
         <ToggleSensorsState />
         <ToggleAQINotifications />
         <ToggleCONotifications />
         <ToggleCO2Notifications />
         <ToggleTempNotifications />
         <ToggleHumidityNotifications />
-        <View style={{justifyContent:'center',
-            alignContent:'center',
-            alignItems: 'center',
-            marginTop: 25,
-            backgroundColor: "#f4eef2"}}>
-            <LoginButton  title='Sign out'
-                onPress={() => alert('Logged out!')} />
+        <View style={{ justifyContent: 'center',
+         alignContent: 'center',
+         alignItems: 'center',
+         marginTop: 25 }}>
+          <LoginButton title='Sign out' onPress={() => alert('Logged out!')} />
         </View>
-        </View>
-    )
+      </ScrollView>
+    </View>
+  )
 }
-export default settings;
+
+export default Settings;
