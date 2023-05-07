@@ -3,21 +3,38 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Switch } from "@react-native-material/core";
 
 const ToggleCONotifications = () => {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
+    fetch(`http://192.168.0.100:8000/data/get/thresholds_and_notification_state`)
+      .then((response) => response.json())
+      .then((data) => {
+        setChecked(data.CO.notifications === "on");
+        setMinValue(data.CO.min.toString());
+        setMaxValue(data.CO.max.toString());
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      `http://192.168.0.100:8000/data/set/CO/${minValue}/${maxValue}/${checked ? "on" : "off"}`)
+      .then(() => console.log("state updated successfully"))
+      .catch((error) => console.error(error));
+  }, [checked]);
+
+  useEffect(() => {
     if (checked) {
-      fetch(`http://192.168.0.100:8000/data/set/CO/${minValue}/${maxValue}`, {
-        method: "GET",
-        headers: {"Content-Type": "application/json"}})
-        .then(()=>console.log("thresholds set successfully"))
+      fetch(
+        `http://192.168.0.100:8000/data/set/CO/${minValue}/${maxValue}/${checked ? "on" : "off"}`)
+        .then(() => console.log("thresholds set successfully"))
         .catch((error) => console.error(error));
     }
-  },[minValue,maxValue]);
+  }, [minValue, maxValue]);
 
-  const handleSwitch  = () => {
+  const handleSwitch = () => {
     setChecked(!checked);
   };
 
@@ -33,19 +50,22 @@ const ToggleCONotifications = () => {
           style={[styles.input, checked ? null : styles.disabled]}
           value={minValue}
           onChangeText={setMinValue}
-          editable={checked} keyboardType="numeric"
+          editable={checked}
+          keyboardType="numeric"
         />
         <Text style={styles.label}>Max</Text>
         <TextInput
           style={[styles.input, checked ? null : styles.disabled]}
           value={maxValue}
           onChangeText={setMaxValue}
-          editable={checked} keyboardType="numeric"
+          editable={checked}
+          keyboardType="numeric"
         />
       </View>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
