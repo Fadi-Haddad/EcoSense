@@ -199,9 +199,20 @@ const setSensorState = async (req,res)=>{
     }
     res.status(200).json({ message: "Sensor's notification state updated successfully" });
 }
-const getSensorsNotificationAndThresholds = (req,res)=>{
-    const thresholds = {};
+const getSensorsNotificationAndThresholds = async (req,res)=>{
+    console.log("hello55");
+    const thresholdsAndState = {};
     const sensors = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
+    for (const sensor of sensors) {
+        const data = await sensorThresholds.findOne({ sensor });
+        if(data){console.log(sensor);}
+        thresholdsAndState[sensor] = {
+          "min": data.minValue,
+          "max": data.maxValue,
+          "notifications": data.notifications,
+        };
+      }
+      return res.json(thresholdsAndState);
 } 
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
@@ -210,4 +221,5 @@ module.exports = {saveSensorReadings,
                     setSensorsState,
                     setSensorsThresholds,
                     setSensorState,
-                    getSensorReadings};
+                    getSensorReadings,
+                    getSensorsNotificationAndThresholds};
