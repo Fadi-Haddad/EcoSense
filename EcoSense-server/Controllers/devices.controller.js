@@ -39,7 +39,6 @@ const setFanState = async (req, res) => {
         CO2 = readings[0].CO2
         Temperature = readings[0].Temp
         Humidity = readings[0].Humidity
-        console.log(AQI,CO,CO2,Temperature,Humidity)
         if (AQI >100 || CO>5  || CO2>1000 || Temperature > 30 || Humidity > 50) {
             fanState = 'on';
             } else if (AQI <=95 && CO <=4  && CO2 <=950 && Temperature <=28 && Humidity <=45) {

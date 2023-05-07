@@ -9,13 +9,6 @@ import LoginButton from '../../src/components/LoginButton';
 import { AppBar } from "@react-native-material/core";
 
 const settings = ()=>{
-    const [sensorsData, setSensorsData] = useState(null);
-    useEffect(() => {
-        fetch('http://192.168.0.100:8000/data/get/thresholds_and_notification_state')
-          .then(response => response.json())
-          .then(data => setSensorsData(data));
-      }, []);
-    
     return (
         <View style={{marginTop:34, backgroundColor:"#f4eef2"}}>
         <AppBar title="Settings" />
