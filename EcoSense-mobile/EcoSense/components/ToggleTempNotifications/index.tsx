@@ -1,13 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Switch } from "@react-native-material/core";
 
-const ToggleTempNotifications = () => {
-  const [checked, setChecked] = useState(true);
+const ToggleCO3Notifications = () => {
+  const [checked, setChecked] = useState(false);
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
 
-  const handleSwitch  = () => {
+  useEffect(() => {
+    fetch(`http://192.168.0.100:8000/data/get/thresholds_and_notification_state`)
+      .then((response) => response.json())
+      .then((data) => {
+        setChecked(data.Temp.notifications === "on");
+        setMinValue(data.Temp.min.toString());
+        setMaxValue(data.Temp.max.toString());
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      `http://192.168.0.100:8000/data/set/Temp/${minValue}/${maxValue}/${checked ? "on" : "off"}`)
+      .then(() => console.log("state updated successfully"))
+      .catch((error) => console.error(error));
+  }, [checked]);
+
+  useEffect(() => {
+    if (checked) {
+      fetch(
+        `http://192.168.0.100:8000/data/set/Temp/${minValue}/${maxValue}/${checked ? "on" : "off"}`)
+        .then(() => console.log("thresholds set successfully"))
+        .catch((error) => console.error(error));
+    }
+  }, [minValue, maxValue]);
+
+  const handleSwitch = () => {
     setChecked(!checked);
   };
 
@@ -23,19 +50,22 @@ const ToggleTempNotifications = () => {
           style={[styles.input, checked ? null : styles.disabled]}
           value={minValue}
           onChangeText={setMinValue}
-          editable={checked} keyboardType="numeric"
+          editable={checked}
+          keyboardType="numeric"
         />
         <Text style={styles.label}>Max</Text>
         <TextInput
           style={[styles.input, checked ? null : styles.disabled]}
           value={maxValue}
           onChangeText={setMaxValue}
-          editable={checked} keyboardType="numeric"
+          editable={checked}
+          keyboardType="numeric"
         />
       </View>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -71,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ToggleTempNotifications;
+export default ToggleCO3Notifications;

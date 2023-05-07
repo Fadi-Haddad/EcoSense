@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Switch } from "@react-native-material/core";
 
-const ToggleAQINotifications = () => {
+const ToggleAQINotificationsold = () => {
   const [checked, setChecked] = useState(true);
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ToggleAQINotifications;
+export default ToggleAQINotificationsold;
