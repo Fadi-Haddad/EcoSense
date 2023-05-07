@@ -1,18 +1,17 @@
 import { NavigationContainer } from "@react-navigation/native";
-import Homescreen from "../screens/Home";
-import Settings from "../screens/Settings";
-import NotificationsScreen from "../screens/Notifications/NotificationsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createStackNavigator } from "@react-navigation/stack";
+import Homescreen from "../screens/Home";
+import Settings from "../screens/Settings";
 import AQIhistory from "../screens/AQI-history";
 import COhistory from "../screens/CO-history";
 import CO2history from "../screens/CO2-history";
 import Temphistory from "../screens/Temp-history";
 import Humidityhistory from "../screens/Humidity-history";
+import NotificationsScreen from "../screens/Notifications/NotificationsScreen";
 
 const Stack = createStackNavigator();
-
 function HomeStack() {
   return (
     <Stack.Navigator>
