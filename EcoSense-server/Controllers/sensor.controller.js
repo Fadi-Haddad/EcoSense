@@ -330,8 +330,12 @@ const createNotifications = async (req,res) => {
     }
     await HumidityNotification.save();
 };
-const getNotificationsList= (req,res)=>{
-    const data= notifications.find({thresholdCrossed:true}).select('sensorname action timestamp');
+const getNotificationsList= async(req,res)=>{
+    const data= await notifications.find({thresholdCrossed:true}).select('sensorName action timestamp');
+    const formattedData = data.map(item=>(
+        {sensorName:item.sensorname,
+        action:item.action,
+         timestamp: new Date (item.timestamp).toLocaleTimeString(),}));
 }
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
