@@ -4,6 +4,7 @@ const sensorsState= require('../Models/sensors.state.model');
 const notifications = require ('../Models/notifications.model')
 const validSensorNames = ['AQI', 'CO', 'CO2', 'Temp', 'Humidity'];
 const validSensorStates = ['on', 'off'];
+const { setDeviceState } = require('./devices.controller');
 
 const checkAndSetSensorState =async () => {
     try{
@@ -49,6 +50,7 @@ const saveSensorReadings = async (req, res) => {
             const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
             await newReading.save();
             createNotifications(req);
+            setDeviceState();
             res.status(200).json({ message: 'Sensor readings saved sucessfully ' });}
     } catch(err){
         console.error(err);
