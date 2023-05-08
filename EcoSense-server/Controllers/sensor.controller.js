@@ -263,6 +263,28 @@ const createNotification = async () => {
     }
     await CONotification.save();
 
+    let CO2Notification  = await notifications.findOne({ sensorName:"CO2" });
+    if (!CO2Notification) {
+        CO2Notification = new notifications({
+          sensorName: "CO2",
+          thresholdCrossed: false,
+          action: "",
+          fanOn: false,
+          heaterOn: false,});}
+    if(CO2>thresholds[2].maxValue){
+        CO2Notification.thresholdCrossed =true;
+        CO2Notification.action ='turn fan on';
+        CO2Notification.fanOn =true;
+        CO2Notification.heaterOn =false;
+    }
+    else if(CO2<=thresholds[2].maxValue){
+        CO2Notification.thresholdCrossed =false;
+        CO2Notification.action ='';
+        CO2Notification.fanOn =false;
+        CO2Notification.heaterOn =false;
+    }
+    await CO2Notification.save();
+
 };
 createNotification();
 module.exports = {saveSensorReadings,
