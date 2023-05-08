@@ -48,6 +48,7 @@ const saveSensorReadings = async (req, res) => {
             now.setHours(now.getHours() + 0) // set time offset
             const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
             await newReading.save();
+            createNotifications(req);
             res.status(200).json({ message: 'Sensor readings saved sucessfully ' });}
     } catch(err){
         console.error(err);
@@ -215,8 +216,8 @@ const getSensorsNotificationAndThresholds = async (req,res)=>{
       }
       return res.json(thresholdsAndState);
 };
-const createNotification = async () => {
-    const {AQI, CO , CO2 , Temp , Humidity} = {"AQI": 65, "CO": 31, "CO2": 72, "Temp": 17, "Humidity": 25};
+const createNotifications = async (req,res) => {
+    const {AQI, CO , CO2 , Temp , Humidity} = req.body;
     const thresholds = await sensorThresholds.find();
 
     let AQINotification  = await notifications.findOne({ sensorName:"AQI" });
@@ -322,7 +323,7 @@ const createNotification = async () => {
     await HumidityNotification.save();
 
 };
-createNotification();
+
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
                     getSensorMinMaxReading,
@@ -332,4 +333,4 @@ module.exports = {saveSensorReadings,
                     setSensorState,
                     getSensorReadings,
                     getSensorsNotificationAndThresholds,
-                    createNotification};
+                    createNotifications};
