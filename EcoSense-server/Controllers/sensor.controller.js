@@ -230,7 +230,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(AQI<thresholds[0].minValue){
         AQINotification.thresholdCrossed =true;
-        AQINotification.action ='turn fan on';
+        AQINotification.action ='Your AQI Level is too low,Fan will turn on now';
         AQINotification.fanOn =true;
     }
     else if(AQI>=thresholds[0].minValue){
@@ -250,7 +250,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(CO>thresholds[1].maxValue){
         CONotification.thresholdCrossed =true;
-        CONotification.action ='turn fan on';
+        CONotification.action ='Your Carbon Monoxide Level is too High,Fan will turn on now';
         CONotification.fanOn =true;
     }
     else if(CO<=thresholds[1].maxValue){
@@ -270,7 +270,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(CO2>thresholds[2].maxValue){
         CO2Notification.thresholdCrossed =true;
-        CO2Notification.action ='turn fan on';
+        CO2Notification.action ='Your Carbon Dioxide Level is too High,Fan will turn on now';
         CO2Notification.fanOn =true;
     }
     else if(CO2<=thresholds[2].maxValue){
@@ -290,13 +290,13 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(Temp>thresholds[3].maxValue){
         TempNotification.thresholdCrossed =true;
-        TempNotification.action ='turn fan on';
+        TempNotification.action ='Your Temperature is too High,Fan will turn on now';
         TempNotification.fanOn =true;
         TempNotification.heaterOn =false;
     }
     else if(Temp<=thresholds[3].maxValue){
         TempNotification.thresholdCrossed =false;
-        TempNotification.action ='';
+        TempNotification.action ='Your Temperature is too Low ,Heater will turn on now';
         TempNotification.fanOn =false;
         TempNotification.heaterOn =false;
     }
@@ -312,7 +312,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(Humidity>thresholds[4].maxValue){
         HumidityNotification.thresholdCrossed =true;
-        HumidityNotification.action ='turn fan on';
+        HumidityNotification.action ='Your Humidity Level is too High,Fan will turn on now';
         HumidityNotification.fanOn =true;
     }
     else if(Humidity<=thresholds[4].maxValue){
