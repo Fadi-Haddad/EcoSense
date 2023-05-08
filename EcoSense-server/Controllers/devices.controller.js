@@ -6,6 +6,7 @@ const validDeviceStates = ['on', 'off'];
 const validOperationModes = ['auto', 'manual'];
 
 const setDeviceState = async ()=>{
+    try{
     const newFanState = await Notifications.find({fanOn:true});
     const newHeaterState = await Notifications.find({heaterOn:true});
     if (newFanState.length === 0){
@@ -17,6 +18,9 @@ const setDeviceState = async ()=>{
     else {
         await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'on' });}
     }
+    catch(err){
+        console.log("error setting devices state")}
+}
 
 const setFanState = async (req, res) => {
     try{
