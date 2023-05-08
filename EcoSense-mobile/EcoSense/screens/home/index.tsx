@@ -8,6 +8,7 @@ import styles from './styles'
 const Homescreen = ({navigation})=>{
   const [Data, setData] = useState({"readings": {"_id": "","AQI": 0,"CO": 0,"CO2": 0,"Temp": 0,"Humidity": 0,"timeStamp": "0", "__v": 0,},
     "state": {"AQI": "","CO": "","CO2": "","Temp": "","Humidity": "",}});
+  const [State, setState] = useState({"fanState": "","heaterState": ""});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +23,18 @@ const Homescreen = ({navigation})=>{
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const fetchState = async () => {
+      const responseState = await fetch('http://192.168.0.100:8000/device/get_devices_state');
+      const responseStateData = await responseState.json();
+      setState(responseStateData);
+    };
+    fetchState();
+    const interval = setInterval(() => {
+      fetchState();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return(
     <View style={styles.container}>
@@ -55,7 +68,7 @@ const Homescreen = ({navigation})=>{
         </TouchableOpacity>
       </View>
       <View>
-        <DeviceCard heaterStatus="On" fanStatus="Off"/>
+        <DeviceCard heaterStatus={State.heaterState} fanStatus={State.fanState}/>
       </View>
     </View>
   )

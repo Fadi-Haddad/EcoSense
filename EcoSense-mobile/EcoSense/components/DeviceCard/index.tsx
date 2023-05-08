@@ -15,7 +15,7 @@ const deviceCard = ({ heaterStatus, fanStatus }:Props) => {
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>{`Fan is ${fanStatus}`}</Text>
-        <Image source={fanStatus === 'on' ? require('../../assets/fan.jpeg') : require('../../assets/fan.jpeg')} style={styles.image} />
+        <Image source={fanStatus === 'on' ? require('../../assets/fan-on.gif') : require('../../assets/fan-off.png')} style={styles.image} />
       </View>
     </View>
   );
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     paddingHorizontal: 60,
+    paddingVertical: 5,
   },
   text: {
     fontSize: 16,
