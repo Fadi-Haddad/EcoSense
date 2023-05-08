@@ -5,6 +5,9 @@ const validDeviceNames = ['fan','heater'];
 const validDeviceStates = ['on', 'off'];
 const validOperationModes = ['auto', 'manual'];
 
+const getDeviceState = async ()=>{
+    
+}
 const setDeviceState = async ()=>{
     try{
     const newFanState = await Notifications.find({fanOn:true});
