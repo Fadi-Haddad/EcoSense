@@ -5,14 +5,14 @@ const validDeviceNames = ['fan','heater'];
 const validDeviceStates = ['on', 'off'];
 const validOperationModes = ['auto', 'manual'];
 
-const getDevicesState = async ()=>{
+const getDevicesState = async (req,res)=>{
     try {
         const fan = await Devices.findOne({ name: 'fan' });
         const heater = await Devices.findOne({ name: 'heater' });
-        
-        return { fanState: fan.state, heaterState: heater.state };
+        res.status(200).json({ fanState: fan.state, heaterState: heater.state });
       } catch (error) {
-        console.log('Error getting device state');}
+        console.log('Error getting device state');
+        res.status(500).send('Internal Server Error');}
     };
 const setDeviceState = async ()=>{
     try{
