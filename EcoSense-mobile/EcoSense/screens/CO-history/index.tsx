@@ -72,7 +72,6 @@ const COhistory =()=>{
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <COChart Data={Data} />
             <HighLow lowestReading={minMaxData.min.CO} highestReading={minMaxData.max.CO} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
-            <NotificationSwitch />
       </View>
     </View>
   );

@@ -69,7 +69,6 @@ const Humidityhistory =()=>{
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <HumidityChart Data={Data} />
             <HighLow lowestReading={minMaxData.min.Humidity} highestReading={minMaxData.max.Humidity} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
-            <NotificationSwitch />
       </View>
     </View>
   );

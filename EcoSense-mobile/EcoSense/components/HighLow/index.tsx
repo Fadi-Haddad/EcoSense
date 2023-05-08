@@ -29,9 +29,9 @@ type Props = {
         flexDirection:'column',
         paddingHorizontal: 25,
         paddingVertical: 10,
-        backgroundColor: '#7398fa',
+        backgroundColor: '#7398fe',
         borderRadius: 5,
-        marginVertical: 10,
+        marginTop: 15,
         marginHorizontal: 20,
     },
     row: {

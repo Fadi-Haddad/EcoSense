@@ -3,8 +3,6 @@ import AQIGauge from "../../components/AQIGauge";
 import AQIChart from "../../components/AQIChart";
 import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
-import NotificationSwitch from "../../components/NotificationsSwitch";
-import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
 
 const AQIhistory =()=>{
@@ -72,7 +70,6 @@ const AQIhistory =()=>{
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <AQIChart Data={Data} />
             <HighLow lowestReading={minMaxData.min.AQI} highestReading={minMaxData.max.AQI} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
-            <NotificationSwitch />
       </View>
     </View>
   );
@@ -93,7 +90,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   chartlabeltext:{
-    // paddingTop:10,
+    paddingTop:10,
     paddingLeft:10,
     fontSize:15,
     alignSelf:'flex-start',

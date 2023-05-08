@@ -67,7 +67,6 @@ const Temphistory =()=>{
             <Text style={styles.chartlabeltext}>Changes with time:</Text>
             <TempChart Data={Data} />
             <HighLow lowestReading={minMaxData.min.Temp} highestReading={minMaxData.max.Temp} lowestTimestamp={formattedMinDate} highestTimestamp={formattedMaxDate} />
-            <NotificationSwitch />
       </View>
     </View>
   );

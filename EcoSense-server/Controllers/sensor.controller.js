@@ -232,7 +232,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(AQI<thresholds[0].minValue){
         AQINotification.thresholdCrossed =true;
-        AQINotification.action ='Your AQI Level is too low,Fan will turn on now';
+        AQINotification.action =`Your AQI Level is too low (${AQI})%,It's minimum level is (${thresholds[0].minValue})%, Fan will turn on now`;
         AQINotification.fanOn =true;
     }
     else if(AQI>=thresholds[0].minValue){
@@ -252,7 +252,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(CO>thresholds[1].maxValue){
         CONotification.thresholdCrossed =true;
-        CONotification.action ='Your Carbon Monoxide Level is too High,Fan will turn on now';
+        CONotification.action =`Your Carbon Monoxide Level is too high (${CO})PPM, It's maximum level is (${thresholds[1].maxValue})PPM, Fan will turn on now`;
         CONotification.fanOn =true;
     }
     else if(CO<=thresholds[1].maxValue){
@@ -272,7 +272,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(CO2>thresholds[2].maxValue){
         CO2Notification.thresholdCrossed =true;
-        CO2Notification.action ='Your Carbon Dioxide Level is too High,Fan will turn on now';
+        CO2Notification.action =`Your Carbon Dioxide Level is too high (${CO2})PPM, It's maximum level is (${thresholds[2].maxValue})PPM, Fan will turn on now`;
         CO2Notification.fanOn =true;
     }
     else if(CO2<=thresholds[2].maxValue){
@@ -292,7 +292,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(Temp>thresholds[3].maxValue){
         TempNotification.thresholdCrossed =true;
-        TempNotification.action ='Your Temperature is too High,Fan will turn on now';
+        TempNotification.action =`Your Temperature is too High (${Temp})°C ,It's maximum level is (${thresholds[3].maxValue})°C, Fan will turn on now`;
         TempNotification.fanOn =true;
         TempNotification.heaterOn =false;
     }
@@ -304,7 +304,7 @@ const createNotifications = async (req,res) => {
     }
     else if(Temp<thresholds[3].minValue){
         TempNotification.thresholdCrossed =true;
-        TempNotification.action ='Your Temperature is too Low ,Heater will turn on now';
+        TempNotification.action =`Your Temperature is too Low (${Temp})°C ,It's minimum level is (${thresholds[3].minValue})°C, Heater will turn on now`;
         TempNotification.fanOn =false;
         TempNotification.heaterOn =true;
     }
@@ -320,7 +320,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(Humidity>thresholds[4].maxValue){
         HumidityNotification.thresholdCrossed =true;
-        HumidityNotification.action ='Your Humidity Level is too High,Fan will turn on now';
+        HumidityNotification.action =`Your Carbon Dioxide Level is too high (${Humidity})PPM, It's maximum level is (${thresholds[4].maxValue})PPM, Fan will turn on now`;
         HumidityNotification.fanOn =true;
     }
     else if(Humidity<=thresholds[4].maxValue){
