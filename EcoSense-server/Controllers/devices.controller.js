@@ -12,8 +12,12 @@ const setDeviceState = async ()=>{
         await Devices.findOneAndUpdate({ name: 'fan' }, { state: 'off' });}
     else {
         await Devices.findOneAndUpdate({ name: 'fan' }, { state: 'on' });}
-        
+    if (!newHeaterState){
+        await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'off' });}
+    else {
+        await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'on' });};
     }
+    
 const setFanState = async (req, res) => {
     try{
     let fanState = req.params.fan_state;
