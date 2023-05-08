@@ -17,7 +17,7 @@ const setDeviceState = async ()=>{
     else {
         await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'on' });};
     }
-    
+
 const setFanState = async (req, res) => {
     try{
     let fanState = req.params.fan_state;
@@ -85,4 +85,4 @@ const setHeaterState = async (req, res) => {
         }
     return res.status(200).json({ message: 'Heater state updated successfully.' });
     }}
-module.exports = {setFanState,setHeaterState};
+module.exports = {setFanState,setHeaterState,setDeviceState};
