@@ -294,11 +294,17 @@ const createNotifications = async (req,res) => {
         TempNotification.fanOn =true;
         TempNotification.heaterOn =false;
     }
-    else if(Temp<=thresholds[3].maxValue){
+    else if(Temp<=thresholds[3].maxValue && Temp>=thresholds[3].minValue){
         TempNotification.thresholdCrossed =false;
-        TempNotification.action ='Your Temperature is too Low ,Heater will turn on now';
+        TempNotification.action ='';
         TempNotification.fanOn =false;
         TempNotification.heaterOn =false;
+    }
+    else if(Temp<thresholds[3].minValue){
+        TempNotification.thresholdCrossed =true;
+        TempNotification.action ='Your Temperature is too Low ,Heater will turn on now';
+        TempNotification.fanOn =false;
+        TempNotification.heaterOn =true;
     }
     await TempNotification.save();
 
