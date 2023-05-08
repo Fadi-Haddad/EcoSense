@@ -3,7 +3,8 @@ import TabStack from './navigator/TabStack';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
-
+import { LogBox } from 'react-native';
+LogBox.ignoreAllLogs();
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);

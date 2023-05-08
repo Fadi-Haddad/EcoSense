@@ -12,7 +12,7 @@ const OnboardingStack =() =>{
     const isSignedIn = AsyncStorage.getItem('isSignedIn');
     return (
         <NavigationContainer>
-        <Stack.Navigator initialRouteName={isSignedIn ==='true' ? "login" : "home"}>
+        <Stack.Navigator initialRouteName={isSignedIn == true ? "home" : "login"}>
         <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }}/>
         </Stack.Navigator>

@@ -8,8 +8,17 @@ import ToggleHumidityNotifications from '../../components/ToggleHumidityNotifica
 import ToggleSensorsState from '../../components/ToggleSensorsState';
 import LoginButton from '../../src/components/LoginButton';
 import { AppBar } from "@react-native-material/core";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Settings = () => {
+const Settings = ({navigation} ) => {
+  const logoutHandler = async () => {
+    await AsyncStorage.removeItem('isSignedIn');
+    navigation.replace('login');
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: 'Login' }],
+    // });
+  };
   return (
     <View style={{ flex: 1, backgroundColor: "#f4eef2",marginTop:34 }}>
       <AppBar title="Settings" />
@@ -24,7 +33,7 @@ const Settings = () => {
          alignContent: 'center',
          alignItems: 'center',
          marginTop: 25 }}>
-          <LoginButton title='Sign out' onPress={() => alert('Logged out!')} />
+          <LoginButton title='Sign out' onPress={() => navigation.reset({index: 0,routes: [{ name: 'Login' }]})} />
         </View>
       </ScrollView>
     </View>

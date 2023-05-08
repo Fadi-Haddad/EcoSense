@@ -10,6 +10,7 @@ import CO2history from "../screens/CO2-history";
 import Temphistory from "../screens/Temp-history";
 import Humidityhistory from "../screens/Humidity-history";
 import NotificationsScreen from "../screens/Notifications/NotificationsScreen";
+import LoginScreen from "../screens/Login";
 
 const Stack = createStackNavigator();
 function HomeStack() {
@@ -24,6 +25,14 @@ function HomeStack() {
     </Stack.Navigator>
   );
 }
+// function SettingsStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
+//       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
+//     </Stack.Navigator>
+//   );
+// }
 
 
 
@@ -35,6 +44,7 @@ const TabStack = ()=> {
         <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="home" color={color} size={size} />),}}/>
         <Tab.Screen name="Notifications" component={NotificationsScreen} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="notifications" color={color} size={size} />),}}/>
         <Tab.Screen name="Settings" component={Settings} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="settings" color={color} size={size} />),}}/>
+        {/* <Tab.Screen name="Login" component={LoginScreen} options={{ headerShown: false, tabBarIcon: ({ color, size }) => (<Ionicons name="settings" color={color} size={size} />),}}/> */}
       </Tab.Navigator>
         </NavigationContainer>
     );
