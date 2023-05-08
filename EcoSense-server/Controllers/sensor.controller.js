@@ -285,6 +285,28 @@ const createNotification = async () => {
     }
     await CO2Notification.save();
 
+    let TempNotification  = await notifications.findOne({ sensorName:"Temp" });
+    if (!TempNotification) {
+        TempNotification = new notifications({
+          sensorName: "Temp",
+          thresholdCrossed: false,
+          action: "",
+          fanOn: false,
+          heaterOn: false,});}
+    if(Temp>thresholds[3].maxValue){
+        TempNotification.thresholdCrossed =true;
+        TempNotification.action ='turn fan on';
+        TempNotification.fanOn =true;
+        TempNotification.heaterOn =false;
+    }
+    else if(Temp<=thresholds[3].maxValue){
+        TempNotification.thresholdCrossed =false;
+        TempNotification.action ='';
+        TempNotification.fanOn =false;
+        TempNotification.heaterOn =false;
+    }
+    await TempNotification.save();
+
 };
 createNotification();
 module.exports = {saveSensorReadings,
