@@ -13,6 +13,13 @@ const notificationSchema = new mongoose.Schema({
     action: {
         type: String,
     },
+    fanOn:
+    {
+      type: Boolean,
+    },
+    heaterOn:{
+      type: Boolean,
+    },
     timestamp: {
       type: Date,
       required: true,
