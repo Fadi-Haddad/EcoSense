@@ -6,6 +6,24 @@ import HumidityIcon from '../../assets/humidity.png'
 import AQIIcon from '../../assets/AQI.png'
 
 const Notification = ({ sensorName, action }) => {
+    let imageSource;
+    switch (sensorName) {
+      case 'Temp':
+        imageSource = thermometerIcon;
+        break;
+      case 'AQI':
+        imageSource = AQIIcon;
+        break;
+      case 'CO':
+        imageSource = AQIIcon;
+        break;
+      case 'CO2':
+        imageSource = CO2Icon;
+        break;
+      case 'Humidity':
+        imageSource = HumidityIcon;
+        break;
+    }
     return (
         <View style={styles.container}>
             <Image source={AQIIcon} style={styles.image} />
