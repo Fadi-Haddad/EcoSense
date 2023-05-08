@@ -330,7 +330,8 @@ const createNotifications = async (req,res) => {
     }
     await HumidityNotification.save();
 };
-const getNotificationsList= ()=>{
+const getNotificationsList= (req,res)=>{
+    const data= notifications.find({thresholdCrossed:true}).select('sensorname action timestamp');
 }
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
