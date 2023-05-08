@@ -331,12 +331,17 @@ const createNotifications = async (req,res) => {
     await HumidityNotification.save();
 };
 const getNotificationsList= async(req,res)=>{
-    const data= await notifications.find({thresholdCrossed:true}).select('sensorName action timestamp');
-    const formattedData = data.map(item=>(
-        {sensorName:item.sensorname,
-        action:item.action,
-         timestamp: new Date (item.timestamp).toLocaleTimeString(),}));
-    res.status(200).json(formattedData);
+    try{
+        const data= await notifications.find({thresholdCrossed:true}).select('sensorName action timestamp');
+        const formattedData = data.map(item=>(
+            {sensorName:item.sensorname,
+            action:item.action,
+             timestamp: new Date (item.timestamp).toLocaleTimeString(),}));
+        res.status(200).json(formattedData);
+    } catch(err){
+        res.status(500).json({ error: "Error retrieving notifications" });
+    }
+
 }
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
