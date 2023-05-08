@@ -8,14 +8,14 @@ const validOperationModes = ['auto', 'manual'];
 const setDeviceState = async ()=>{
     const newFanState = await Notifications.find({fanOn:true});
     const newHeaterState = await Notifications.find({heaterOn:true});
-    if (!newFanState){
+    if (newFanState.length === 0){
         await Devices.findOneAndUpdate({ name: 'fan' }, { state: 'off' });}
     else {
         await Devices.findOneAndUpdate({ name: 'fan' }, { state: 'on' });}
-    if (!newHeaterState){
+    if (newHeaterState.length === 0){
         await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'off' });}
     else {
-        await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'on' });};
+        await Devices.findOneAndUpdate({ name: 'heater' }, { state: 'on' });}
     }
 
 const setFanState = async (req, res) => {
