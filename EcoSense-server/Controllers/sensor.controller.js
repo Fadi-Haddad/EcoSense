@@ -241,6 +241,28 @@ const createNotification = async () => {
     }
     await AQINotification.save();
 
+    let CONotification  = await notifications.findOne({ sensorName:"CO" });
+    if (!CONotification) {
+        CONotification = new notifications({
+          sensorName: "CO",
+          thresholdCrossed: false,
+          action: "",
+          fanOn: false,
+          heaterOn: false,});}
+    if(CO>thresholds[1].maxValue){
+        CONotification.thresholdCrossed =true;
+        CONotification.action ='turn fan on';
+        CONotification.fanOn =true;
+        CONotification.heaterOn =false;
+    }
+    else if(CO<=thresholds[1].maxValue){
+        CONotification.thresholdCrossed =false;
+        CONotification.action ='';
+        CONotification.fanOn =false;
+        CONotification.heaterOn =false;
+    }
+    await CONotification.save();
+
 };
 createNotification();
 module.exports = {saveSensorReadings,
