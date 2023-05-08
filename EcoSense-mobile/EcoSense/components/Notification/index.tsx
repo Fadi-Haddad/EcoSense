@@ -1,17 +1,20 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import imageSource from '../../assets/AQi.png'
+import thermometerIcon from '../../assets/thermometer.png'
+import CO2Icon from '../../assets/carbon-monoxide.png'
+import HumidityIcon from '../../assets/humidity.png'
+import AQIIcon from '../../assets/AQI.png'
 
-const Notification = () => {
-  return (
-    <View style={styles.container}>
-      <Image source={imageSource} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>sensorName</Text>
-        <Text style={styles.action}>action</Text>
-      </View>
-    </View>
-  );
+const Notification = ({ sensorName, action }) => {
+    return (
+        <View style={styles.container}>
+            <Image source={AQIIcon} style={styles.image} />
+            <View style={styles.textContainer}>
+            <Text style={styles.title}>{sensorName}</Text>
+            <Text style={styles.action}>{action}</Text>
+            </View>
+        </View>
+        );
 };
 
 const styles = StyleSheet.create({
