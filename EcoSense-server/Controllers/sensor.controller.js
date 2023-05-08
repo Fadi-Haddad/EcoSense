@@ -329,9 +329,9 @@ const createNotifications = async (req,res) => {
         HumidityNotification.fanOn =false;
     }
     await HumidityNotification.save();
-
 };
-
+const getNotificationsList= ()=>{
+}
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
                     getSensorMinMaxReading,
@@ -342,3 +342,5 @@ module.exports = {saveSensorReadings,
                     getSensorReadings,
                     getSensorsNotificationAndThresholds,
                     createNotifications};
+
+
