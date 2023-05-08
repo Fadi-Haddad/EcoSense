@@ -215,9 +215,34 @@ const getSensorsNotificationAndThresholds = async (req,res)=>{
       }
       return res.json(thresholdsAndState);
 };
-const createNotification = (req, res) => {
-    const {AQI, CO , CO2 , Temp , Humidity} = req.body;
+const createNotification = async () => {
+    const {AQI, CO , CO2 , Temp , Humidity} = {"AQI": 65, "CO": 31, "CO2": 72, "Temp": 17, "Humidity": 25};
+    const thresholds = await sensorThresholds.find();
+
+    let AQINotification  = await notifications.findOne({ sensorName:"AQI" });
+    if (!AQINotification) {
+        AQINotification = new notifications({
+          sensorName: "AQI",
+          thresholdCrossed: false,
+          action: "",
+          fanOn: false,
+          heaterOn: false,});}
+    if(AQI<thresholds[0].minValue){
+        AQINotification.thresholdCrossed =true;
+        AQINotification.action ='turn fan on';
+        AQINotification.fanOn =true;
+        AQINotification.heaterOn =false;
+    }
+    else if(AQI>=thresholds[0].minValue){
+        AQINotification.thresholdCrossed =false;
+        AQINotification.action ='';
+        AQINotification.fanOn =false;
+        AQINotification.heaterOn =false;
+    }
+    await AQINotification.save();
+
 };
+createNotification();
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
                     getSensorMinMaxReading,
@@ -226,4 +251,5 @@ module.exports = {saveSensorReadings,
                     setSensorsNotificationAndThresholds,
                     setSensorState,
                     getSensorReadings,
-                    getSensorsNotificationAndThresholds};
+                    getSensorsNotificationAndThresholds,
+                    createNotification};
