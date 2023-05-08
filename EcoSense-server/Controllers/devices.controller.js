@@ -6,7 +6,8 @@ const validDeviceStates = ['on', 'off'];
 const validOperationModes = ['auto', 'manual'];
 
 const getDeviceState = async ()=>{
-    
+    const fan = await Devices.findOne({ name: 'fan' });
+    const heater = await Devices.findOne({ name: 'heater' });
 }
 const setDeviceState = async ()=>{
     try{
