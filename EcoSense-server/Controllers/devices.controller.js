@@ -6,10 +6,14 @@ const validDeviceStates = ['on', 'off'];
 const validOperationModes = ['auto', 'manual'];
 
 const getDeviceState = async ()=>{
-    const fan = await Devices.findOne({ name: 'fan' });
-    const heater = await Devices.findOne({ name: 'heater' });
-    return { fanState: fan.state, heaterState: heater.state };
-}
+    try {
+        const fan = await Devices.findOne({ name: 'fan' });
+        const heater = await Devices.findOne({ name: 'heater' });
+        
+        return { fanState: fan.state, heaterState: heater.state };
+      } catch (error) {
+        console.log('Error getting device state');}
+    };
 const setDeviceState = async ()=>{
     try{
     const newFanState = await Notifications.find({fanOn:true});
