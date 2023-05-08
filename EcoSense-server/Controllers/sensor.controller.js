@@ -307,6 +307,28 @@ const createNotification = async () => {
     }
     await TempNotification.save();
 
+    let HumidityNotification  = await notifications.findOne({ sensorName:"Humidity" });
+    if (!HumidityNotification) {
+        HumidityNotification = new notifications({
+          sensorName: "Humidity",
+          thresholdCrossed: false,
+          action: "",
+          fanOn: false,
+          heaterOn: false,});}
+    if(Humidity>thresholds[4].maxValue){
+        HumidityNotification.thresholdCrossed =true;
+        HumidityNotification.action ='turn fan on';
+        HumidityNotification.fanOn =true;
+        HumidityNotification.heaterOn =false;
+    }
+    else if(Humidity<=thresholds[4].maxValue){
+        HumidityNotification.thresholdCrossed =false;
+        HumidityNotification.action ='';
+        HumidityNotification.fanOn =false;
+        HumidityNotification.heaterOn =false;
+    }
+    await HumidityNotification.save();
+
 };
 createNotification();
 module.exports = {saveSensorReadings,
