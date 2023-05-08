@@ -336,6 +336,7 @@ const getNotificationsList= async(req,res)=>{
         {sensorName:item.sensorname,
         action:item.action,
          timestamp: new Date (item.timestamp).toLocaleTimeString(),}));
+    res.status(200).json(formattedData);
 }
 module.exports = {saveSensorReadings,
                     getSensorsReadings,
