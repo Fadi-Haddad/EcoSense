@@ -231,13 +231,11 @@ const createNotification = async () => {
         AQINotification.thresholdCrossed =true;
         AQINotification.action ='turn fan on';
         AQINotification.fanOn =true;
-        AQINotification.heaterOn =false;
     }
     else if(AQI>=thresholds[0].minValue){
         AQINotification.thresholdCrossed =false;
         AQINotification.action ='';
         AQINotification.fanOn =false;
-        AQINotification.heaterOn =false;
     }
     await AQINotification.save();
 
@@ -253,13 +251,11 @@ const createNotification = async () => {
         CONotification.thresholdCrossed =true;
         CONotification.action ='turn fan on';
         CONotification.fanOn =true;
-        CONotification.heaterOn =false;
     }
     else if(CO<=thresholds[1].maxValue){
         CONotification.thresholdCrossed =false;
         CONotification.action ='';
         CONotification.fanOn =false;
-        CONotification.heaterOn =false;
     }
     await CONotification.save();
 
@@ -275,13 +271,11 @@ const createNotification = async () => {
         CO2Notification.thresholdCrossed =true;
         CO2Notification.action ='turn fan on';
         CO2Notification.fanOn =true;
-        CO2Notification.heaterOn =false;
     }
     else if(CO2<=thresholds[2].maxValue){
         CO2Notification.thresholdCrossed =false;
         CO2Notification.action ='';
         CO2Notification.fanOn =false;
-        CO2Notification.heaterOn =false;
     }
     await CO2Notification.save();
 
@@ -319,13 +313,11 @@ const createNotification = async () => {
         HumidityNotification.thresholdCrossed =true;
         HumidityNotification.action ='turn fan on';
         HumidityNotification.fanOn =true;
-        HumidityNotification.heaterOn =false;
     }
     else if(Humidity<=thresholds[4].maxValue){
         HumidityNotification.thresholdCrossed =false;
         HumidityNotification.action ='';
         HumidityNotification.fanOn =false;
-        HumidityNotification.heaterOn =false;
     }
     await HumidityNotification.save();
 
