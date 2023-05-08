@@ -8,7 +8,8 @@ const {
     setSensorsNotificationAndThresholds,
     setSensorState,
     getSensorReadings,
-    getSensorsNotificationAndThresholds
+    getSensorsNotificationAndThresholds,
+    getNotificationsList,
     } = require("../Controllers/sensor.controller");
 
 const router = express.Router();
@@ -21,4 +22,5 @@ router.get("/get/:sensor_name/min_max", getSensorMinMaxReading);
 router.get("/set/:sensor_name/:min/:max/:state", setSensorsNotificationAndThresholds);
 router.get("/get/thresholds_and_notification_state", getSensorsNotificationAndThresholds);
 router.get("/set_state/:sensor_name/:state", setSensorState);
+router.get("/get_notifications_list", getNotificationsList);
 module.exports = router;
