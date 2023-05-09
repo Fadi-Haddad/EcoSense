@@ -2,6 +2,12 @@
 #include <WiFiClient.h>
 #include <ESP8266HTTPClient.h>
 #include "secrets.h"
+#include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+#include <ESP8266HTTPClient.h>
+#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_BME280.h>
 
 WiFiClient client;
 HTTPClient http;
