@@ -10,21 +10,24 @@
 #include <Adafruit_BME280.h>
 
 Adafruit_BME280 bme;
-float temperature, Humidity;
+float Temperature, Humidity;
 
 WiFiClient client;
 HTTPClient http;
 
 void setup(){
+    bme.begin(0x76); 
     Serial.begin(9600);
     delay(2000);
+    WiFi.begin(ssid, password);
     Serial.print("Connecting to WIFI...");
     while (WiFi.status() != WL_CONNECTED) {
         delay(1000);
         Serial.print(".");
-  }
+    }
     Serial.println("Connected to Wi-Fi");
 }
+
 void loop (){
     int AIQ = random(0, 100);
     int CO = random(0, 100);
