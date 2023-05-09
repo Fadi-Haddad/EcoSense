@@ -11,12 +11,9 @@
 - As a user, I want to be able to log into the app with my credentials, so that I can access my indoor air quality data and settings
 - As a user, I want to be able to check the real-time readings of air quality, Carbon Monoxide, Carbon Dioxide, temperature, and humidity in my room, so that I can monitor the indoor air quality
 - As a user, I want to receive real-time updates/notifications on air quality, Carbon Monoxide, Carbon Dioxide, temperature, and humidity levels in my room, so that I can take necessary actions if needed.
-- As a user, I want to be able to view historical data on the air quality in my room, so that I can track changes over time
-and make informed decisions.
+- As a user, I want to be able to view historical data on the air quality in my room, so that I can track changes over time and make informed decisions.
 - As a user, I want to be able to set up alerts for specific thresholds for air quality, Carbon Monoxide, Carbon Dioxide, temperature, and humidity, so that I can take action before the air quality gets too bad.
-- As a user, I want to be able to turn on/off the heater or the fan manually.
-- As a user, I want to be able to turn the indoor air quality monitor on or off remotely from my phone, so that I can easily manage its operation
-- As a user, I want the app to have a night mode option that I can toggle on or off depending on the ambient light conditions
+- As a user, I want to be able to turn the indoor air quality monitor on or off remotely from my phone, so that I can easily manage its operation.
 
 <br><br>
 
