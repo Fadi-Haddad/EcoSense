@@ -32,12 +32,12 @@ void loop (){
     int AIQ = random(0, 100);
     int CO = random(0, 100);
     int CO2 = random(0, 100);
-    int Temp = random(0, 100);
-    int Humidity = random(0, 100);
+    float Temperature = bme.readTemperature();
+    float Humidity = bme.readHumidity();
 
     http.begin(client, serverUrl);
     http.addHeader("Content-Type", "application/json");
-    String json = "{\"AQI\": " + String(AIQ) + ", \"CO\": " + String(CO) + ", \"CO2\": " + String(CO2) + ", \"Temp\": " + String(Temp) + ", \"Humidity\": " + String(Humidity) + "}";
+    String json = "{\"AQI\": " + String(AIQ) + ", \"CO\": " + String(CO) + ", \"CO2\": " + String(CO2) + ", \"Temp\": " + String(Temperature) + ", \"Humidity\": " + String(Humidity) + "}";
     
   int httpResponseCode = http.POST(json);
   String response = http.getString();
