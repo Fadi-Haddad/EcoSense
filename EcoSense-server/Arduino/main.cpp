@@ -9,6 +9,9 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
 
+Adafruit_BME280 bme;
+float temperature, Humidity;
+
 WiFiClient client;
 HTTPClient http;
 
