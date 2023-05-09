@@ -334,7 +334,7 @@ const getNotificationsList= async(req,res)=>{
     try{
         const data= await notifications.find({thresholdCrossed:true}).select('sensorName action timestamp');
         const formattedData = data.map(item=>(
-            {sensorName:item.sensorname,
+            {sensorName:item.sensorName,
             action:item.action,
              timestamp: new Date (item.timestamp).toLocaleTimeString(),}));
         res.status(200).json(formattedData);

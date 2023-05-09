@@ -15,7 +15,7 @@ const Notification = ({ sensorName, action }) => {
         imageSource = AQIIcon;
         break;
       case 'CO':
-        imageSource = AQIIcon;
+        imageSource = CO2Icon;
         break;
       case 'CO2':
         imageSource = CO2Icon;
@@ -26,7 +26,7 @@ const Notification = ({ sensorName, action }) => {
     }
     return (
         <View style={styles.container}>
-            <Image source={AQIIcon} style={styles.image} />
+            <Image source={imageSource} style={styles.image} />
             <View style={styles.textContainer}>
             <Text style={styles.title}>{sensorName}</Text>
             <Text style={styles.action}>{action}</Text>
@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 15,
     borderColor: 'black',
-    backgroundColor: 'lightgray',
+    backgroundColor: '#99e4',
     marginVertical: 5,
+    marginHorizontal: 5,
     padding: 10,
   },
   image: {

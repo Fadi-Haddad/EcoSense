@@ -14,10 +14,21 @@ const NotificationsScreen = () => {
           setNotifications(data);
         })
         .catch((error) => console.log(error));
-    }, 10000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
-  return (null)
+  return (
+    <View style={{ flex: 1, backgroundColor: "#f4eef2", marginTop: 34 }}>
+      <AppBar title="Notifications History" />
+      {notifications.map((notification, index) => (
+        <Notification
+          key={index}
+          sensorName={notification.sensorName}
+          action={notification.action}
+        />
+      ))}
+    </View>
+  )
 }
   export default NotificationsScreen;
