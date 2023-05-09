@@ -234,6 +234,7 @@ const createNotifications = async (req,res) => {
         AQINotification.thresholdCrossed =true;
         AQINotification.action =`AQI Level is too low ${AQI}%,It's minimum level is ${thresholds[0].minValue}%, Fan will turn on now`;
         AQINotification.fanOn =true;
+        AQINotification.timestamp = Date.now();
     }
     else if(AQI>=thresholds[0].minValue){
         AQINotification.thresholdCrossed =false;
@@ -254,6 +255,7 @@ const createNotifications = async (req,res) => {
         CONotification.thresholdCrossed =true;
         CONotification.action =`Carbon Monoxide Level is too high ${CO} PPM, It's maximum level is ${thresholds[1].maxValue} PPM, Fan will turn on now`;
         CONotification.fanOn =true;
+        CONotification.timestamp = Date.now();
     }
     else if(CO<=thresholds[1].maxValue){
         CONotification.thresholdCrossed =false;
@@ -274,6 +276,7 @@ const createNotifications = async (req,res) => {
         CO2Notification.thresholdCrossed =true;
         CO2Notification.action =`Carbon Dioxide Level is too high ${CO2} PPM, It's maximum level is ${thresholds[2].maxValue} PPM, Fan will turn on now`;
         CO2Notification.fanOn =true;
+        CO2Notification.timestamp = Date.now();
     }
     else if(CO2<=thresholds[2].maxValue){
         CO2Notification.thresholdCrossed =false;
@@ -295,6 +298,7 @@ const createNotifications = async (req,res) => {
         TempNotification.action =`Temperature is too High ${Temp}°C ,It's maximum level is ${thresholds[3].maxValue}°C, Fan will turn on now`;
         TempNotification.fanOn =true;
         TempNotification.heaterOn =false;
+        TempNotification.timestamp = Date.now();
     }
     else if(Temp<=thresholds[3].maxValue && Temp>=thresholds[3].minValue){
         TempNotification.thresholdCrossed =false;
@@ -307,6 +311,7 @@ const createNotifications = async (req,res) => {
         TempNotification.action =`Temperature is too Low ${Temp}°C ,It's minimum level is ${thresholds[3].minValue}°C, Heater will turn on now`;
         TempNotification.fanOn =false;
         TempNotification.heaterOn =true;
+        TempNotification.timestamp = Date.now();
     }
     await TempNotification.save();
 
@@ -322,6 +327,8 @@ const createNotifications = async (req,res) => {
         HumidityNotification.thresholdCrossed =true;
         HumidityNotification.action =`Carbon Dioxide Level is too high ${Humidity} PPM, It's maximum level is ${thresholds[4].maxValue} PPM, Fan will turn on now`;
         HumidityNotification.fanOn =true;
+        HumidityNotification.timestamp = Date.now();
+
     }
     else if(Humidity<=thresholds[4].maxValue){
         HumidityNotification.thresholdCrossed =false;
