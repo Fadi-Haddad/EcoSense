@@ -238,7 +238,6 @@ const createNotifications = async (req,res) => {
     }
     else if(AQI>=thresholds[0].minValue){
         AQINotification.thresholdCrossed =false;
-        AQINotification.action ='';
         AQINotification.fanOn =false;
     }
     await AQINotification.save();
@@ -259,7 +258,6 @@ const createNotifications = async (req,res) => {
     }
     else if(CO<=thresholds[1].maxValue){
         CONotification.thresholdCrossed =false;
-        CONotification.action ='';
         CONotification.fanOn =false;
     }
     await CONotification.save();
@@ -280,7 +278,6 @@ const createNotifications = async (req,res) => {
     }
     else if(CO2<=thresholds[2].maxValue){
         CO2Notification.thresholdCrossed =false;
-        CO2Notification.action ='';
         CO2Notification.fanOn =false;
     }
     await CO2Notification.save();
@@ -302,7 +299,6 @@ const createNotifications = async (req,res) => {
     }
     else if(Temp<=thresholds[3].maxValue && Temp>=thresholds[3].minValue){
         TempNotification.thresholdCrossed =false;
-        TempNotification.action ='';
         TempNotification.fanOn =false;
         TempNotification.heaterOn =false;
     }
@@ -332,7 +328,6 @@ const createNotifications = async (req,res) => {
     }
     else if(Humidity<=thresholds[4].maxValue){
         HumidityNotification.thresholdCrossed =false;
-        HumidityNotification.action ='';
         HumidityNotification.fanOn =false;
     }
     await HumidityNotification.save();
