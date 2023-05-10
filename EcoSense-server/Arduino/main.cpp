@@ -63,5 +63,11 @@ void loop (){
 
     http.begin(client, readUrl);
     int httpResponseCode = http.GET();
+    if (httpResponseCode == HTTP_CODE_OK) {
+        String response = http.getString();
+        Serial.println(response);
+        StaticJsonDocument<200> doc;
+        fanOn = doc["fanOn"].as<String>();
+        heaterOn = doc["heaterOn"].as<String>();
     delay(5000);
 }
