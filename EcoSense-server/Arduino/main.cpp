@@ -60,6 +60,7 @@ void loop (){
     Serial.print(httpResponseCode);
     Serial.println(json);
     http.end();
+    delay(2000);
 
     http.begin(client, readUrl);
     int httpResponseCode = http.GET();
@@ -84,5 +85,11 @@ void loop (){
             Serial.print("heater is OFF");
         }
     }
-    delay(5000);
+    else {
+      Serial.print("HTTP GET failed, error: ");
+      Serial.println(httpResponseCode);
+    }
+    http.end();
+
+    delay(3000);
 }
