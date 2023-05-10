@@ -23,12 +23,12 @@ export const styles = StyleSheet.create({
     height: 180,
     zIndex: 1,
     },
-    text:{
-      position: 'absolute',
-      top: 300,
-      left: 110,
-      fontSize:32,
-      color:'white',
-      fontWeight:600,
-    }
+  text:{
+    position: 'absolute',
+    top: 300,
+    left: 110,
+    fontSize:32,
+    color:'white',
+    fontWeight:600,
+  }
 });

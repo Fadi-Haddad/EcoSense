@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
-import LoginButton from '../../src/components/LoginButton';
-import CoverPicture from '../../src/components/CoverPicture';
-import EmailInput from '../../src/components/EmailInput';
-import PasswordInput from '../../src/components/PasswordInput';
+import LoginButton from '../../components/LoginButton';
+import CoverPicture from '../../components/CoverPicture';
+import EmailInput from '../../components/EmailInput';
+import PasswordInput from '../../components/PasswordInput';
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';

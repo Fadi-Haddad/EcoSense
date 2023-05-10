@@ -6,7 +6,7 @@ import ToggleCO2Notifications from '../../components/ToggleCO2Notifications';
 import ToggleTempNotifications from '../../components/ToggleTempNotifications';
 import ToggleHumidityNotifications from '../../components/ToggleHumidityNotifications';
 import ToggleSensorsState from '../../components/ToggleSensorsState';
-import LoginButton from '../../src/components/LoginButton';
+import LoginButton from '../../components/LoginButton';
 import { AppBar } from "@react-native-material/core";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
