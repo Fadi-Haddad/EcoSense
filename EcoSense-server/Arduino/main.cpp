@@ -69,5 +69,20 @@ void loop (){
         StaticJsonDocument<200> doc;
         fanOn = doc["fanOn"].as<String>();
         heaterOn = doc["heaterOn"].as<String>();
+        if (fanOn == "on") {
+            digitalWrite(D7, HIGH);
+            Serial.print("fan is ON");
+        } else {
+            digitalWrite(D7, LOW);
+            Serial.print("fan is OFF");
+        }
+        if (heaterOn == "on") {
+            digitalWrite(D8, HIGH);
+            Serial.print("heater is ON");
+        } else {
+            digitalWrite(D8, LOW);
+            Serial.print("heater is OFF");
+        }
+    }
     delay(5000);
 }
