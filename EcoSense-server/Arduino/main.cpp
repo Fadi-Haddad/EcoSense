@@ -5,6 +5,11 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
 #include <Adafruit_CCS811.h>
+#include "secrets.h"
+#include "ArduinoJson.h"
+
+String  fanOn;
+String  heaterOn;
 
 Adafruit_BME280 bme;
 float Temperature, Humidity;
