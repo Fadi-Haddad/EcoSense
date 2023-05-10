@@ -7,7 +7,7 @@ const TempChart = ({ Data }) => {
       data={Data.map((d, i) => ({ x: i, y: d }))}
       padding={{ left: 40, bottom: 10, right: 20, top: 10 }}
       xDomain={{ min: 0, max: Data.length - 1 }}
-      yDomain={{ min: 0, max: 100 }}
+      yDomain={{ min: 0, max: 45 }}
     >
       <VerticalAxis
         tickCount={11}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Notification from "../../components/Notification";
 import { AppBar } from "@react-native-material/core";
+import * as notification from "expo-notifications"
 
 const NotificationsScreen = () => {
   const [notifications, setNotifications] = useState([]);
@@ -18,6 +19,18 @@ const NotificationsScreen = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    notification.requestPermissionsAsync()
+    notification.scheduleNotificationAsync({
+      content: {
+        title: 'New Notification',
+        body: 'You have a new notification'
+      },
+      trigger: {seconds:1}
+    });
+  }, [notifications]);
+
   return (
     <View style={{ flex: 1, backgroundColor: "#f4eef2", marginTop: 34 }}>
       <AppBar title="Notifications History" />
@@ -26,9 +39,11 @@ const NotificationsScreen = () => {
           key={index}
           sensorName={notification.sensorName}
           action={notification.action}
+          time={notification.timestamp}
         />
       ))}
     </View>
   )
 }
-  export default NotificationsScreen;
+
+export default NotificationsScreen;

@@ -5,7 +5,7 @@ import CO2Icon from '../../assets/carbon-monoxide.png'
 import HumidityIcon from '../../assets/humidity.png'
 import AQIIcon from '../../assets/AQI.png'
 
-const Notification = ({ sensorName, action }) => {
+const Notification = ({ sensorName, action, time }) => {
     let imageSource;
     switch (sensorName) {
       case 'Temp':
@@ -30,6 +30,7 @@ const Notification = ({ sensorName, action }) => {
             <View style={styles.textContainer}>
             <Text style={styles.title}>{sensorName}</Text>
             <Text style={styles.action}>{action}</Text>
+            <Text style={styles.time}>{time}</Text>
             </View>
         </View>
         );
@@ -59,6 +60,11 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 20,
+    marginBottom: 5,
+  },
+  time: {
+    fontWeight: 'bold',
+    fontSize: 12,
     marginBottom: 5,
   },
   action: {
