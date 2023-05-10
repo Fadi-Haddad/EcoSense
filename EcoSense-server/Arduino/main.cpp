@@ -60,5 +60,8 @@ void loop (){
     Serial.print(httpResponseCode);
     Serial.println(json);
     http.end();
+
+    http.begin(client, readUrl);
+    int httpResponseCode = http.GET();
     delay(5000);
 }
