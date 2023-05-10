@@ -14,9 +14,6 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
-app.listen(port, () => {
-     console.log(`app is listening on port ${port}`)});
-
 const mongoose = require("mongoose");
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
@@ -36,3 +33,10 @@ app.use("/device",deviceroute);
 const authroute = require("./routes/auth.route");
 app.use("/auth",authroute);
 
+const server = app.listen(port, () => {
+  console.log(`App is listening on port ${port}`);
+});
+
+server.on('error', (error) => {
+  console.error(`Server error: ${error}`);
+});
