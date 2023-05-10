@@ -24,14 +24,11 @@ const db =mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open",()=>{console.log("connected to",MONGODB_URI)} );
 
-const dataroute = require("./routes/sensor.route");
-app.use("/data",dataroute);
-
-const deviceroute = require("./routes/device.route");
-app.use("/device",deviceroute);
-
 const authroute = require("./routes/auth.route");
-app.use("/auth",authroute);
+const loginroute = require("./routes/login.route");
+app.use("/data",authroute);
+app.use("/device",authroute);
+app.use("/auth",loginroute);
 
 const server = app.listen(port, () => {
   console.log(`App is listening on port ${port}`);
