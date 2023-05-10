@@ -18,12 +18,17 @@ Adafruit_CCS811 ccs;
 WiFiClient client;
 HTTPClient http;
 
+const int D7 = 13;
+const int D8 = 15;
+
 void setup(){
     bme.begin(0x76); 
     Serial.begin(9600);
     delay(2000);
     ccs.begin(); 
     delay(1000);
+    pinMode(D7, OUTPUT);
+    pinMode(D8, OUTPUT);
     WiFi.begin(ssid, password);
     Serial.print("Connecting to WIFI...");
     while (WiFi.status() != WL_CONNECTED) {
