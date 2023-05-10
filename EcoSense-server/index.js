@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
+const config = require('./config');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const port = process.env.PORT;
+const port = config.port;
+const MONGODB_URI = config.database.uri;
+
 app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,7 +18,6 @@ app.listen(port, () => {
      console.log(`app is listening on port ${port}`)});
 
 const mongoose = require("mongoose");
-const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
