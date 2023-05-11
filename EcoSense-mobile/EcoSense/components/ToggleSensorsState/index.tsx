@@ -18,7 +18,6 @@ const ToggleSensorsState = () => {
     fetchData();
   }, []);
     const toggleState = async () => {
-
       const newState = sensorsOn =='on' ? 'off' : 'on';
       const token = await AsyncStorage.getItem('token');
       const headers = {'Authorization': `Bearer ${token}`};

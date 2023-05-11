@@ -23,8 +23,8 @@ export default function App() {
     return <AppLoading startAsync={loadFonts} onFinish={() => setFontsLoaded(true)} onError={(err: Error) => console.warn(err)}/>;
   }
   return (
-    <OnboardingStack />
-    // <TabStack />
+    // <OnboardingStack />
+    <TabStack />
   );
 }
 

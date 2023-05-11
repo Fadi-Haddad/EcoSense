@@ -16,14 +16,14 @@ const COGauge = ({ Reading }) => {
     <AnimatedCircularProgress
       size={200}
       width={13}
-      fill={fill}
+      fill={100*(5-fill)/5}
       tintColor="#527ff4"
       backgroundColor="#3d5875" 
       style={{paddingBottom:10}}>
       {(fill) => (
         <View style={{ alignItems: 'center'}}>
           <Text style={{ fontSize: 40, fontWeight: 'bold',fontFamily:'PlusJakartaSans-Bold'}}>
-            { fill.toFixed(0) + ' PPM' }
+            { ((100-fill)/20).toFixed(1) + ' PPM' }
           </Text>
           <Text style={{ fontSize: 16,fontFamily:'PlusJakartaSans-Bold' }}>
             CO Level

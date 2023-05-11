@@ -26,7 +26,7 @@
 ### Mockups
 | Login screen  | Home Screen | AQIHistory Screen| Settings Screen |
 | ---| ---| ---| ---|
-| ![Login](./readme/demo/login.jpeg) | ![Home](./readme/demo/home.jpeg)| ![AQI History](./readme/demo/AQIHistory.jpeg) | ![Settings](./readme/demo/settings.jpeg) |
+| ![Login](./readme/demo/eco_login.png) | ![Home](./readme/demo/eco_main.png)| ![AQI History](./readme/demo/eco_history.png) | ![Settings](./readme/demo/eco_settings.png) |
 
 <br><br>
 
@@ -36,9 +36,9 @@
 > Using the wireframes and mockups as a guide, we implemented the EcoSense app with the following features:
 
 ### User Screens (Mobile)
-| Login screen  | AQIHistory screen | Settings screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/login.gif) | ![fsdaf](./readme/demo/AQIHistory.gif) | ![fsdaf](./readme/demo/settings.gif) |
+| Login screen  | AQIHistory screen | Settings screen | Settings screen |
+| ---| ---| ---|---|
+| ![Landing](./readme/demo/eco_login.gif) | ![fsdaf](./readme/demo/eco_history.gif) | ![fsdaf](./readme/demo/eco_setting_thresholds.gif) | ![fsdaf](./readme/demo/eco_notifications.gif) |
 
 
 <br><br>

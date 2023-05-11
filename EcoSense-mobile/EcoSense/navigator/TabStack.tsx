@@ -34,8 +34,6 @@ function HomeStack() {
 //   );
 // }
 
-
-
 const TabStack = ()=> {
     const Tab = createBottomTabNavigator();
     return (

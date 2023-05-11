@@ -3,13 +3,16 @@ import { View } from "react-native";
 import Notification from "../../components/Notification";
 import { AppBar } from "@react-native-material/core";
 import * as notification from "expo-notifications"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const NotificationsScreen = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      fetch("http://192.168.0.100:8000/data/get_notifications_list")
+    const interval = setInterval(async() => {
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      fetch("http://192.168.0.100:8000/data/get_notifications_list",{headers})
         .then((response) => response.json())
         .then((data) => {
           setNotifications(data);

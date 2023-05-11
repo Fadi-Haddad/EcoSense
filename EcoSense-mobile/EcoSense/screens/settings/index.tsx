@@ -33,7 +33,7 @@ const Settings = ({navigation} ) => {
          alignContent: 'center',
          alignItems: 'center',
          marginTop: 25 }}>
-          <LoginButton title='Sign out' onPress={() => navigation.reset({index: 0,routes: [{ name: 'Login' }]})} />
+          <LoginButton title='Sign out' onPress={logoutHandler} />
         </View>
       </ScrollView>
     </View>

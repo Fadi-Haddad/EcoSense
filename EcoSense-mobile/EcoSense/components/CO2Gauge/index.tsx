@@ -16,14 +16,14 @@ const CO2Gauge = ({ Reading }) => {
     <AnimatedCircularProgress
       size={200}
       width={13}
-      fill={fill}
+      fill={0.222*(fill-250)}
       tintColor="#527ff4"
       backgroundColor="#3d5875" 
       style={{paddingBottom:10}}>
       {(fill) => (
         <View style={{ alignItems: 'center'}}>
           <Text style={{ fontSize: 40, fontWeight: 'bold',fontFamily:'PlusJakartaSans-Bold'}}>
-            { fill.toFixed(0) + ' PPM' }
+            { ((fill/0.222)+250).toFixed(0) + ' PPM' }
           </Text>
           <Text style={{ fontSize: 16,fontFamily:'PlusJakartaSans-Bold' }}>
             CO2 Level

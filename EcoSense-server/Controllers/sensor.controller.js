@@ -75,24 +75,24 @@ const getSensorsReadings = async (req, res) => {
         else 
             {state.AQI = 'Perfect';}
 
-        if (readings[0].CO < 20) {
+        if (readings[0].CO < 2) {
             state.CO = 'Perfect';} 
-        else if (readings[0].CO < 40) 
+        else if (readings[0].CO < 3) 
             {state.CO = 'Good';} 
-        else if (readings[0].CO < 60) 
+        else if (readings[0].CO < 4) 
             {state.CO = 'Fair';} 
-        else if (readings[0].CO < 80) 
+        else if (readings[0].CO < 5) 
             {state.CO = 'Moderate';} 
         else 
             {state.CO = 'Dangerous';}
 
-        if (readings[0].CO2 < 20) {
+        if (readings[0].CO2 < 300) {
             state.CO2 = 'Perfect';} 
-        else if (readings[0].CO2 < 40) 
+        else if (readings[0].CO2 < 350) 
             {state.CO2 = 'Good';} 
-        else if (readings[0].CO2 < 60) 
+        else if (readings[0].CO2 < 400) 
             {state.CO2 = 'Fair';}
-        else if (readings[0].CO2 < 80) 
+        else if (readings[0].CO2 < 500) 
             {state.CO2 = 'Moderate';} 
         else 
             {state.CO2 = 'Dangerous';}
@@ -110,11 +110,11 @@ const getSensorsReadings = async (req, res) => {
         else 
             {state.Temp = 'Very Cold';}
         
-        if (readings[0].Humidity > 60) {
+        if (readings[0].Humidity > 70) {
             state.Humidity = 'Very Humid';} 
-        else if (readings[0].Humidity > 50) 
+        else if (readings[0].Humidity > 60) 
             {state.Humidity = 'Humid';} 
-        else if (readings[0].Humidity > 40) 
+        else if (readings[0].Humidity > 50) 
             {state.Humidity = 'Fair';} 
         else if (readings[0].Humidity > 35) 
             {state.Humidity = 'Good';} 
@@ -321,7 +321,7 @@ const createNotifications = async (req,res) => {
           heaterOn: false,});}
     if(Humidity>thresholds[4].maxValue){
         HumidityNotification.thresholdCrossed =true;
-        HumidityNotification.action =`Carbon Dioxide Level is too high ${Humidity} PPM, It's maximum level is ${thresholds[4].maxValue} PPM, Fan will turn on now`;
+        HumidityNotification.action =`Humidity Level is too high ${Humidity} %, It's maximum level is ${thresholds[4].maxValue} %, Fan will turn on now`;
         HumidityNotification.fanOn =true;
         HumidityNotification.timestamp = Date.now();
 
