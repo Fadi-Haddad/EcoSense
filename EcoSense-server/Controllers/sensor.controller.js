@@ -46,7 +46,7 @@ const saveSensorReadings = async (req, res) => {
             const {AQI,CO,CO2,Temp,Humidity} = req.body;
             console.log(JSON.stringify({ AQI, CO, CO2, Temp, Humidity }));
             const now = new Date();
-            now.setHours(now.getHours() + 0) // set time offset
+            now.setHours(now.getHours() + 0)
             const newReading = new sensorReading({AQI,CO,CO2,Temp,Humidity,timeStamp:now});
             await newReading.save();
             createNotifications(req);

@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   chartlabeltext:{
-    // paddingTop:10,
     paddingLeft:10,
     fontSize:15,
     alignSelf:'flex-start',
