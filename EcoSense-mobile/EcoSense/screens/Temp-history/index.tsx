@@ -3,8 +3,7 @@ import TempGauge from "../../components/TempGauge";
 import TempChart from "../../components/TempChart";
 import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
-import NotificationSwitch from "../../components/NotificationsSwitch";
-import NavigationBar from "../NavigationBar";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppBar } from "@react-native-material/core";
 
 const Temphistory =()=>{

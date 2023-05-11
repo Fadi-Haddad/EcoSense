@@ -3,9 +3,8 @@ import COGauge from "../../components/COGauge";
 import COChart from "../../components/COChart";
 import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
-import NotificationSwitch from "../../components/NotificationsSwitch";
-import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const COhistory =()=>{
   const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
@@ -52,15 +51,15 @@ const COhistory =()=>{
   
   useEffect(() => {
       const COValue = Data[0];
-      if (COValue < 20) {
+      if (COValue < 2) {
         setState('Perfect');
-      } else if (COValue < 40) {
+      } else if (COValue < 3) {
         setState('Good');
-      } else if (COValue < 60) {
+      } else if (COValue < 4) {
         setState('Fair');
-      } else if (COValue < 80) {
+      } else if (COValue < 5) {
         setState('Moderate');
-      } else if (COValue < 90) {
+      } else if (COValue < 6) {
         setState('Bad');
       } else {
         setState('Dangerous');

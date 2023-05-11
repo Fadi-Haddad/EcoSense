@@ -3,9 +3,8 @@ import HumidityGauge from "../../components/HumidityGauge";
 import HumidityChart from "../../components/HumidityChart";
 import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
-import NotificationSwitch from "../../components/NotificationsSwitch";
-import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
+
 
 const Humidityhistory =()=>{
   const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
@@ -52,11 +51,11 @@ const Humidityhistory =()=>{
   
   useEffect(() => {
     const humidityValue = Data[0];
-    if (humidityValue > 60 ) {
-      setState('Dangerous');} 
-      else if (humidityValue > 50) {
+    if (humidityValue > 70 ) {
+      setState('Humid');} 
+      else if (humidityValue > 60) {
       setState('Not Good');} 
-      else if (humidityValue > 40) {
+      else if (humidityValue > 50) {
       setState('Fair');}
       else if (humidityValue >35) {
       setState('Good');}

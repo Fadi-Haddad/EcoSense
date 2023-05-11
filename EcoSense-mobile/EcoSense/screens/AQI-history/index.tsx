@@ -4,6 +4,7 @@ import AQIChart from "../../components/AQIChart";
 import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
 import { AppBar } from "@react-native-material/core";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AQIhistory =()=>{
   const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);

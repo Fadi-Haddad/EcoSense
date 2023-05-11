@@ -3,9 +3,8 @@ import CO2Gauge from "../../components/CO2Gauge";
 import CO2Chart from "../../components/CO2Chart";
 import { View, StyleSheet,Text } from "react-native";
 import HighLow from "../../components/HighLow";
-import NotificationSwitch from "../../components/NotificationsSwitch";
-import NavigationBar from "../NavigationBar";
 import { AppBar } from "@react-native-material/core";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CO2history =()=>{
   const [Data, setData] = useState([1,2,3,4,5,6,7,8,9,10]);
@@ -52,15 +51,15 @@ const CO2history =()=>{
   
   useEffect(() => {
       const CO2Value = Data[2];
-      if (CO2Value < 20) {
+      if (CO2Value < 300) {
         setState('Perfect');
-      } else if (CO2Value < 40) {
+      } else if (CO2Value < 350) {
         setState('Good');
-      } else if (CO2Value < 60) {
+      } else if (CO2Value < 400) {
         setState('Fair');
-      } else if (CO2Value < 80) {
+      } else if (CO2Value < 500) {
         setState('Moderate');
-      } else if (CO2Value < 90) {
+      } else if (CO2Value < 600) {
         setState('Bad');
       } else {
         setState('Dangerous');
