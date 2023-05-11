@@ -3,6 +3,7 @@ import SensorCard from '../../components/SensorCard';
 import DeviceCard from '../../components/DeviceCard';
 import AQIGauge from '../../components/AQIGauge';
 import { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles'
 
 const Homescreen = ({navigation})=>{
@@ -12,7 +13,9 @@ const Homescreen = ({navigation})=>{
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://192.168.0.100:8000/data/get_all_readings');
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      const response = await fetch('http://192.168.0.100:8000/data/get_all_readings',{headers});
       const responseData = await response.json();
       setData(responseData);
     };
@@ -25,7 +28,9 @@ const Homescreen = ({navigation})=>{
 
   useEffect(() => {
     const fetchState = async () => {
-      const responseState = await fetch('http://192.168.0.100:8000/device/get_devices_state');
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      const responseState = await fetch('http://192.168.0.100:8000/device/get_devices_state',{headers});
       const responseStateData = await responseState.json();
       setState(responseStateData);
     };
