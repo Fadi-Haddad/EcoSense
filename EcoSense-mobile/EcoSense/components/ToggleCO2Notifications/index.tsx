@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Switch } from "@react-native-material/core";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ToggleCO2Notifications = () => {
   const [checked, setChecked] = useState(false);
@@ -8,7 +9,10 @@ const ToggleCO2Notifications = () => {
   const [maxValue, setMaxValue] = useState("");
 
   useEffect(() => {
-    fetch(`http://192.168.0.100:8000/data/get/thresholds_and_notification_state`)
+    const fetchdata= async()=>{
+    const token =await AsyncStorage.getItem('token');
+    const headers = {'Authorization': `Bearer ${token}`};
+    fetch(`http://192.168.0.100:8000/data/get/thresholds_and_notification_state`,{headers})
       .then((response) => response.json())
       .then((data) => {
         setChecked(data.CO2.notifications === "on");
@@ -16,22 +20,29 @@ const ToggleCO2Notifications = () => {
         setMaxValue(data.CO2.max.toString());
       })
       .catch((error) => console.error(error));
-  }, []);
+  };fetchdata()}, []);
 
   useEffect(() => {
-    fetch(
-      `http://192.168.0.100:8000/data/set/CO2/${minValue}/${maxValue}/${checked ? "on" : "off"}`)
+    const fetchdata= async()=>{
+    const token = await AsyncStorage.getItem('token');
+    const headers = {'Authorization': `Bearer ${token}`};
+    fetch(`http://192.168.0.100:8000/data/set/CO2/${minValue}/${maxValue}/${checked ? "on" : "off"}`,{headers})
       .then(() => console.log("state updated successfully"))
       .catch((error) => console.error(error));
-  }, [checked]);
+  };
+fetchdata();
+}, [checked]);
 
   useEffect(() => {
+    const fetchdata= async()=>{
+    const token = await AsyncStorage.getItem('token');
+    const headers = {'Authorization': `Bearer ${token}`};
     if (checked) {
-      fetch(
-        `http://192.168.0.100:8000/data/set/CO2/${minValue}/${maxValue}/${checked ? "on" : "off"}`)
+      fetch(`http://192.168.0.100:8000/data/set/CO2/${minValue}/${maxValue}/${checked ? "on" : "off"}`,{headers})
         .then(() => console.log("thresholds set successfully"))
         .catch((error) => console.error(error));
-    }
+    }};
+    fetchdata();
   }, [minValue, maxValue]);
 
   const handleSwitch = () => {
