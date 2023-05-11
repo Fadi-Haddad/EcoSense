@@ -14,10 +14,6 @@ const Settings = ({navigation} ) => {
   const logoutHandler = async () => {
     await AsyncStorage.removeItem('isSignedIn');
     navigation.replace('login');
-    // navigation.reset({
-    //   index: 0,
-    //   routes: [{ name: 'Login' }],
-    // });
   };
   return (
     <View style={{ flex: 1, backgroundColor: "#f4eef2",marginTop:34 }}>

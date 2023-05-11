@@ -25,14 +25,6 @@ function HomeStack() {
     </Stack.Navigator>
   );
 }
-// function SettingsStack() {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
-//       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
-//     </Stack.Navigator>
-//   );
-// }
 
 const TabStack = ()=> {
     const Tab = createBottomTabNavigator();

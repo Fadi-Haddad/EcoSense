@@ -56,9 +56,6 @@ const setFanState = async (req, res) => {
             } else if (AQI <=95 && CO <=4  && CO2 <=950 && Temperature <=28 && Humidity <=45) {
             fanState = 'off';
             }
-        // else {
-        // fanState = fan.state;
-        // }
     const updateState = await Devices.findOneAndUpdate({ name: 'fan' }, { state: fanState ,operation_mode:fanOperationMode}, { new: true });
     if (!updateState) {
         return res.status(400).json({ message: 'Failed to update fan state.' });

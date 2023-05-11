@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         fontSize: 14,
         paddingHorizontal: 8,
         fontWeight: 'bold',
-        // fontFamily: 'poppins-regular',
         color: '#00aa00',
     },
     });
