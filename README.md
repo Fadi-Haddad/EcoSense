@@ -96,11 +96,13 @@
 5. Create a new "secrets.h" file in the EcoSense-server/Arduino folder and place the ssid amd password [ssid,password] to match your wifi credentials.
 6. Connect the ESP8266 to your computer,On Arduino IDE got to File > Preferences > Borad manager> enter "http://arduino.esp8266.com/stable/package_esp8266com_index.json" and click OK.
 7. Go to Tools > Board > Boards Manager, search for "esp8266", and install the "esp8266" board package.
-8. Install these Packages in Arduino IDE : (ESP8266WiFi,WiFiClient,ESP8266HTTPClient,Adafruit_Sensor,Adafruit_BME280,Adafruit_CCS811,ArduinoJson) and upload the code inside main.cpp to the ESP8266.
-9. Navigate to EcoSense-Mobile and Run the start up command :
+8. Go to Sketch> Include Library > Manage Libraries and Install these Packages: (ESP8266WiFi,WiFiClient,ESP8266HTTPClient,Adafruit_Sensor,Adafruit_BME280,Adafruit_CCS811,ArduinoJson).
+9. Upload the code inside main.cpp in the EcoSense-server/arduino directory to the ESP8266 using a USB cable.
+10. Follow the circuit diagram to wire the ESP8266 controller with other elements on the borad.
+11. Navigate to EcoSense-Mobile and Run the start up command :
    ```sh
    npm run web
    ```
-10. Scan the generated QR code with your camera (ios) or through the Expo Go application (android).
+12. Scan the generated QR code with your camera (ios) or through the Expo Go application (android).
 
 Now, you should be able to run EcoSense locally and explore its features.
