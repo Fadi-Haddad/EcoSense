@@ -17,14 +17,18 @@ const COhistory =()=>{
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://192.168.0.100:8000/data/get_sensor_readings/CO');
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      const response = await fetch('http://192.168.0.100:8000/data/get_sensor_readings/CO',{headers});
       const responseData = await response.json();
       setData(responseData);
     };
     fetchData();
 
     const fetchMinMaxData = async () => {
-      const minMax = await fetch('http://192.168.0.100:8000/data/get/CO/min_max');
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      const minMax = await fetch('http://192.168.0.100:8000/data/get/CO/min_max',{headers});
       const minMaxData = await minMax.json();
       setMinMaxData(minMaxData);
     };

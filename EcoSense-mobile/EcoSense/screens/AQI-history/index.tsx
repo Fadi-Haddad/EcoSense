@@ -15,14 +15,18 @@ const AQIhistory =()=>{
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://192.168.0.100:8000/data/get_sensor_readings/AQI');
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      const response = await fetch('http://192.168.0.100:8000/data/get_sensor_readings/AQI',{headers});
       const responseData = await response.json();
       setData(responseData);
     };
     fetchData();
 
     const fetchMinMaxData = async () => {
-      const minMax = await fetch('http://192.168.0.100:8000/data/get/AQI/min_max');
+      const token = await AsyncStorage.getItem('token');
+      const headers = {'Authorization': `Bearer ${token}`};
+      const minMax = await fetch('http://192.168.0.100:8000/data/get/AQI/min_max',{headers});
       const minMaxData = await minMax.json();
       setMinMaxData(minMaxData);
     };
