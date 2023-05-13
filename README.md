@@ -101,12 +101,13 @@
 10. Go to Sketch> Include Library > Manage Libraries and Install these Packages: (ESP8266WiFi, WiFiClient, ESP8266HTTPClient, Adafruit_Sensor, Adafruit_BME280, Adafruit_CCS811, ArduinoJson).
 11. Connect the ESP8266 to your computer using a USB cable, upload the code inside main.cpp in the EcoSense-server/arduino directory to the ESP8266.
 12. Prepare the elements you will need to assemble the circuit, you will need the following: 
-   sesnors: (BME280, CCS811 and MQ-7), 2* BC337 transistors, 2* 1K ohm resistors, 2* 24VDC fans.
+   - Sesnors: (BME280, CCS811 and MQ-7),
+   - 2* BC337 transistors,
+   - 2* 1K ohm resistors,
+   - 2* 24VDC fans.
 13. Follow the circuit diagram to wire the ESP8266 controller with other elements on the borad.
 14. Navigate to EcoSense-Mobile and Run the start up command :
    ```sh
    npm run web
    ```
-15. Scan the generated QR code in the terminal with your camera (ios) or through the Expo Go application (android).
-
-Now, you should be able to run EcoSense locally and explore its features.
+15. Scan the generated QR code in the terminal with your camera (ios) or through the Expo Go application (android), now you should be able to run EcoSense locally and explore its features.
