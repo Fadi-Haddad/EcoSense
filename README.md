@@ -98,7 +98,7 @@ As a user, I want to be able to view historical data on the air quality in my ro
 7. Go to Tools > Board > Board Manager, search for "esp8266", and install the "esp8266" board package.
 8. Go to Tools > Board > ESP8266 and choose 'Generic ESP8266 Module',
 9. Go to Tools > PORT and choose the available COM PORT.
-10. Go to Sketch> Include Library > Manage Libraries and Install these Packages: (ESP8266WiFi, WiFiClient, ESP8266HTTPClient, Adafruit_Sensor, Adafruit_BME280, Adafruit_CCS811, ArduinoJson).
+10. Go to Sketch> Include Library > Manage Libraries and install these Packages: (ESP8266WiFi, WiFiClient, ESP8266HTTPClient, Adafruit_Sensor, Adafruit_BME280, Adafruit_CCS811, ArduinoJson).
 11. Connect the ESP8266 to your computer using a USB cable, upload the code inside main.cpp in the EcoSense-server/arduino directory to the ESP8266.
 12. Prepare the elements you will need to assemble the circuit, you will need the following: 
    - Sesnors: (BME280, CCS811 and MQ-7),
@@ -106,7 +106,7 @@ As a user, I want to be able to view historical data on the air quality in my ro
    - 2* 1K ohm resistors,
    - 2* 24VDC fans.
 13. Follow the circuit diagram to wire the ESP8266 controller with other elements on the borad.
-14. Navigate to EcoSense-Mobile and Run the start up command :
+14. Navigate to EcoSense-Mobile and run the start up command :
    ```sh
    npm run web
    ```
