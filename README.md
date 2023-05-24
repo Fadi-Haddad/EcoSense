@@ -106,8 +106,12 @@ As a user, I want to be able to view historical data on the air quality in my ro
    - 2* 1K ohm resistors,
    - 2* 24VDC fans.
 13. Follow the circuit diagram to wire the ESP8266 controller with other elements on the borad.
-14. Navigate to EcoSense-Mobile and run the start up command :
+14. Navigate to EcoSense-server and run the start up command :
+   ```sh
+   nodemon index.js
+   ```
+15. Navigate to EcoSense-Mobile and run the start up command :
    ```sh
    npm run web
    ```
-15. Scan the generated QR code in the terminal with your camera (ios) or through the Expo Go application (android), now you should be able to run EcoSense locally and explore its features.
+16. Scan the generated QR code in the terminal with your camera (ios) or through the Expo Go application (android), now you should be able to run EcoSense locally and explore its features.
